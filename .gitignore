@@ -1,0 +1,15 @@
+# Node & Logs
+node_modules/
+*.log
+npm-debug.log*
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Scratch and debug snapshots
+/*.png
+scratch_crop/
+scratch_crop_banner/
+scratch_crop_faq/
