@@ -257,6 +257,33 @@ section[id],
     height: 18px;
 }
 
+.brand-logo-img {
+    height: 28px;
+    width: auto;
+    max-height: 32px;
+    display: block;
+    object-fit: contain;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.brand-link:hover .brand-logo-img {
+    opacity: 0.92;
+    transform: scale(1.015);
+}
+
+@media (max-width: 576px) {
+    .brand-logo-img {
+        height: 22px;
+        max-height: 24px;
+    }
+}
+@media (max-width: 380px) {
+    .brand-logo-img {
+        height: 19px;
+        max-height: 20px;
+    }
+}
+
 .hero-nav-links {
     display: flex;
     align-items: center;
