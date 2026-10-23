@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         heroTl
             .from('.hero-nav', { opacity: 0, y: -20, duration: 0.7, clearProps: 'transform' })
             .from('.hero-left-col', { opacity: 0, x: isMobileScreen ? 0 : -30, duration: 0.7 }, '-=0.4')
-            .from('.hero-center-area', { opacity: 0, y: 30, duration: 0.7 }, '-=0.4')
+            .from('.hero-center-area', { opacity: 0, y: isMobileScreen ? 0 : 30, duration: 0.7, clearProps: 'all' }, '-=0.4')
             .from('.hero-bottom-nested-card', { opacity: 0, y: 20, duration: 0.65, ease: 'power2.out', clearProps: 'all' }, '-=0.3');
     }
 
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const scheduleData = {
         '4': {
-            caption: '4 coached sessions a week, in your clubhouse',
+            caption: '4 coached sessions in your clubhouse',
             classes: {
                 mon: 'day-capsule coached',
                 tue: 'day-capsule coached',
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
         '3': {
-            caption: '3 coached sessions a week, in your clubhouse (Mon, Wed, Fri)',
+            caption: '3 coached sessions in your clubhouse (Mon, Wed, Fri)',
             classes: {
                 mon: 'day-capsule coached',
                 tue: 'day-capsule rest',
@@ -315,37 +315,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. Consultation Booking Form Handling
-    const consultationForm = document.getElementById('consultationForm');
-    const formFeedback = document.getElementById('formFeedback');
-
-    if (consultationForm) {
-        consultationForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const submitBtn = consultationForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Confirming...';
-
-            setTimeout(() => {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalText;
-                if (formFeedback) {
-                    formFeedback.classList.remove('d-none');
-                    formFeedback.innerHTML = `
-                        <div class="alert alert-success d-flex align-items-center mb-0" role="alert">
-                            <i class="bi bi-check-circle-fill me-2 fs-5"></i>
-                            <div>
-                                <strong>Request Received!</strong> Coach Harish and our team will get in touch with you shortly to schedule your clubhouse assessment.
-                            </div>
-                        </div>
-                    `;
-                }
-                consultationForm.reset();
-            }, 1200);
-        });
-    }
 
     // 7. Mobile Navigation Drawer Controller
     const mobileNavToggle = document.getElementById('mobileNavToggle');
@@ -454,5 +423,114 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', updateStickyNav, { passive: true });
     updateStickyNav();
+
+    // 9. WhatsApp Consultation Form Integration (Verified Phone: +91 9963960259)
+    const consultationForm = document.getElementById('consultationForm');
+    const formFeedback = document.getElementById('formFeedback');
+
+    if (consultationForm) {
+        consultationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const nameInput = document.getElementById('consultName');
+            const phoneInput = document.getElementById('consultPhone');
+            const communityInput = document.getElementById('consultCommunity');
+            const goalSelect = document.getElementById('consultGoal');
+            const scheduleInput = document.querySelector('input[name="schedulePref"]:checked');
+            const messageInput = document.getElementById('consultMessage');
+
+            const name = nameInput ? nameInput.value.trim() : '';
+            const phone = phoneInput ? phoneInput.value.trim() : '';
+            const community = communityInput ? communityInput.value.trim() : '';
+            const goal = goalSelect ? goalSelect.value : 'General Strength & Health';
+            const schedule = scheduleInput ? scheduleInput.value : '4 days a week';
+            const message = messageInput ? messageInput.value.trim() : '';
+
+            // Validation
+            let isValid = true;
+            if (!name) {
+                if (nameInput) nameInput.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                if (nameInput) nameInput.classList.remove('is-invalid');
+            }
+
+            const cleanPhone = phone.replace(/[\s\-\(\)\+]/g, '');
+            if (!cleanPhone || cleanPhone.length < 10) {
+                if (phoneInput) phoneInput.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                if (phoneInput) phoneInput.classList.remove('is-invalid');
+            }
+
+            if (!community) {
+                if (communityInput) communityInput.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                if (communityInput) communityInput.classList.remove('is-invalid');
+            }
+
+            if (!isValid) {
+                if (formFeedback) {
+                    formFeedback.className = 'alert alert-danger py-2 px-3 small';
+                    formFeedback.innerHTML = '<i class="bi bi-exclamation-triangle-fill me-1"></i> Please fill in all required fields (Name, valid 10-digit Phone, Community).';
+                    formFeedback.classList.remove('d-none');
+                }
+                return;
+            }
+
+            // Client Confirmed WhatsApp Number: 9963960259 (India country code +91)
+            const waNumber = '919963960259';
+
+            // Construct structured pre-filled enquiry message
+            let waText = `*Helevate.fit — Consultation Enquiry*\n\n`;
+            waText += `👤 *Name:* ${name}\n`;
+            waText += `📞 *Phone:* ${phone}\n`;
+            waText += `🏡 *Community:* ${community}\n`;
+            waText += `🎯 *Primary Goal:* ${goal}\n`;
+            waText += `🗓️ *Preferred Schedule:* ${schedule}\n`;
+            if (message) {
+                waText += `💬 *Notes:* ${message}\n`;
+            }
+            waText += `\n_Submitted via Helevate.fit consultation booking portal_`;
+
+            const encodedText = encodeURIComponent(waText);
+            const waUrl = `https://api.whatsapp.com/send?phone=${waNumber}&text=${encodedText}`;
+
+            // Provide immediate user feedback in modal
+            if (formFeedback) {
+                formFeedback.className = 'alert alert-success py-3 px-3 small text-white';
+                formFeedback.style.backgroundColor = '#0b2a42';
+                formFeedback.style.borderColor = '#2A3F8F';
+                formFeedback.innerHTML = `
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="bi bi-whatsapp fs-5 text-success me-2"></i>
+                        <strong class="text-white">Connecting to WhatsApp...</strong>
+                    </div>
+                    <p class="mb-2 text-white-50">Please tap <strong>Send</strong> in WhatsApp to dispatch your consultation request directly to Coach Harish.</p>
+                    <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-light w-100 mt-1">
+                        <i class="bi bi-box-arrow-up-right me-1"></i> Open WhatsApp
+                    </a>
+                    <small class="d-block mt-2 text-white-50" style="font-size: 0.72rem;">
+                        Note: Enquiries are delivered once sent via WhatsApp. Automated direct cloud delivery requires official WhatsApp Business API configuration.
+                    </small>
+                `;
+                formFeedback.classList.remove('d-none');
+            }
+
+            // Open WhatsApp securely
+            window.open(waUrl, '_blank', 'noopener,noreferrer');
+        });
+
+        // Clear invalid classes on input
+        ['consultName', 'consultPhone', 'consultCommunity'].forEach((id) => {
+            const input = document.getElementById(id);
+            if (input) {
+                input.addEventListener('input', () => {
+                    input.classList.remove('is-invalid');
+                });
+            }
+        });
+    }
 });
 

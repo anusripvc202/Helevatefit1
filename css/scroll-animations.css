@@ -1,0 +1,99 @@
+/* ==========================================================================
+   SCROLL REVEAL ANIMATION LAYER (additive — all screen sizes)
+   --------------------------------------------------------------------------
+   js/scroll-animations.js adds:
+     .sa-armed  → element is controlled by this layer
+     .sa-<type> → which reveal style to use (sets --sa-from / --sa-blur)
+     .sa-in     → element is on screen → play the reveal
+   The reveal starts only once the element is actually visible, and it
+   replays when the element leaves below the viewport and comes back.
+   ========================================================================== */
+
+/* Reveal styles (starting position of each type) */
+.reveal-item.sa-fade    { --sa-from: translateY(40px); }
+.reveal-item.sa-pop     { --sa-from: translateY(14px) scale(0.75); }
+.reveal-item.sa-blur-up { --sa-from: translateY(44px); --sa-blur: blur(10px); }
+.reveal-item.sa-rise    { --sa-from: translateY(70px) scale(0.94); }
+.reveal-item.sa-left    { --sa-from: translateX(-60px); }
+.reveal-item.sa-right   { --sa-from: translateX(60px); }
+.reveal-item.sa-zoom    { --sa-from: scale(0.86); }
+.reveal-item.sa-clip    { --sa-from: translateY(80px) scale(0.96); --sa-blur: blur(12px); }
+
+/* Hidden state (before the element scrolls into view) */
+.reveal-item.sa-armed:not(.sa-in) {
+    opacity: 0 !important;
+    transform: var(--sa-from, translateY(40px)) !important;
+    filter: var(--sa-blur, none) !important;
+}
+
+/* Revealed state */
+.reveal-item.sa-armed.sa-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    filter: none !important;
+}
+
+.reveal-item.sa-armed {
+    transition-property: opacity, transform, filter;
+    transition-duration: 0.95s;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-item.sa-armed.sa-pop {
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reveal-item.sa-armed.sa-zoom,
+.reveal-item.sa-armed.sa-clip {
+    transition-duration: 1.15s;
+}
+
+/* Mobile & tablet: shorter, mostly vertical motion (no sideways overflow) */
+@media (max-width: 991.98px) {
+    .reveal-item.sa-fade    { --sa-from: translateY(32px); }
+    .reveal-item.sa-blur-up { --sa-from: translateY(34px); --sa-blur: blur(8px); }
+    .reveal-item.sa-rise    { --sa-from: translateY(50px) scale(0.95); }
+    .reveal-item.sa-left    { --sa-from: translateX(-36px); }
+    .reveal-item.sa-right   { --sa-from: translateY(50px); }
+    .reveal-item.sa-zoom    { --sa-from: scale(0.9); }
+    .reveal-item.sa-clip    { --sa-from: translateY(56px); --sa-blur: blur(10px); }
+
+    .reveal-item.sa-armed {
+        transition-duration: 0.8s;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Scroll progress indicator (top of the page)
+   -------------------------------------------------------------------------- */
+.sa-scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    z-index: 2000;
+    pointer-events: none;
+    transform-origin: 0 50%;
+    transform: scaleX(var(--sa-progress, 0));
+    background: linear-gradient(90deg, #DDF1EF 0%, #6F8FD8 45%, #2A3F8F 100%);
+    box-shadow: 0 0 10px rgba(111, 143, 216, 0.55);
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion: no reveal animation at all
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .reveal-item.sa-armed,
+    .reveal-item.sa-armed:not(.sa-in) {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+    }
+
+    .sa-scroll-progress {
+        display: none;
+    }
+}
