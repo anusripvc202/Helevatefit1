@@ -37,6 +37,8 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    background-color: var(--brand-pale-mint);
+    overscroll-behavior-y: none;
 }
 
 body {
@@ -759,11 +761,59 @@ section[id],
     z-index: 2;
     opacity: 0.32;
     transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+    overflow: hidden;
 }
 
 .hero-main-card:hover .concentric-bowtie-container {
     transform: translate(-50%, -50%) scale(1.05) rotate(1deg);
     opacity: 0.44;
+}
+
+/* Biometric CAD Laser Scan Effect across Background Bowtie Logo */
+.concentric-bowtie-container::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 65px;
+    top: -75px;
+    background: linear-gradient(
+        180deg,
+        rgba(140, 225, 213, 0) 0%,
+        rgba(140, 225, 213, 0.05) 45%,
+        rgba(140, 225, 213, 0.22) 80%,
+        rgba(221, 241, 239, 0.65) 96%,
+        rgba(255, 255, 255, 0.95) 100%
+    );
+    border-bottom: 2px solid #ffffff;
+    box-shadow: 0 4px 22px rgba(125, 211, 199, 0.75), 0 1px 8px rgba(255, 255, 255, 0.9);
+    filter: drop-shadow(0 0 8px rgba(140, 225, 213, 0.85));
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, black 15%, black 85%, transparent 100%);
+    animation: bowtieScanSweep 3.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    pointer-events: none;
+    z-index: 3;
+}
+
+@keyframes bowtieScanSweep {
+    0% {
+        top: -75px;
+        opacity: 0;
+    }
+    12% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    96% {
+        top: calc(100% + 15px);
+        opacity: 0;
+    }
+    100% {
+        top: calc(100% + 15px);
+        opacity: 0;
+    }
 }
 
 .concentric-wave-svg {

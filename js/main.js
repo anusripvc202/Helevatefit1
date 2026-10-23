@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .from('.hero-center-area', { opacity: 0, y: 30, duration: 0.7 }, '-=0.4')
             .from('.hero-bottom-nested-card', { opacity: 0, y: 20, duration: 0.65, ease: 'power2.out', clearProps: 'all' }, '-=0.3');
 
-        // Reusable helper for scroll-reveal that triggers every time scrolling up & down on any device
+        // Reusable helper for scroll-reveal: smoothly reveals content once as it enters the viewport and keeps it visible
         const createScrollReveal = (selector, fromVars = {}, toVars = {}, triggerOptions = {}) => {
             const elements = gsap.utils.toArray(selector);
             elements.forEach((el) => {
@@ -29,12 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         y: 0,
                         duration: 0.75,
                         ease: 'power2.out',
+                        clearProps: 'transform',
                         ...toVars,
                         scrollTrigger: {
                             trigger: el,
-                            start: 'top 88%',
-                            end: 'bottom 5%',
-                            toggleActions: 'play reverse play reverse',
+                            start: 'top 90%',
+                            toggleActions: 'play none none none',
+                            once: true,
                             ...triggerOptions
                         }
                     }
