@@ -1102,6 +1102,30 @@ section[id],
     font-weight: 400;
 }
 
+/* Mobile: keep stat words (e.g. "commute") inside the half-width cards */
+@media (max-width: 767.98px) {
+    .hero-stat-card {
+        padding: 16px 14px;
+        overflow: hidden;
+    }
+
+    .hero-stat-heading {
+        font-size: clamp(1.35rem, 6.4vw, 1.85rem);
+    }
+
+    .hero-stat-heading .stat-italic-accent {
+        display: inline-block;
+        max-width: 100%;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 359.98px) {
+    .hero-stat-heading {
+        font-size: 1.15rem;
+    }
+}
+
 /* ==========================================================================
    OTHER SECTIONS PRESERVED
    ========================================================================== */
