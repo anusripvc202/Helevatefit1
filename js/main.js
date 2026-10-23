@@ -17,219 +17,115 @@ document.addEventListener('DOMContentLoaded', () => {
             .from('.hero-left-col', { opacity: 0, x: isMobileScreen ? 0 : -30, duration: 0.7 }, '-=0.4')
             .from('.hero-center-area', { opacity: 0, y: 30, duration: 0.7 }, '-=0.4')
             .from('.hero-bottom-nested-card', { opacity: 0, y: 20, duration: 0.65, ease: 'power2.out', clearProps: 'all' }, '-=0.3');
+    }
 
-        // Reusable helper for scroll-reveal: smoothly reveals content once as it enters the viewport and keeps it visible
-        const createScrollReveal = (selector, fromVars = {}, toVars = {}, triggerOptions = {}) => {
-            const elements = gsap.utils.toArray(selector);
-            elements.forEach((el) => {
-                gsap.fromTo(el, 
-                    { opacity: 0, y: 35, ...fromVars },
-                    {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.75,
-                        ease: 'power2.out',
-                        clearProps: 'transform',
-                        ...toVars,
-                        scrollTrigger: {
-                            trigger: el,
-                            start: 'top 90%',
-                            toggleActions: 'play none none none',
-                            once: true,
-                            ...triggerOptions
+    // 2. Progressive Smooth Scroll Reveal System (Hardware-Accelerated with IntersectionObserver)
+    const initSmoothScrollReveal = () => {
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (!('IntersectionObserver' in window) || prefersReducedMotion) {
+                return;
+            }
+
+            // Target elements to reveal progressively without hiding section container backgrounds
+            const revealSelectors = [
+                // 1. Hero stat cards
+                '.hero-stats-row .hero-stat-card',
+                // 2. Community Section inner content & interactive elements
+                '.community-left-content > *',
+                '.gym-image-container',
+                '.gym-floating-pin',
+                // 3. Section Headers (pills, titles, subtitles across all sections)
+                '.section-header > *',
+                // 4. Services cards
+                '#services .stagger-item',
+                // 5. How It Works step cards & ribbons
+                '#how-it-works .stagger-item',
+                '.guided-sessions-card',
+                '.dark-ribbon-cta',
+                // 6. Precision Health Report
+                '.precision-header-block > *',
+                '.precision-list-cards .precision-list-card',
+                '.health-report-card',
+                // 7. Plans cards & footnotes
+                '#plans .col-lg-4',
+                '.plans-bottom-footnote',
+                // 8. Team
+                '.founder-tall-card',
+                '.coach-portrait-card',
+                // 9. Client Stories
+                '.stories-header > *',
+                '.stories-track .story-card',
+                // 10. FAQ
+                '.faq-header-sticky > *',
+                '.custom-faq-item',
+                // 11. Final CTA banner content & site footer
+                '.final-cta-content > *',
+                '.footer-tagline-row',
+                '.giant-footer-title',
+                '.footer-cols-row > div',
+                '.footer-copyright-row'
+            ];
+
+            const allElements = [];
+            revealSelectors.forEach((sel) => {
+                document.querySelectorAll(sel).forEach((el) => {
+                    if (!allElements.includes(el)) {
+                        allElements.push(el);
+                    }
+                });
+            });
+
+            // Assign micro-stagger classes based on sibling index in parent row/grid
+            allElements.forEach((el) => {
+                el.classList.add('reveal-item');
+                const siblings = Array.from(el.parentElement?.children || []).filter((c) => allElements.includes(c));
+                const index = siblings.indexOf(el);
+                if (index > 0 && index <= 5) {
+                    el.classList.add(`delay-${index}`);
+                }
+            });
+
+            // Check elements already visible in or above viewport on initial load
+            const windowHeight = window.innerHeight;
+            const toObserve = [];
+
+            allElements.forEach((el) => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < windowHeight * 0.92) {
+                    el.classList.add('is-revealed');
+                } else {
+                    toObserve.push(el);
+                }
+            });
+
+            // IntersectionObserver for elements entering viewport on scroll down (triggers 80px before entering for zero empty gaps)
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        target.classList.add('is-revealed');
+                        obs.unobserve(target);
+
+                        // If element is part of a horizontal carousel (team coaches or client stories), reveal all carousel cards
+                        const carouselParent = target.closest('.stories-track, .coach-cards-row');
+                        if (carouselParent) {
+                            carouselParent.querySelectorAll('.story-card, .coach-portrait-card').forEach((card) => {
+                                card.classList.add('is-revealed');
+                                obs.unobserve(card);
+                            });
                         }
                     }
-                );
+                });
+            }, {
+                root: null,
+                rootMargin: '0px 0px 80px 0px',
+                threshold: 0.02
             });
+
+            toObserve.forEach((el) => observer.observe(el));
         };
 
-        // 1. Hero Stat Cards (4 Cards - reveal every time on any device view)
-        createScrollReveal('.hero-stats-row .hero-stat-card', 
-            { opacity: 0, y: 38 }, 
-            { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' },
-            { start: 'top 90%' }
-        );
-
-        // 2. Community Section (#community)
-        const communitySection = document.getElementById('community');
-        if (communitySection) {
-            // Card container
-            createScrollReveal('.community-section-card', 
-                { opacity: 0, y: 35 }, 
-                { opacity: 1, y: 0, duration: 0.8 },
-                { start: 'top 85%' }
-            );
-
-            // Left content items
-            createScrollReveal('.community-left-content > *',
-                { opacity: 0, y: 25 },
-                { opacity: 1, y: 0, duration: 0.65 },
-                { start: 'top 85%' }
-            );
-
-            // Gym image container
-            createScrollReveal('.gym-image-container',
-                { opacity: 0, scale: 0.95 },
-                { opacity: 1, scale: 1, duration: 0.8 },
-                { start: 'top 85%' }
-            );
-
-            // 3 Floating Glass Pins popping in
-            createScrollReveal('.gym-floating-pin',
-                { opacity: 0, scale: 0.6, y: 18 },
-                { opacity: 1, scale: 1, y: 0, duration: 0.6, ease: 'back.out(1.6)' },
-                { start: 'top 85%' }
-            );
-        }
-
-        // 3. Section Headers (Pills, Headings, Subtitles)
-        createScrollReveal('.section-header',
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.75 },
-            { start: 'top 88%' }
-        );
-
-        // 4. Services Section (#services) - Cards animate individually on any device view
-        createScrollReveal('#services .stagger-item',
-            { opacity: 0, y: 40 },
-            { opacity: 1, y: 0, duration: 0.75 },
-            { start: 'top 88%' }
-        );
-
-        // 5. How It Works Section (#how-it-works)
-        createScrollReveal('#how-it-works .stagger-item',
-            { opacity: 0, y: 40 },
-            { opacity: 1, y: 0, duration: 0.75 },
-            { start: 'top 88%' }
-        );
-
-        createScrollReveal('.guided-sessions-card',
-            { opacity: 0, y: 35 },
-            { opacity: 1, y: 0, duration: 0.8 },
-            { start: 'top 88%' }
-        );
-
-        createScrollReveal('.dark-ribbon-cta',
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.75 },
-            { start: 'top 90%' }
-        );
-
-        // 6. Precision Health Section (#testing)
-        createScrollReveal('.precision-header-block',
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.75 },
-            { start: 'top 88%' }
-        );
-
-        createScrollReveal('.precision-hero-desc',
-            { opacity: 0, y: 25 },
-            { opacity: 1, y: 0, duration: 0.7 },
-            { start: 'top 88%' }
-        );
-
-        createScrollReveal('.precision-list-cards .precision-list-card',
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.65 },
-            { start: 'top 90%' }
-        );
-
-        createScrollReveal('.health-report-card',
-            { opacity: 0, y: 40 },
-            { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' },
-            { start: 'top 85%' }
-        );
-
-        // 7. Programmes / Plans Section (#plans)
-        createScrollReveal('#plans .col-lg-4',
-            { opacity: 0, y: 45 },
-            { opacity: 1, y: 0, duration: 0.8 },
-            { start: 'top 88%' }
-        );
-
-        createScrollReveal('.plans-bottom-footnote',
-            { opacity: 0, y: 20 },
-            { opacity: 1, y: 0, duration: 0.6 },
-            { start: 'top 92%' }
-        );
-
-        // 8. Team Section (#team)
-        createScrollReveal('.founder-tall-card',
-            { opacity: 0, y: 40 },
-            { opacity: 1, y: 0, duration: 0.85 },
-            { start: 'top 85%' }
-        );
-
-        createScrollReveal('.coach-portrait-card',
-            { opacity: 0, y: 35 },
-            { opacity: 1, y: 0, duration: 0.75 },
-            { start: 'top 88%' }
-        );
-
-        // 9. Client Stories Section (#stories)
-        createScrollReveal('.stories-header',
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.75 },
-            { start: 'top 88%' }
-        );
-
-        createScrollReveal('.stories-track .story-card',
-            { opacity: 0, y: 40 },
-            { opacity: 1, y: 0, duration: 0.75 },
-            { start: 'top 88%' }
-        );
-
-        // 10. FAQ Section (#faq)
-        createScrollReveal('.faq-header-sticky',
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.75 },
-            { start: 'top 88%' }
-        );
-
-        createScrollReveal('.custom-faq-item',
-            { opacity: 0, y: 25 },
-            { opacity: 1, y: 0, duration: 0.6 },
-            { start: 'top 92%' }
-        );
-
-        // 11. Final CTA Banner & Footer (#contact)
-        createScrollReveal('.final-cta-banner',
-            { opacity: 0, y: 40, scale: 0.97 },
-            { opacity: 1, y: 0, scale: 1, duration: 0.8 },
-            { start: 'top 85%' }
-        );
-
-        createScrollReveal('.final-cta-content > *',
-            { opacity: 0, y: 20 },
-            { opacity: 1, y: 0, duration: 0.65 },
-            { start: 'top 85%' }
-        );
-
-        createScrollReveal('.giant-footer-title',
-            { opacity: 0, y: 35 },
-            { opacity: 1, y: 0, duration: 0.8 },
-            { start: 'top 90%' }
-        );
-
-        createScrollReveal('.footer-cols-row > div',
-            { opacity: 0, y: 25 },
-            { opacity: 1, y: 0, duration: 0.6 },
-            { start: 'top 92%' }
-        );
-
-        // Responsive resize and orientation triggers
-        window.addEventListener('resize', () => {
-            ScrollTrigger.refresh();
-        });
-        window.addEventListener('orientationchange', () => {
-            setTimeout(() => ScrollTrigger.refresh(), 200);
-        });
-
-        // Refresh triggers once all images and fonts load
-        window.addEventListener('load', () => {
-            ScrollTrigger.refresh();
-        });
-    }
+        initSmoothScrollReveal();
 
     // 2. Schedule Widget Toggle (4 Days vs 3 Days)
     const scheduleBtn4 = document.getElementById('sched-btn-4');

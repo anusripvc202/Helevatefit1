@@ -1028,9 +1028,9 @@ section[id],
    BOTTOM 4 STAT CARDS (On #DDF1EF Pale Mint Background)
    ========================================================================== */
 .hero-stats-row {
-    margin-top: 42px;
-    padding-top: 6px;
-    padding-bottom: 24px;
+    margin-top: 28px;
+    padding-top: 4px;
+    padding-bottom: 12px;
     max-width: 1020px;
     margin-left: auto;
     margin-right: auto;
@@ -3200,7 +3200,7 @@ section[id],
 /* Page 8: Stories */
 #stories {
     background-color: #e4f4f4;
-    padding: 70px 0 65px;
+    padding: 44px 0 40px;
 }
 
 #stories .stories-header {
@@ -3532,7 +3532,7 @@ section[id],
 /* Page 9: FAQ */
 #faq {
     background-color: #e4f4f4;
-    padding: 85px 0 95px;
+    padding: 44px 0 48px;
 }
 
 .faq-header-sticky {
@@ -3661,7 +3661,7 @@ section[id],
 /* Page 10: Final CTA & Footer */
 #contact {
     background-color: #e4f4f4;
-    padding: 30px 0 60px;
+    padding: 24px 0 44px;
 }
 
 .final-cta-banner {
@@ -4900,4 +4900,37 @@ section[id],
         padding: 8px 18px !important;
     }
 }
+
+/* ==========================================================================
+   SMOOTH PROGRESSIVE SCROLL REVEAL (Zero Layout Shift, Pure GPU Compositing)
+   ========================================================================== */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-item.is-revealed {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    will-change: auto;
+}
+
+/* Micro-stagger transition delays for sequential appearance */
+.reveal-item.delay-1 { transition-delay: 0.07s; }
+.reveal-item.delay-2 { transition-delay: 0.14s; }
+.reveal-item.delay-3 { transition-delay: 0.21s; }
+.reveal-item.delay-4 { transition-delay: 0.28s; }
+.reveal-item.delay-5 { transition-delay: 0.35s; }
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal-item {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
 
