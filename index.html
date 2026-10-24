@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css?v=20261024-19">
+    <link rel="stylesheet" href="css/styles.css?v=20261023-4">
     <!-- Scroll-Triggered Animations (additive layer) -->
     <link rel="stylesheet" href="css/scroll-animations.css?v=20261023-3">
 </head>
@@ -64,37 +64,6 @@
          ===================================================================== -->
     <div class="hero-outer-wrapper">
         <div class="hero-main-card" id="home">
-            <!-- Header / Navbar Wrapper spanning 100% top of hero card -->
-            <div class="hero-nav-wrapper" id="heroNavWrapper">
-                <header class="hero-nav" id="mainHeaderNav">
-                    <div class="hero-nav-inner">
-                        <a href="#home" class="brand-link" aria-label="HELEVATE.FIT">
-                            <img src="assets/images/helevate_logo_white.png" alt="HELEVATE.FIT" class="brand-logo-img">
-                        </a>
-
-                        <ul class="hero-nav-links">
-                            <li><a href="#community">Community</a></li>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#how-it-works">How it works</a></li>
-                            <li><a href="#plans">Plans</a></li>
-                            <li><a href="#team">Team</a></li>
-                            <li><a href="#stories">Stories</a></li>
-                        </ul>
-
-                        <div class="hero-nav-actions d-flex align-items-center gap-2 gap-sm-3">
-                            <a href="#consultationModal" data-bs-toggle="modal" class="btn-consult-nav-pill">
-                                <span class="d-none d-lg-inline">Book a Consultation</span><span class="d-lg-none">Book</span>
-                            </a>
-                            <button class="mobile-nav-toggle d-lg-none" type="button" aria-label="Toggle navigation" id="mobileNavToggle">
-                                <span class="hamburger-bar"></span>
-                                <span class="hamburger-bar"></span>
-                                <span class="hamburger-bar"></span>
-                            </button>
-                        </div>
-                    </div>
-                </header>
-            </div>
-
             <!-- Layer 2: Soft Radial Lighting Effects -->
             <div class="hero-radial-glow"></div>
             <div class="hero-radial-glow-left"></div>
@@ -112,7 +81,7 @@
 
             <!-- Concentric Bowtie/Hourglass Wireframe SVG Motif (Anchored along 47% vertical CAD axis) -->
             <div class="concentric-bowtie-container">
-                <svg class="concentric-wave-svg" viewBox="0 0 800 480" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="concentric-wave-svg" viewBox="0 0 800 480" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g stroke="#DDF1EF" stroke-linecap="round" stroke-linejoin="round">
   <path d="M 346.7,190.3 C 370.3,197.0 384.1,220.9 400.0,220.9 C 415.9,220.9 429.7,197.0 453.3,190.3 A 11.2 11.2 0 0 1 464.5 201.5 L 464.5 258.5 A 11.2 11.2 0 0 1 453.3 269.7 C 429.7,263.0 415.9,239.1 400.0,239.1 C 384.1,239.1 370.3,263.0 346.7 269.7 A 11.2 11.2 0 0 1 335.5 258.5 L 335.5 201.5 A 11.2 11.2 0 0 1 346.7 190.3 Z" opacity="0.69" stroke-width="1.19" />
   <path d="M 334.9,181.6 C 364.4,190.0 383.0,219.6 400.0,219.6 C 417.0,219.6 435.6,190.0 465.1,181.6 A 12.3 12.3 0 0 1 477.4 193.9 L 477.4 266.1 A 12.3 12.3 0 0 1 465.1 278.4 C 435.6,270.0 417.0,240.4 400.0,240.4 C 383.0,240.4 364.4,270.0 334.9 278.4 A 12.3 12.3 0 0 1 322.6 266.1 L 322.6 193.9 A 12.3 12.3 0 0 1 334.9 181.6 Z" opacity="0.68" stroke-width="1.18" />
@@ -146,6 +115,40 @@
 
             <!-- Inner Content Layout -->
             <div class="hero-inner-content">
+                <!-- Header / Navbar Wrapper for zero-layout-shift sticky behavior -->
+                <div class="hero-nav-wrapper" id="heroNavWrapper">
+                    <header class="hero-nav" id="mainHeaderNav">
+                        <div class="hero-nav-inner">
+                            <a href="#home" class="brand-link" aria-label="HELEVATE.FIT">
+                                <img src="assets/images/helevate_logo_white.png" alt="HELEVATE.FIT" class="brand-logo-img">
+                            </a>
+
+                            <ul class="hero-nav-links">
+                                <li><a href="#community">Community</a></li>
+                                <li><a href="#services">Services</a></li>
+                                <li><a href="#how-it-works">How it works</a></li>
+                                <li><a href="#plans">Plans</a></li>
+                                <li><a href="#team">Team</a></li>
+                                <li><a href="#stories">Stories</a></li>
+                            </ul>
+
+                            <div class="hero-nav-actions d-flex align-items-center gap-2">
+                                <a href="#consultationModal" data-bs-toggle="modal" class="btn-consult-nav d-none d-sm-inline-flex">
+                                    Book a Consultation
+                                </a>
+                                <a href="#consultationModal" data-bs-toggle="modal" class="btn-consult-nav-sm d-inline-flex d-sm-none">
+                                    Book
+                                </a>
+                                <button class="mobile-nav-toggle d-lg-none" type="button" aria-label="Toggle navigation" id="mobileNavToggle">
+                                    <span class="hamburger-bar"></span>
+                                    <span class="hamburger-bar"></span>
+                                    <span class="hamburger-bar"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+
                 <!-- Hero Center Grid -->
                 <div class="row align-items-center g-4 pt-2 pb-2">
                     <!-- Left Column: "We serve inside your community" + Bounding Box Widget -->
@@ -235,10 +238,7 @@
                             <span class="hl-line-longer">for longer,</span>
                             <span class="hl-line-measured">
                                 <span class="hero-center-triangle"></span>
-                                <span class="hl-text-measured">
-                                    <span class="hl-word-measured">measured,</span>
-                                    <span class="hl-word-guessed">not guessed.</span>
-                                </span>
+                                <span class="hl-text-measured">measured, not guessed.</span>
                             </span>
                         </h1>
 
@@ -249,7 +249,7 @@
 
                         <!-- Mobile Subtext (Matching PDF Page 1) -->
                         <p class="hero-mobile-subtext d-lg-none">
-                            Coaching in your clubhouse, Hyderabad. <strong>All you need to do is show up.</strong>
+                            Coaching in your clubhouse, Hyderabad. All you need to do is show up.
                         </p>
 
                         <!-- CTA Button Row with Phone Shortcut -->
@@ -257,7 +257,7 @@
                             <a href="#consultationModal" data-bs-toggle="modal" class="hero-cta-btn">
                                 Book a Consultation <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor" class="ms-1" style="vertical-align: 0px;"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg>
                             </a>
-                            <a href="tel:9963960259" class="hero-phone-shortcut-btn d-lg-none" aria-label="Call Coach Harish">
+                            <a href="tel:9963960259" class="hero-phone-shortcut-btn" aria-label="Call Coach Harish">
                                 <i class="bi bi-telephone-fill"></i>
                             </a>
                         </div>
@@ -312,7 +312,7 @@
                     <div>
                         <div class="nested-card-title">We take care of everything else.</div>
                         <p class="nested-card-desc">
-                            Your <strong>assessments, workout plan, nutrition plan and lifestyle</strong> are on us. You just show up at your clubhouse.
+                            Your assessments, workout plan, nutrition plan and lifestyle are on us. You just show up at your clubhouse.
                         </p>
                     </div>
                 </div>
@@ -324,7 +324,7 @@
                 <div class="col-6 col-lg-3">
                     <div class="hero-stat-card">
                         <div class="hero-stat-heading">4 <span class="stat-italic-accent">sessions</span></div>
-                        <p class="hero-stat-text">A week in your clubhouse, or 3 if you prefer</p>
+                        <p class="hero-stat-text">Coached every week in your clubhouse, or 3 if you prefer</p>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3">
@@ -355,27 +355,18 @@
          ===================================================================== -->
     <section class="py-5" id="community">
         <div class="container py-lg-4">
-            <div class="community-section-card position-relative overflow-hidden">
-                <!-- Background Logo Watermark with Concentric Curves & Upward Triangle (Canonical Helevate Bowtie) -->
-                <svg class="community-card-watermark" viewBox="0 0 360 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M 40,35 C 105,35 145,98 180,98 C 215,98 255,35 320,35 C 333,35 342,44 342,57 L 342,203 C 342,216 333,225 320,225 C 255,225 215,162 180,162 C 145,162 105,225 40,225 C 27,225 18,216 18,203 L 18,57 C 18,44 27,35 40,35 Z" opacity="0.45" />
-                        <path d="M 68,62 C 118,62 148,110 180,110 C 212,110 242,62 292,62 C 302,62 310,69 310,79 L 310,181 C 310,191 302,198 292,198 C 242,198 212,150 180,150 C 148,150 118,198 68,198 C 58,198 50,191 50,181 L 50,79 C 50,69 58,62 68,62 Z" opacity="0.65" />
-                        <path d="M 96,88 C 132,88 152,120 180,120 C 208,120 228,88 264,88 C 272,88 278,94 278,101 L 278,159 C 278,166 272,172 264,172 C 228,172 208,140 180,140 C 152,140 132,172 96,172 C 88,172 82,166 82,159 L 82,101 C 82,94 88,88 96,88 Z" opacity="0.85" />
-                        <polygon points="180,116 195,142 165,142" stroke-width="1.3" opacity="0.95" />
-                    </g>
-                </svg>
-
-                <div class="row align-items-center g-5 position-relative" style="z-index: 2;">
+            <div class="community-section-card">
+                <div class="row align-items-center g-5">
                     <div class="col-lg-6">
                         <div class="community-left-content">
                             <div class="section-pill">Gated communities, Hyderabad</div>
                             <h2 class="community-heading">
-                                <span class="comm-line-1">We serve inside your</span>
-                                <span class="font-serif-italic comm-line-2">gated community.</span>
+                                We serve<br>
+                                inside your<br>
+                                <span class="font-serif-italic">gated<br>community.</span>
                             </h2>
                             <p class="community-desc">
-                                No commute, no crowded gym. <strong>Your coach comes to your clubhouse.</strong>
+                                No commute, no crowded gym. <strong>Your coach comes to your clubhouse</strong>, and we take care of assessments, plans, nutrition and lifestyle.
                             </p>
                             <div class="community-actions d-none d-lg-flex">
                                 <a href="#consultationModal" data-bs-toggle="modal" class="btn-pill-primary">
@@ -391,14 +382,14 @@
                     <div class="col-lg-6">
                         <div class="gym-image-container">
                             <img src="assets/images/clubhouse_gym.jpg" alt="Clubhouse gym in Hyderabad gated community" class="gym-main-img">
-                            <span class="gym-photo-credit">Photo: WooM Fitness / Pexels</span>
+                            <span class="gym-photo-credit">Photo: Woom Fitness / Pexels</span>
 
                             <!-- Floating Glassy Pin 1: Where (Desktop) -->
                             <div class="gym-floating-pin glass-pin pin-top-left d-none d-lg-flex">
                                 <div class="pin-icon-wrap glass-icon"><i class="bi bi-house-door"></i></div>
                                 <div>
                                     <div class="pin-label">Where</div>
-                                    <div class="pin-val">Your clubhouse</div>
+                                    <div class="pin-val">Your clubhouse gym</div>
                                 </div>
                             </div>
 
@@ -407,7 +398,7 @@
                                 <div class="pin-icon-wrap glass-icon"><i class="bi bi-calendar3"></i></div>
                                 <div>
                                     <div class="pin-label">How often</div>
-                                    <div class="pin-val">3 or 4 a week</div>
+                                    <div class="pin-val">3 or 4 sessions a week</div>
                                 </div>
                             </div>
 
@@ -416,7 +407,7 @@
                                 <div class="pin-icon-wrap glass-icon"><i class="bi bi-person"></i></div>
                                 <div>
                                     <div class="pin-label">Who</div>
-                                    <div class="pin-val">Your coach</div>
+                                    <div class="pin-val">Your Helevate coach</div>
                                 </div>
                             </div>
                         </div>
@@ -445,9 +436,9 @@
                             <a href="#consultationModal" data-bs-toggle="modal" class="btn-pill-primary w-100 justify-content-center">
                                 Book a Consultation <i class="bi bi-chevron-right ms-1"></i>
                             </a>
-                            <div class="mt-3">
+                            <div class="mt-2">
                                 <a href="https://instagram.com/helevate_fit" target="_blank" class="community-dm-link">
-                                    <strong>DM us</strong> to know if we operate in your community.
+                                    DM us to know if we operate in your community.
                                 </a>
                             </div>
                         </div>
@@ -474,7 +465,7 @@
                     Every programme starts from your assessment, and is coached inside your community.
                 </p>
                 <div class="services-swipe-hint d-lg-none mt-2">
-                    <span class="small fw-semibold">Swipe to see all 6 &rarr;</span>
+                    <span class="small fw-semibold" style="color: var(--brand-indigo, #2A3F8F);">Swipe to see all 6 &rarr;</span>
                 </div>
             </div>
 
@@ -497,10 +488,14 @@
                         <div class="service-card-body">
                             <h3 class="service-title">Strength Training</h3>
                             <span class="service-sub-italic">built to last.</span>
-                            <p class="service-desc mb-0">
-                                Progressive, coached sessions that<br>
-                                <strong>build muscle and protect your joints.</strong>
+                            <p class="service-desc">
+                                Progressive, coached sessions that <strong>build muscle and protect your joints</strong>. Technique first, then load.
                             </p>
+                            <div class="service-pills-row">
+                                <span class="service-pill-item">Personal</span>
+                                <span class="service-pill-item">Small group</span>
+                                <span class="service-pill-item">All levels</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -522,11 +517,14 @@
                         <div class="service-card-body">
                             <h3 class="service-title">Obese to Fit</h3>
                             <span class="service-sub-italic">one steady step at a time.</span>
-                            <p class="service-desc mb-0">
-                                Supportive programme for significant fat loss,<br>
-                                <strong>tracked with regular assessments,</strong><br>
-                                at a pace your body can sustain.
+                            <p class="service-desc">
+                                A structured, supportive programme for significant fat loss, <strong>tracked with regular assessments</strong>, at a pace your body can sustain.
                             </p>
+                            <div class="service-pills-row">
+                                <span class="service-pill-item">Assessment led</span>
+                                <span class="service-pill-item">Nutrition included</span>
+                                <span class="service-pill-item">Regular check-ins</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -550,8 +548,7 @@
                             <h3 class="service-title">Performance Training</h3>
                             <span class="service-sub-italic">for the way you play.</span>
                             <p class="service-desc mb-0">
-                                Speed, power, agility and conditioning for<br>
-                                <strong>runners, sports players and active adults.</strong>
+                                Speed, power, agility and conditioning for <strong>runners, sports players and active adults</strong>.
                             </p>
                         </div>
                     </div>
@@ -575,8 +572,7 @@
                             <h3 class="service-title">Physio Designed Programmes</h3>
                             <span class="service-sub-italic">back to strong.</span>
                             <p class="service-desc mb-0">
-                                Strengthening programmes <strong>designed with a physio</strong><br>
-                                for people coming back from injury or living with aches.
+                                Strengthening programmes <strong>designed with a physio</strong> for people coming back from injury or living with aches.
                             </p>
                         </div>
                     </div>
@@ -600,8 +596,7 @@
                             <h3 class="service-title">Personalised Nutrition</h3>
                             <span class="service-sub-italic">from your own kitchen.</span>
                             <p class="service-desc mb-0">
-                                Plans that <strong>fit Indian home food and your routine</strong>.<br>
-                                No crash diets.
+                                Plans that <strong>fit Indian home food</strong> and your routine. No crash diets.
                             </p>
                         </div>
                     </div>
@@ -629,8 +624,7 @@
                             </div>
                             <div class="service-card-full-right">
                                 <p class="service-desc service-desc-full mb-0">
-                                    Group training and wellness programmes<br>
-                                    <strong>run inside your gated community</strong>, for residents of every age.
+                                    Group training and wellness programmes <strong>run inside your gated community</strong>, for residents of every age.
                                 </p>
                             </div>
                         </div>
@@ -746,37 +740,61 @@
 
             <!-- Guided sessions card -->
             <div class="guided-sessions-card mb-4">
-                <div class="guided-sessions-row">
-                    <div class="guided-card-col-wrap">
-                        <div class="guided-phone-mockup">
-                            <div class="guided-phone-header">
-                                <div class="guided-phone-brand-wrap">
-                                    <img src="assets/images/helevate_symbol_white.png" alt="Helevate" class="guided-phone-logo-img">
-                                    <span class="guided-phone-brand">HELEVATE.FIT</span>
+                <div class="row align-items-center g-4">
+                    <div class="col-12 col-md-auto">
+                        <div class="guided-card-col-wrap">
+                            <div class="guided-phone-mockup">
+                                <div class="guided-phone-header">
+                                    <div class="guided-phone-brand-wrap">
+                                        <svg class="guided-phone-logo" viewBox="0 0 24 20" fill="currentColor">
+                                            <polygon points="1,2 11,10 1,18" />
+                                            <polygon points="23,2 13,10 23,18" />
+                                        </svg>
+                                        <span class="guided-phone-brand">HELEVATE.FIT</span>
+                                    </div>
+                                    <div class="guided-phone-example-wrap">
+                                        <span class="guided-phone-example-badge">EXAMPLE</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="guided-phone-title">
-                                Guided<br>
-                                session<br>
-                                <span class="font-serif-italic">on your own.</span>
-                            </div>
-                            <div class="guided-phone-bars">
-                                <div class="phone-bar-line-clean bar-1"></div>
-                                <div class="phone-bar-line-clean bar-2"></div>
-                                <div class="phone-bar-line-clean bar-3"></div>
+                                <div class="guided-phone-title">
+                                    Guided session
+                                    <span class="font-serif-italic">on your own.</span>
+                                </div>
+                                <div class="guided-phone-progress-bars">
+                                    <div class="phone-bar-line">
+                                        <span>Warm up</span>
+                                        <div class="phone-bar-pill bar-warmup"></div>
+                                    </div>
+                                    <div class="phone-bar-line">
+                                        <span>Strength circuit</span>
+                                        <div class="phone-bar-pill bar-strength"></div>
+                                    </div>
+                                    <div class="phone-bar-line">
+                                        <span>Core</span>
+                                        <div class="phone-bar-pill bar-core"></div>
+                                    </div>
+                                    <div class="phone-bar-line">
+                                        <span>Cool down</span>
+                                        <div class="phone-bar-pill bar-cool"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="guided-text-col">
-                        <div class="guided-bonus-tag mb-1">OPTIONAL</div>
+                    <div class="col-12 col-md">
+                        <div class="guided-bonus-tag mb-2">OPTIONAL</div>
                         <h3 class="guided-title mb-2">
-                            Guided sessions<br>
-                            <span class="font-serif-italic">for extra days.</span>
+                            Guided sessions <span class="font-serif-italic">for your extra days.</span>
                         </h3>
-                        <p class="guided-desc mb-0">
-                            Your coach shares a <strong>workout poster</strong> to follow on your own, or tells you to rest.
+                        <p class="guided-desc mb-3">
+                            Want to move on a day without a coached session? Your coach shares a <strong>guided session:</strong> a simple workout poster you can follow on your own. And when your body needs it, we will tell you to rest.
                         </p>
+                        <div class="guided-pills-row">
+                            <span class="guided-pill-badge">Made by your coach</span>
+                            <span class="guided-pill-badge">Follow at your own time</span>
+                            <span class="guided-pill-badge">Rest days respected</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1233,115 +1251,127 @@
          ===================================================================== -->
     <section class="py-5" id="team">
         <div class="container py-lg-4">
-            <div class="team-header mb-4">
-                <div class="team-pill-badge mb-3">
+            <div class="text-center mb-5 section-header">
+                <div class="team-pill-badge">
                     <span class="team-pill-dot"></span>Our team
                 </div>
-                <h2 class="team-heading">
-                    The people <span class="font-serif-italic">behind</span><br>
-                    <span class="font-serif-italic">your progress.</span>
+                <h2 class="section-title mb-2">
+                    The people <span class="font-serif-italic">behind your progress.</span>
                 </h2>
-            </div>
-
-            <!-- Founder Card (Matching Reference Layout) -->
-            <div class="founder-card founder-tall-card mb-4">
-                <svg class="founder-card-watermark" viewBox="0 0 360 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M 40,35 C 105,35 145,98 180,98 C 215,98 255,35 320,35 C 333,35 342,44 342,57 L 342,203 C 342,216 333,225 320,225 C 255,225 215,162 180,162 C 145,162 105,225 40,225 C 27,225 18,216 18,203 L 18,57 C 18,44 27,35 40,35 Z" opacity="0.45" />
-                        <path d="M 68,62 C 118,62 148,110 180,110 C 212,110 242,62 292,62 C 302,62 310,69 310,79 L 310,181 C 310,191 302,198 292,198 C 242,198 212,150 180,150 C 148,150 118,198 68,198 C 58,198 50,191 50,181 L 50,79 C 50,69 58,62 68,62 Z" opacity="0.65" />
-                        <path d="M 96,88 C 132,88 152,120 180,120 C 208,120 228,88 264,88 C 272,88 278,94 278,101 L 278,159 C 278,166 272,172 264,172 C 228,172 208,140 180,140 C 152,140 132,172 96,172 C 88,172 82,166 82,159 L 82,101 C 82,94 88,88 96,88 Z" opacity="0.85" />
-                        <polygon points="180,116 195,142 165,142" stroke-width="1.3" opacity="0.95" />
-                    </g>
+                <svg class="team-curve-underline" viewBox="0 0 160 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 4,10 Q 80,2 156,10" stroke="#4a6899" stroke-width="1.6" stroke-linecap="round"/>
                 </svg>
-
-                <div class="founder-top-row">
-                    <div class="founder-emblem-circle">
-                        <img src="assets/images/helevate_symbol_white.png" alt="Helevate" class="founder-logo-img">
-                    </div>
-                    <div class="founder-header-meta">
-                        <div class="founder-tag">FOUNDER</div>
-                        <h3 class="founder-name">Harish</h3>
-                        <div class="founder-role font-serif-italic">Health and Performance Coach</div>
-                    </div>
-                </div>
-
-                <p class="founder-bio">
-                    The mind behind Helevate, bringing structured, measured coaching into the communities where people live.
-                </p>
-
-                <div class="founder-certs-row">
-                    <span class="founder-cert-pill">IAFM certified</span>
-                    <span class="founder-cert-pill">ACE certified</span>
-                </div>
             </div>
 
-            <!-- Coach Cards Row -->
-            <div class="coach-cards-wrapper">
-                <div class="row g-3 g-lg-4 coach-cards-row">
-                    <!-- Coach 1 -->
-                    <div class="col-6 col-md-3 coach-card-col">
-                        <div class="coach-portrait-card">
-                            <div class="coach-photo-box">
-                                <span class="photo-coming-badge">PHOTO SOON</span>
-                                <svg class="coach-avatar-silhouette" viewBox="0 0 40 40" fill="none" stroke="#5a819b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="20" cy="14" r="5.5"/>
-                                    <path d="M 10,31 C 10,25 14.5,22 20,22 C 25.5,22 30,25 30,31"/>
-                                </svg>
-                            </div>
-                            <div class="coach-info-box">
-                                <h4 class="coach-name">Coach</h4>
-                                <div class="coach-spec">Strength and conditioning</div>
+            <div class="row g-4 align-items-stretch">
+                <!-- Founder Card (Left) -->
+                <div class="col-lg-4">
+                    <div class="founder-tall-card">
+                        <!-- Top-left Circular Emblem Logo -->
+                        <div class="founder-emblem-circle">
+                            <svg class="founder-logo-svg" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" fill="#ffffff" d="M 5,3 C 5,1.8 6.2,1.2 7.8,1.2 C 12,1.2 13.2,7 16,7 C 18.8,7 20,1.2 24.2,1.2 C 25.8,1.2 27,1.8 27,3 L 27,23 C 27,24.2 25.8,24.8 24.2,24.8 C 20,24.8 18.8,19 16,19 C 13.2,19 12,24.8 7.8,24.8 C 6.2,24.8 5,24.2 5,23 Z M 16,10.2 L 19.8,17 L 12.2,17 Z" />
+                            </svg>
+                        </div>
+
+                        <!-- Transparent concentric wireframe logo watermark in background -->
+                        <div class="founder-card-watermark">
+                            <svg class="founder-watermark-svg" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g stroke="#D8F0F2" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M 343.0,173.4 A 5.5 5.5 0 0 1 348.6,167.8 C 374.4,167.8 374.0,185.7 400,185.7 C 426.0,185.7 425.6,167.8 451.4,167.8 A 5.5 5.5 0 0 1 457.0,173.4 L 457.0,226.6 A 5.5 5.5 0 0 1 451.4,232.2 C 425.6,232.2 426.0,214.3 400,214.3 C 374.0,214.3 374.4,232.2 348.6,232.2 A 5.5 5.5 0 0 1 343.0,226.6 Z" opacity="0.4" />
+                                    <path d="M 295.0,150.8 A 7.8 7.8 0 0 1 302.8,143.0 C 352.8,143.0 374.0,176.5 400,176.5 C 426.0,176.5 447.3,143.0 497.3,143.0 A 7.8 7.8 0 0 1 505.0,150.8 L 505.0,249.3 A 7.8 7.8 0 0 1 497.3,257.0 C 447.3,257.0 426.0,223.5 400,223.5 C 374.0,223.5 352.8,257.0 302.8,257.0 A 7.8 7.8 0 0 1 295.0,249.3 Z" opacity="0.5" />
+                                    <path d="M 247.0,128.1 A 9.9 9.9 0 0 1 256.9,118.2 C 331.1,118.2 374.0,167.3 400,167.3 C 426.0,167.3 468.9,118.2 543.0,118.2 A 9.9 9.9 0 0 1 553.0,128.1 L 553.0,271.9 A 9.9 9.9 0 0 1 543.0,281.8 C 468.9,281.8 426.0,232.7 400,232.7 C 374.0,232.7 331.1,281.8 256.9,281.8 A 9.9 9.9 0 0 1 247.0,271.9 Z" opacity="0.65" />
+                                    <path d="M 199.0,105.5 A 12.2 12.2 0 0 1 211.2,93.4 C 309.6,93.4 374.0,158.1 400,158.1 C 426.0,158.1 490.4,93.4 588.9,93.4 A 12.2 12.2 0 0 1 601.0,105.5 L 601.0,294.5 A 12.2 12.2 0 0 1 588.9,306.6 C 490.4,306.6 426.0,241.9 400,241.9 C 374.0,241.9 309.6,306.6 211.2,306.6 A 12.2 12.2 0 0 1 199.0,294.5 Z" opacity="0.78" />
+                                    <path d="M 151.0,82.9 A 14.4 14.4 0 0 1 165.3,68.6 C 287.9,68.6 374.0,148.9 400,148.9 C 426.0,148.9 512.0,68.6 634.6,68.6 A 14.4 14.4 0 0 1 649.0,82.9 L 649.0,317.0 A 14.4 14.4 0 0 1 634.6,331.4 C 512.0,331.4 426.0,251.1 400,251.1 C 374.0,251.1 287.9,331.4 165.3,331.4 A 14.4 14.4 0 0 1 151.0,317.0 Z" opacity="0.88" />
+                                </g>
+                                <polygon points="400,166 426,215 374,215" stroke="#D8F0F2" stroke-width="2.2" fill="none" opacity="0.8" />
+                            </svg>
+                        </div>
+
+                        <!-- Founder Info at Bottom -->
+                        <div class="founder-info-content">
+                            <div class="founder-tag">FOUNDER</div>
+                            <h3 class="founder-name">Harish</h3>
+                            <div class="founder-role font-serif-italic">Health and Performance Coach</div>
+                            <p class="founder-bio">
+                                The mind behind Helevate. Harish built Helevate to bring structured, measured coaching into the communities where people live.
+                            </p>
+                            <div class="founder-certs-row">
+                                <span class="founder-cert-pill">IAFM certified</span>
+                                <span class="founder-cert-pill">ACE certified</span>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Coach 2 -->
-                    <div class="col-6 col-md-3 coach-card-col">
-                        <div class="coach-portrait-card">
-                            <div class="coach-photo-box">
-                                <span class="photo-coming-badge">PHOTO SOON</span>
-                                <svg class="coach-avatar-silhouette" viewBox="0 0 40 40" fill="none" stroke="#5a819b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="20" cy="14" r="5.5"/>
-                                    <path d="M 10,31 C 10,25 14.5,22 20,22 C 25.5,22 30,25 30,31"/>
-                                </svg>
-                            </div>
-                            <div class="coach-info-box">
-                                <h4 class="coach-name">Coach</h4>
-                                <div class="coach-spec">Nutrition and lifestyle</div>
+                <!-- 2x2 Coach Cards (Right) - Scrolls side-by-side on mobile view -->
+                <div class="col-lg-8 coach-cards-wrapper">
+                    <div class="row g-3 h-100 coach-cards-row">
+                        <!-- Coach 1 -->
+                        <div class="col-sm-6 coach-card-col">
+                            <div class="coach-portrait-card">
+                                <div class="coach-photo-box">
+                                    <span class="photo-coming-badge">PHOTO COMING SOON</span>
+                                    <svg class="coach-avatar-silhouette" viewBox="0 0 48 48" fill="none" stroke="#254d75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="24" cy="18" r="6"/>
+                                        <path d="M 14,35 C 14,28 18.5,25 24,25 C 29.5,25 34,28 34,35"/>
+                                    </svg>
+                                </div>
+                                <div class="coach-info-box">
+                                    <h4 class="coach-name">Coach</h4>
+                                    <div class="coach-spec">Strength and conditioning</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Coach 3 -->
-                    <div class="col-6 col-md-3 coach-card-col">
-                        <div class="coach-portrait-card">
-                            <div class="coach-photo-box">
-                                <span class="photo-coming-badge">PHOTO SOON</span>
-                                <svg class="coach-avatar-silhouette" viewBox="0 0 40 40" fill="none" stroke="#5a819b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="20" cy="14" r="5.5"/>
-                                    <path d="M 10,31 C 10,25 14.5,22 20,22 C 25.5,22 30,25 30,31"/>
-                                </svg>
-                            </div>
-                            <div class="coach-info-box">
-                                <h4 class="coach-name">Coach</h4>
-                                <div class="coach-spec">Rehab and strengthening</div>
+                        <!-- Coach 2 -->
+                        <div class="col-sm-6 coach-card-col">
+                            <div class="coach-portrait-card">
+                                <div class="coach-photo-box">
+                                    <span class="photo-coming-badge">PHOTO COMING SOON</span>
+                                    <svg class="coach-avatar-silhouette" viewBox="0 0 48 48" fill="none" stroke="#254d75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="24" cy="18" r="6"/>
+                                        <path d="M 14,35 C 14,28 18.5,25 24,25 C 29.5,25 34,28 34,35"/>
+                                    </svg>
+                                </div>
+                                <div class="coach-info-box">
+                                    <h4 class="coach-name">Coach</h4>
+                                    <div class="coach-spec">Nutrition and lifestyle</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Coach 4 -->
-                    <div class="col-6 col-md-3 coach-card-col">
-                        <div class="coach-portrait-card">
-                            <div class="coach-photo-box">
-                                <span class="photo-coming-badge">PHOTO SOON</span>
-                                <svg class="coach-avatar-silhouette" viewBox="0 0 40 40" fill="none" stroke="#5a819b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="20" cy="14" r="5.5"/>
-                                    <path d="M 10,31 C 10,25 14.5,22 20,22 C 25.5,22 30,25 30,31"/>
-                                </svg>
+                        <!-- Coach 3 -->
+                        <div class="col-sm-6 coach-card-col">
+                            <div class="coach-portrait-card">
+                                <div class="coach-photo-box">
+                                    <span class="photo-coming-badge">PHOTO COMING SOON</span>
+                                    <svg class="coach-avatar-silhouette" viewBox="0 0 48 48" fill="none" stroke="#254d75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="24" cy="18" r="6"/>
+                                        <path d="M 14,35 C 14,28 18.5,25 24,25 C 29.5,25 34,28 34,35"/>
+                                    </svg>
+                                </div>
+                                <div class="coach-info-box">
+                                    <h4 class="coach-name">Coach</h4>
+                                    <div class="coach-spec">Rehab and strengthening</div>
+                                </div>
                             </div>
-                            <div class="coach-info-box">
-                                <h4 class="coach-name">Coach</h4>
-                                <div class="coach-spec">Performance training</div>
+                        </div>
+
+                        <!-- Coach 4 -->
+                        <div class="col-sm-6 coach-card-col">
+                            <div class="coach-portrait-card">
+                                <div class="coach-photo-box">
+                                    <span class="photo-coming-badge">PHOTO COMING SOON</span>
+                                    <svg class="coach-avatar-silhouette" viewBox="0 0 48 48" fill="none" stroke="#254d75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="24" cy="18" r="6"/>
+                                        <path d="M 14,35 C 14,28 18.5,25 24,25 C 29.5,25 34,28 34,35"/>
+                                    </svg>
+                                </div>
+                                <div class="coach-info-box">
+                                    <h4 class="coach-name">Coach</h4>
+                                    <div class="coach-spec">Performance training</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1603,41 +1633,51 @@
             </div>
 
             <!-- Site Footer / Stronger for longer section -->
-            <footer class="site-footer">
+            <footer class="site-footer pt-5 mt-4">
                 <div class="footer-tagline-row mb-3">
                     <span class="footer-tag-brand">Helevate.fit</span>
-                    <span class="footer-tag-dot">&middot;</span>
+                    <span class="footer-tag-dot">&bull;</span>
                     <span class="footer-tag-italic font-serif-italic">Elevating performance and lifestyle.</span>
                 </div>
 
-                <div class="giant-footer-title">
+                <div class="giant-footer-title mb-4">
                     Stronger <span class="font-serif-italic">for</span><br><span class="font-serif-italic">longer.</span>
                 </div>
 
                 <div class="footer-divider-line"></div>
 
-                <div class="footer-contacts-list">
-                    <div class="footer-contact-row">
-                        <span class="footer-col-label">CALL</span>
+                <div class="footer-cols-row row g-4 align-items-start">
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <div class="footer-brand-header d-flex align-items-center gap-2 mb-2">
+                            <svg class="footer-brand-icon" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="1,2 11,10 1,18" fill="#0C2840" />
+                                <polygon points="23,2 13,10 23,18" fill="#0C2840" />
+                            </svg>
+                            <span class="footer-brand-name">HELEVATE.FIT</span>
+                        </div>
+                        <p class="footer-brand-desc mb-0">
+                            Elevating performance and lifestyle. Science led fitness coaching, served inside gated communities in Hyderabad.
+                        </p>
+                    </div>
+
+                    <div class="col-6 col-md-2 col-lg-2">
+                        <div class="footer-col-label">CALL</div>
                         <a href="tel:9963960259" class="footer-col-val">9963960259</a>
                     </div>
 
-                    <div class="footer-contact-row">
-                        <span class="footer-col-label">WEBSITE</span>
-                        <a href="https://helevatefit.com" target="_blank" rel="noopener noreferrer" class="footer-col-val">helevatefit.com</a>
+                    <div class="col-6 col-md-3 col-lg-3">
+                        <div class="footer-col-label">WEBSITE</div>
+                        <a href="#home" class="footer-col-val">helevate.fit</a>
                     </div>
 
-                    <div class="footer-contact-row">
-                        <span class="footer-col-label">INSTAGRAM</span>
+                    <div class="col-6 col-md-3 col-lg-3">
+                        <div class="footer-col-label">INSTAGRAM</div>
                         <a href="https://instagram.com/helevate_fit" target="_blank" rel="noopener noreferrer" class="footer-col-val">@helevate_fit</a>
                     </div>
                 </div>
 
-                <div class="footer-copyright-row d-flex justify-content-between align-items-end">
-                    <div class="footer-brand-bottom">
-                        <img src="assets/images/helevate_logo_dark.png" alt="HELEVATE.FIT" class="footer-real-logo-img">
-                        <div class="footer-copyright-text">&copy; Helevate.fit, Hyderabad</div>
-                    </div>
+                <div class="footer-copyright-row d-flex justify-content-between align-items-center">
+                    <div class="footer-copyright-text">&copy; Helevate.fit, Hyderabad</div>
                     <div class="footer-copyright-note">Mobile concept</div>
                 </div>
             </footer>
@@ -1748,7 +1788,6 @@
     
     <!-- Custom Scripts -->
     <script src="js/main.js?v=20261023-3"></script>
-    <script src="js/hero-bowtie.js?v=6"></script>
     <script src="js/scroll-animations.js?v=20261023-3"></script>
 </body>
 </html>
