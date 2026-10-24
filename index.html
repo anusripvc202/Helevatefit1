@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css?v=20261024-11">
+    <link rel="stylesheet" href="css/styles.css?v=20261024-12">
     <!-- Scroll-Triggered Animations (additive layer) -->
     <link rel="stylesheet" href="css/scroll-animations.css?v=20261024-2">
 </head>
@@ -831,7 +831,7 @@
                                         </svg>
                                         <span class="guided-phone-brand">HELEVATE.FIT</span>
                                     </div>
-                                    <div class="guided-phone-example-wrap">
+                                    <div class="guided-phone-example-wrap d-none d-lg-block">
                                         <span class="guided-phone-example-badge">EXAMPLE</span>
                                     </div>
                                 </div>
@@ -839,7 +839,7 @@
                                     Guided session
                                     <span class="font-serif-italic">on your own.</span>
                                 </div>
-                                <div class="guided-phone-progress-bars">
+                                <div class="guided-phone-progress-bars d-none d-lg-flex">
                                     <div class="phone-bar-line">
                                         <span>Warm up</span>
                                         <div class="phone-bar-pill bar-warmup"></div>
@@ -857,6 +857,11 @@
                                         <div class="phone-bar-pill bar-cool"></div>
                                     </div>
                                 </div>
+                                <div class="guided-phone-mobile-lines d-lg-none">
+                                    <div class="mock-line mock-line-1"></div>
+                                    <div class="mock-line mock-line-2"></div>
+                                    <div class="mock-line mock-line-3"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -864,12 +869,15 @@
                     <div class="col-12 col-md">
                         <div class="guided-bonus-tag mb-2">OPTIONAL</div>
                         <h3 class="guided-title mb-2">
-                            Guided sessions <span class="font-serif-italic">for your extra days.</span>
+                            Guided sessions
+                            <span class="font-serif-italic d-none d-lg-inline">for your extra days.</span>
+                            <span class="font-serif-italic d-lg-none">for extra days.</span>
                         </h3>
                         <p class="guided-desc mb-3">
-                            Want to move on a day without a coached session? Your coach shares a <strong>guided session:</strong> a simple workout poster you can follow on your own. And when your body needs it, we will tell you to rest.
+                            <span class="d-none d-lg-inline">Want to move on a day without a coached session? Your coach shares a <strong>guided session:</strong> a simple workout poster you can follow on your own. And when your body needs it, we will tell you to rest.</span>
+                            <span class="d-lg-none">Your coach shares a <strong>workout poster</strong> to follow on your own, or tells you to rest.</span>
                         </p>
-                        <div class="guided-pills-row">
+                        <div class="guided-pills-row d-none d-lg-flex">
                             <span class="guided-pill-badge">Made by your coach</span>
                             <span class="guided-pill-badge">Follow at your own time</span>
                             <span class="guided-pill-badge">Rest days respected</span>
@@ -883,7 +891,8 @@
                 <div class="ribbon-headline">
                     We take care of it. <span class="font-serif-italic">You show up.</span>
                 </div>
-                <div class="ribbon-pills-container">
+                <!-- Desktop pills container -->
+                <div class="ribbon-pills-container d-none d-lg-flex">
                     <div class="ribbon-pills-row">
                         <span class="ribbon-pill-tag">Assessments</span>
                         <span class="ribbon-pill-tag">Workout plans</span>
@@ -891,6 +900,20 @@
                     </div>
                     <div class="ribbon-pills-row ribbon-pills-row-bottom">
                         <span class="ribbon-pill-tag">Lifestyle guidance</span>
+                        <span class="ribbon-pill-tag">Reviews and follow ups</span>
+                    </div>
+                </div>
+                <!-- Mobile pills container (exact 3 rows matching reference image) -->
+                <div class="ribbon-pills-container-mobile d-lg-none">
+                    <div class="ribbon-pills-row-m">
+                        <span class="ribbon-pill-tag">Assessments</span>
+                        <span class="ribbon-pill-tag">Workout plans</span>
+                    </div>
+                    <div class="ribbon-pills-row-m">
+                        <span class="ribbon-pill-tag">Nutrition plans</span>
+                        <span class="ribbon-pill-tag">Lifestyle guidance</span>
+                    </div>
+                    <div class="ribbon-pills-row-m">
                         <span class="ribbon-pill-tag">Reviews and follow ups</span>
                     </div>
                 </div>
