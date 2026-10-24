@@ -1135,27 +1135,192 @@ section[id],
     font-weight: 400;
 }
 
-/* Mobile: keep stat words (e.g. "commute") inside the half-width cards */
-@media (max-width: 767.98px) {
+/* Mobile Hero Cards (Matching Exact Reference Image) */
+@media (max-width: 991.98px) {
+    .hero-stats-row {
+        margin-top: 14px !important;
+        padding-top: 0 !important;
+        padding-bottom: 8px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Top "We take care of everything else." Card */
+    .hero-mobile-take-care-card {
+        background: #ffffff !important;
+        border-radius: 28px !important;
+        padding: 22px 22px 20px 20px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 18px !important;
+        margin-bottom: 12px !important;
+        box-shadow: none !important;
+        border: none !important;
+        width: 100% !important;
+    }
+
+    .hero-mobile-take-care-card .sunburst-badge-wrap {
+        width: 76px !important;
+        height: 76px !important;
+        flex-shrink: 0 !important;
+        position: relative !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .hero-mobile-take-care-card .sunburst-svg {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        animation: rotateCompass 35s linear infinite !important;
+    }
+
+    .hero-mobile-take-care-card .sunburst-center-text {
+        position: relative !important;
+        z-index: 2 !important;
+        font-family: var(--font-serif) !important;
+        font-style: italic !important;
+        font-size: 0.96rem !important;
+        line-height: 1.1 !important;
+        color: #1a3b68 !important;
+        text-align: center !important;
+        font-weight: 600 !important;
+        letter-spacing: -0.01em !important;
+    }
+
+    .hero-mobile-take-care-card .take-care-text-col {
+        flex: 1 1 auto !important;
+    }
+
+    .hero-mobile-take-care-card .nested-card-title {
+        font-family: var(--font-sans) !important;
+        font-size: 1.16rem !important;
+        font-weight: 700 !important;
+        color: #0E3551 !important;
+        line-height: 1.25 !important;
+        margin-bottom: 6px !important;
+        letter-spacing: -0.015em !important;
+    }
+
+    .hero-mobile-take-care-card .nested-card-desc {
+        font-family: var(--font-body) !important;
+        font-size: 0.88rem !important;
+        color: #526f8d !important;
+        line-height: 1.35 !important;
+        margin: 0 !important;
+        font-weight: 500 !important;
+    }
+
+    /* 4 Stat Cards: 2x2 Grid */
+    .hero-stats-row .row {
+        --bs-gutter-x: 12px !important;
+        --bs-gutter-y: 12px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .hero-stats-row .col-6 {
+        padding-left: 6px !important;
+        padding-right: 6px !important;
+    }
+
     .hero-stat-card {
-        padding: 16px 14px;
-        overflow: hidden;
+        background: #ffffff !important;
+        border-radius: 24px !important;
+        padding: 22px 18px 22px 18px !important;
+        box-shadow: none !important;
+        border: none !important;
+        height: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        overflow: hidden !important;
+        text-align: left !important;
     }
 
     .hero-stat-heading {
-        font-size: clamp(1.35rem, 6.4vw, 1.85rem);
+        font-family: var(--font-sans) !important;
+        font-size: 2.55rem !important;
+        font-weight: 500 !important;
+        color: #0E3551 !important;
+        line-height: 1.0 !important;
+        letter-spacing: -0.025em !important;
+        margin-bottom: 2px !important;
+        display: block !important;
+        text-align: left !important;
     }
 
     .hero-stat-heading .stat-italic-accent {
-        display: inline-block;
-        max-width: 100%;
-        white-space: nowrap;
+        display: block !important;
+        font-family: var(--font-serif) !important;
+        font-style: italic !important;
+        font-weight: 700 !important;
+        font-size: 1.55rem !important;
+        color: #1a3b68 !important;
+        letter-spacing: -0.01em !important;
+        line-height: 1.15 !important;
+        margin-top: 2px !important;
+        margin-bottom: 12px !important;
+        margin-left: 0 !important;
+        text-align: left !important;
+        white-space: nowrap !important;
+    }
+
+    .hero-stat-text {
+        font-family: var(--font-body) !important;
+        font-size: 0.88rem !important;
+        font-weight: 500 !important;
+        line-height: 1.35 !important;
+        color: #526f8d !important;
+        margin: 0 !important;
+        text-align: left !important;
     }
 }
 
-@media (max-width: 359.98px) {
+@media (max-width: 375px) {
+    .hero-stat-card {
+        padding: 18px 14px 18px 14px !important;
+        border-radius: 20px !important;
+    }
+
     .hero-stat-heading {
-        font-size: 1.15rem;
+        font-size: 2.2rem !important;
+    }
+
+    .hero-stat-heading .stat-italic-accent {
+        font-size: 1.38rem !important;
+        margin-bottom: 8px !important;
+    }
+
+    .hero-stat-text {
+        font-size: 0.82rem !important;
+    }
+
+    .hero-mobile-take-care-card {
+        padding: 16px 14px !important;
+        gap: 12px !important;
+        border-radius: 22px !important;
+    }
+
+    .hero-mobile-take-care-card .sunburst-badge-wrap {
+        width: 64px !important;
+        height: 64px !important;
+    }
+
+    .hero-mobile-take-care-card .sunburst-center-text {
+        font-size: 0.85rem !important;
+    }
+
+    .hero-mobile-take-care-card .nested-card-title {
+        font-size: 1.02rem !important;
+    }
+
+    .hero-mobile-take-care-card .nested-card-desc {
+        font-size: 0.82rem !important;
     }
 }
 
