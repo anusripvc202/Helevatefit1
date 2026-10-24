@@ -5061,11 +5061,24 @@ select.form-control-custom option {
     .community-section-card {
         background: radial-gradient(ellipse 95% 75% at 85% 15%, #18486f 0%, #0d3251 45%, #071f33 100%) !important;
         border-radius: 28px !important;
-        padding: 24px 16px 22px !important;
+        padding: 24px 14px 22px !important;
         position: relative !important;
         overflow: hidden !important;
         border: 1px solid rgba(221, 241, 239, 0.12) !important;
         box-shadow: 0 12px 36px rgba(5, 21, 34, 0.35) !important;
+    }
+
+    .community-section-card .row {
+        --bs-gutter-x: 0 !important;
+        --bs-gutter-y: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .community-section-card .row > [class*="col-"] {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 100% !important;
     }
 
     /* Concentric Bowtie Logo Watermark in Top Right Corner on Mobile (Exact Reference Placement) */
@@ -5206,9 +5219,9 @@ select.form-control-custom option {
     .community-pins-mobile-row {
         display: flex !important;
         flex-direction: row !important;
-        gap: 8px !important;
+        gap: 6px !important;
         width: 100% !important;
-        margin-top: 12px !important;
+        margin-top: 14px !important;
         margin-bottom: 18px !important;
         z-index: 2 !important;
         position: relative !important;
@@ -5218,9 +5231,10 @@ select.form-control-custom option {
         flex: 1 1 0 !important;
         min-width: 0 !important;
         background: rgba(255, 255, 255, 0.05) !important;
-        border: 1px solid rgba(255, 255, 255, 0.16) !important;
-        border-radius: 16px !important;
-        padding: 14px 12px 14px 12px !important;
+        border: 1px solid rgba(255, 255, 255, 0.18) !important;
+        border-radius: 18px !important;
+        padding: 13px 10px 13px 10px !important;
+        min-height: 114px !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: flex-start !important;
@@ -5230,18 +5244,18 @@ select.form-control-custom option {
     }
 
     .community-pin-card i {
-        font-size: 1.25rem !important;
+        font-size: 1.35rem !important;
         color: #ffffff !important;
-        margin-bottom: 10px !important;
+        margin-bottom: 12px !important;
         display: block !important;
-        opacity: 0.92 !important;
+        opacity: 0.95 !important;
+        line-height: 1 !important;
     }
 
     .community-pin-card .pin-sub {
         font-family: var(--font-body) !important;
         font-size: 0.72rem !important;
-        color: rgba(255, 255, 255, 0.65) !important;
-        text-transform: capitalize !important;
+        color: rgba(255, 255, 255, 0.68) !important;
         margin-bottom: 3px !important;
         display: block !important;
         line-height: 1.2 !important;
@@ -5250,12 +5264,12 @@ select.form-control-custom option {
 
     .community-pin-card .pin-title {
         font-family: var(--font-sans) !important;
-        font-size: 0.88rem !important;
-        font-weight: 600 !important;
-        line-height: 1.25 !important;
+        font-size: 0.92rem !important;
+        font-weight: 700 !important;
+        line-height: 1.18 !important;
         color: #ffffff !important;
         display: block !important;
-        white-space: normal !important;
+        letter-spacing: -0.01em !important;
     }
 
     .community-actions-mobile {
