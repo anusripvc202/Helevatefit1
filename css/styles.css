@@ -935,10 +935,16 @@ section[id],
     white-space: nowrap;
 }
 
+.hero-title-main .hl-text-measured,
+.hero-title-main .hl-text-measured *,
+.hero-title-main .hl-measured-word,
+.hero-title-main .hl-guessed-word {
+    font-family: var(--font-serif) !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+}
+
 .hero-title-main .hl-text-measured {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-weight: 400;
     font-size: clamp(2.9rem, 4.4vw, 4.3rem);
     letter-spacing: -0.015em;
     color: #ffffff !important;
@@ -4684,11 +4690,17 @@ select.form-control-custom option {
         white-space: normal !important;
     }
 
-    .hero-title-main .hl-text-measured {
-        display: block !important;
+    .hero-title-main .hl-text-measured,
+    .hero-title-main .hl-text-measured *,
+    .hero-title-main .hl-measured-word,
+    .hero-title-main .hl-guessed-word {
         font-family: var(--font-serif) !important;
         font-style: italic !important;
         font-weight: 400 !important;
+    }
+
+    .hero-title-main .hl-text-measured {
+        display: block !important;
         font-size: clamp(2.6rem, 10vw, 3.45rem) !important;
         line-height: 1.02 !important;
         letter-spacing: -0.015em !important;
