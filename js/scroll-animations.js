@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '.section-header > .section-pill',
             '.plans-pill-badge',
             '.team-pill-badge',
-            '.gym-floating-pin'
+            ...(window.innerWidth >= 992 ? ['.gym-floating-pin'] : [])
         ],
         'sa-blur-up': [
             '.section-header > h2',

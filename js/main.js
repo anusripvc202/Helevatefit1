@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 2. Community Section inner content & interactive elements
                 '.community-left-content > *',
                 '.gym-image-container',
-                '.gym-floating-pin',
+                ...(window.innerWidth >= 992 ? ['.gym-floating-pin'] : []),
                 // 3. Section Headers (pills, titles, subtitles across all sections)
                 '.section-header > *',
                 // 4. Services cards

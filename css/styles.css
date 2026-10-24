@@ -5201,19 +5201,21 @@ select.form-control-custom option {
 
     .gym-photo-credit {
         position: absolute !important;
-        bottom: 10px !important;
+        bottom: 8px !important;
         right: 12px !important;
-        background: rgba(0, 0, 0, 0.45) !important;
-        backdrop-filter: blur(4px) !important;
-        -webkit-backdrop-filter: blur(4px) !important;
-        color: rgba(255, 255, 255, 0.75) !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        color: rgba(255, 255, 255, 0.78) !important;
         font-size: 0.65rem !important;
         font-weight: 500 !important;
         font-family: var(--font-body) !important;
-        padding: 3px 8px !important;
-        border-radius: 6px !important;
+        padding: 0 !important;
+        border: none !important;
+        border-radius: 0 !important;
         display: block !important;
         pointer-events: none !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85) !important;
     }
 
     .community-pins-mobile-row {
@@ -5316,12 +5318,33 @@ select.form-control-custom option {
     }
 
     /* Hide floating glassy pins completely on mobile so no card displays over gym photo */
+    .desktop-gym-pins,
     .gym-floating-pin,
-    .gym-floating-pin.glass-pin {
+    .gym-floating-pin.glass-pin,
+    .gym-image-container .gym-floating-pin,
+    .pin-top-left,
+    .pin-mid-right,
+    .pin-bot-center {
         display: none !important;
         opacity: 0 !important;
         visibility: hidden !important;
         pointer-events: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        max-width: 0 !important;
+        max-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        background: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        overflow: hidden !important;
+        position: absolute !important;
+        top: -9999px !important;
+        left: -9999px !important;
+        clip: rect(0, 0, 0, 0) !important;
+        clip-path: inset(50%) !important;
     }
 
     /* Page 3: Services Section (Left-aligned matching mobile concept) */
@@ -6107,19 +6130,7 @@ select.form-control-custom option {
     }
 
     .community-section-card {
-        padding: 24px 16px 22px !important;
-    }
-
-    .gym-main-img {
-        height: 245px !important;
-    }
-
-    .pin-label {
-        font-size: 0.62rem !important;
-    }
-
-    .pin-val {
-        font-size: 0.78rem !important;
+        padding: 24px 14px 22px !important;
     }
 
     .founder-tall-card {
