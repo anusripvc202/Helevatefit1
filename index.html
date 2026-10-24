@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css?v=20261024-4">
+    <link rel="stylesheet" href="css/styles.css?v=20261024-5">
     <!-- Scroll-Triggered Animations (additive layer) -->
     <link rel="stylesheet" href="css/scroll-animations.css?v=20261023-3">
 </head>
@@ -405,17 +405,36 @@
     <section class="py-5" id="community">
         <div class="container py-lg-4">
             <div class="community-section-card">
+                <!-- Watermark: Concentric wireframe logo motif in top-right corner on mobile -->
+                <div class="community-card-watermark d-lg-none" aria-hidden="true">
+                    <svg class="community-watermark-svg" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g stroke="#D8F0F2" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M 343.0,173.4 A 5.5 5.5 0 0 1 348.6,167.8 C 374.4,167.8 374.0,185.7 400,185.7 C 426.0,185.7 425.6,167.8 451.4,167.8 A 5.5 5.5 0 0 1 457.0,173.4 L 457.0,226.6 A 5.5 5.5 0 0 1 451.4,232.2 C 425.6,232.2 426.0,214.3 400,214.3 C 374.0,214.3 374.4,232.2 348.6,232.2 A 5.5 5.5 0 0 1 343.0,226.6 Z" opacity="0.34" />
+                            <path d="M 331.0,167.7 A 6.1 6.1 0 0 1 337.1,161.6 C 368.9,161.6 374.0,183.4 400,183.4 C 426.0,183.4 431.1,161.6 462.9,161.6 A 6.1 6.1 0 0 1 469.0,167.7 L 469.0,232.3 A 6.1 6.1 0 0 1 462.9,238.4 C 431.1,238.4 426.0,216.6 400,216.6 C 374.0,216.6 368.9,238.4 337.1,238.4 A 6.1 6.1 0 0 1 331.0,232.3 Z" opacity="0.36" />
+                            <path d="M 319.0,162.1 A 6.7 6.7 0 0 1 325.6,155.4 C 363.6,155.4 374.0,181.1 400,181.1 C 426.0,181.1 436.4,155.4 474.4,155.4 A 6.7 6.7 0 0 1 481.0,162.1 L 481.0,237.9 A 6.7 6.7 0 0 1 474.4,244.6 C 436.4,244.6 426.0,218.9 400,218.9 C 374.0,218.9 363.6,244.6 325.6,244.6 A 6.7 6.7 0 0 1 319.0,237.9 Z" opacity="0.38" />
+                            <path d="M 307.0,156.4 A 7.2 7.2 0 0 1 314.2,149.2 C 358.1,149.2 374.0,178.8 400,178.8 C 426.0,178.8 441.9,149.2 485.8,149.2 A 7.2 7.2 0 0 1 493.0,156.4 L 493.0,243.6 A 7.2 7.2 0 0 1 485.8,250.8 C 441.9,250.8 426.0,221.2 400,221.2 C 374.0,221.2 358.1,250.8 314.2,250.8 A 7.2 7.2 0 0 1 307.0,243.6 Z" opacity="0.39" />
+                            <path d="M 295.0,150.8 A 7.8 7.8 0 0 1 302.8,143.0 C 352.8,143.0 374.0,176.5 400,176.5 C 426.0,176.5 447.3,143.0 497.3,143.0 A 7.8 7.8 0 0 1 505.0,150.8 L 505.0,249.3 A 7.8 7.8 0 0 1 497.3,257.0 C 447.3,257.0 426.0,223.5 400,223.5 C 374.0,223.5 352.8,257.0 302.8,257.0 A 7.8 7.8 0 0 1 295.0,249.3 Z" opacity="0.41" />
+                            <path d="M 283.0,145.1 A 8.3 8.3 0 0 1 291.3,136.8 C 347.4,136.8 374.0,174.2 400,174.2 C 426.0,174.2 452.6,136.8 508.7,136.8 A 8.3 8.3 0 0 1 517.0,145.1 L 517.0,254.9 A 8.3 8.3 0 0 1 508.7,263.2 C 452.6,263.2 426.0,225.8 400,225.8 C 374.0,225.8 347.4,263.2 291.3,263.2 A 8.3 8.3 0 0 1 283.0,254.9 Z" opacity="0.43" />
+                            <path d="M 271.0,139.4 A 8.9 8.9 0 0 1 279.9,130.6 C 341.9,130.6 374.0,171.9 400,171.9 C 426.0,171.9 458.1,130.6 520.1,130.6 A 8.9 8.9 0 0 1 529.0,139.4 L 529.0,260.5 A 8.9 8.9 0 0 1 520.1,269.4 C 458.1,269.4 426.0,228.1 400,228.1 C 374.0,228.1 341.9,269.4 279.9,269.4 A 8.9 8.9 0 0 1 271.0,260.5 Z" opacity="0.45" />
+                            <path d="M 259.0,133.8 A 9.4 9.4 0 0 1 268.4,124.4 C 336.6,124.4 374.0,169.6 400,169.6 C 426.0,169.6 463.4,124.4 531.6,124.4 A 9.4 9.4 0 0 1 541.0,133.8 L 541.0,266.2 A 9.4 9.4 0 0 1 531.6,275.6 C 463.4,275.6 426.0,230.4 400,230.4 C 374.0,230.4 336.6,275.6 268.4,275.6 A 9.4 9.4 0 0 1 259.0,266.2 Z" opacity="0.47" />
+                            <path d="M 247.0,128.1 A 9.9 9.9 0 0 1 256.9,118.2 C 331.1,118.2 374.0,167.3 400,167.3 C 426.0,167.3 468.9,118.2 543.0,118.2 A 9.9 9.9 0 0 1 553.0,128.1 L 553.0,271.9 A 9.9 9.9 0 0 1 543.0,281.8 C 468.9,281.8 426.0,232.7 400,232.7 C 374.0,232.7 331.1,281.8 256.9,281.8 A 9.9 9.9 0 0 1 247.0,271.9 Z" opacity="0.49" />
+                            <path d="M 235.0,122.5 A 10.5 10.5 0 0 1 245.5,112.0 C 325.8,112.0 374.0,165.0 400,165.0 C 426.0,165.0 474.3,112.0 554.5,112.0 A 10.5 10.5 0 0 1 565.0,122.5 L 565.0,277.5 A 10.5 10.5 0 0 1 554.5,288.0 C 474.3,288.0 426.0,235.0 400,235.0 C 374.0,235.0 325.8,288.0 245.5,288.0 A 10.5 10.5 0 0 1 235.0,277.5 Z" opacity="0.51" />
+                            <path d="M 223.0,116.8 A 11.1 11.1 0 0 1 234.1,105.8 C 320.4,105.8 374.0,162.7 400,162.7 C 426.0,162.7 479.6,105.8 566.0,105.8 A 11.1 11.1 0 0 1 577.0,116.8 L 577.0,283.1 A 11.1 11.1 0 0 1 566.0,294.2 C 479.6,294.2 426.0,237.3 400,237.3 C 374.0,237.3 320.4,294.2 234.1,294.2 A 11.1 11.1 0 0 1 223.0,283.1 Z" opacity="0.52" />
+                        </g>
+                        <polygon points="400,165 423,212 377,212" stroke="#D8F0F2" stroke-width="1.8" fill="none" opacity="0.65" />
+                    </svg>
+                </div>
+
                 <div class="row align-items-center g-5">
                     <div class="col-lg-6">
                         <div class="community-left-content">
                             <div class="section-pill">Gated communities, Hyderabad</div>
                             <h2 class="community-heading">
-                                We serve<br>
-                                inside your<br>
-                                <span class="font-serif-italic">gated<br>community.</span>
+                                <span class="d-none d-lg-inline">We serve<br>inside your<br><span class="font-serif-italic">gated<br>community.</span></span>
+                                <span class="d-lg-none">We serve inside your<br><span class="font-serif-italic">gated community.</span></span>
                             </h2>
                             <p class="community-desc">
-                                No commute, no crowded gym. <strong>Your coach comes to your clubhouse</strong>, and we take care of assessments, plans, nutrition and lifestyle.
+                                No commute, no crowded gym. <strong>Your coach comes to your clubhouse.</strong><span class="d-none d-lg-inline">, and we take care of assessments, plans, nutrition and lifestyle.</span>
                             </p>
                             <div class="community-actions d-none d-lg-flex">
                                 <a href="#consultationModal" data-bs-toggle="modal" class="btn-pill-primary">
@@ -431,7 +450,7 @@
                     <div class="col-lg-6">
                         <div class="gym-image-container">
                             <img src="assets/images/clubhouse_gym.jpg" alt="Clubhouse gym in Hyderabad gated community" class="gym-main-img">
-                            <span class="gym-photo-credit">Photo: Woom Fitness / Pexels</span>
+                            <span class="gym-photo-credit">Photo: WooM Fitness / Pexels</span>
 
                             <!-- Floating Glassy Pin 1: Where (Desktop) -->
                             <div class="gym-floating-pin glass-pin pin-top-left d-none d-lg-flex">
@@ -461,15 +480,15 @@
                             </div>
                         </div>
 
-                        <!-- Mobile 3 Info Cards Below Gym Photo (Matching PDF Page 2) -->
+                        <!-- Mobile 3 Info Cards Below Gym Photo (Matching Reference Image) -->
                         <div class="community-pins-mobile-row d-lg-none mt-3">
                             <div class="community-pin-card">
-                                <i class="bi bi-house-door"></i>
+                                <i class="bi bi-house"></i>
                                 <span class="pin-sub">Where</span>
                                 <strong class="pin-title">Your clubhouse</strong>
                             </div>
                             <div class="community-pin-card">
-                                <i class="bi bi-calendar3"></i>
+                                <i class="bi bi-calendar"></i>
                                 <span class="pin-sub">How often</span>
                                 <strong class="pin-title">3 or 4 a week</strong>
                             </div>
@@ -480,14 +499,14 @@
                             </div>
                         </div>
 
-                        <!-- Mobile Action Buttons Below Pins (Matching PDF Page 2) -->
+                        <!-- Mobile Action Buttons Below Pins (Matching Reference Image) -->
                         <div class="community-actions-mobile d-lg-none mt-3 text-center">
                             <a href="#consultationModal" data-bs-toggle="modal" class="btn-pill-primary w-100 justify-content-center">
-                                Book a Consultation <i class="bi bi-chevron-right ms-1"></i>
+                                Book a Consultation <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" class="ms-1" style="vertical-align: -1px;"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg>
                             </a>
-                            <div class="mt-2">
+                            <div class="community-dm-wrap mt-3 text-center">
                                 <a href="https://instagram.com/helevate_fit" target="_blank" class="community-dm-link">
-                                    DM us to know if we operate in your community.
+                                    <strong>DM us</strong> to know if we operate in your community.
                                 </a>
                             </div>
                         </div>

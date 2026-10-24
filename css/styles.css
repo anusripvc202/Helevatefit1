@@ -5057,28 +5057,133 @@ select.form-control-custom option {
         display: none !important;
     }
 
-    /* Page 2: Community Section */
+    /* Page 2: Community Section Mobile Design (Exact Reference Match) */
     .community-section-card {
-        padding: 34px 20px !important;
-        border-radius: 22px !important;
+        background: radial-gradient(ellipse 95% 75% at 85% 15%, #18486f 0%, #0d3251 45%, #071f33 100%) !important;
+        border-radius: 28px !important;
+        padding: 24px 16px 22px !important;
+        position: relative !important;
+        overflow: hidden !important;
+        border: 1px solid rgba(221, 241, 239, 0.12) !important;
+        box-shadow: 0 12px 36px rgba(5, 21, 34, 0.35) !important;
+    }
+
+    /* Concentric Bowtie Logo Watermark in Top Right Corner on Mobile */
+    .community-card-watermark {
+        position: absolute !important;
+        top: -15px !important;
+        right: -25px !important;
+        width: 290px !important;
+        height: 180px !important;
+        pointer-events: none !important;
+        opacity: 0.38 !important;
+        z-index: 1 !important;
+        overflow: hidden !important;
+    }
+
+    .community-card-watermark .community-watermark-svg {
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
+    }
+
+    .community-left-content {
+        position: relative !important;
+        z-index: 2 !important;
+        width: 100% !important;
+    }
+
+    .community-left-content .section-pill {
+        margin: 0 0 16px 0 !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid rgba(255, 255, 255, 0.25) !important;
+        border-radius: 9px !important;
+        padding: 5px 12px !important;
+        font-size: 0.8rem !important;
+        font-weight: 500 !important;
+        color: #ffffff !important;
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
+        align-self: flex-start !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+    }
+
+    .community-left-content .section-pill::before {
+        content: "•" !important;
+        color: #ffffff !important;
+        font-size: 1.15rem !important;
+        line-height: 1 !important;
+    }
+
+    .community-heading {
+        font-family: var(--font-sans) !important;
+        font-size: clamp(2.15rem, 8.8vw, 2.7rem) !important;
+        font-weight: 300 !important;
+        line-height: 1.05 !important;
+        letter-spacing: -0.025em !important;
+        color: #ffffff !important;
+        margin-bottom: 14px !important;
+        text-align: left !important;
+    }
+
+    .community-heading .font-serif-italic {
+        font-family: var(--font-serif) !important;
+        font-style: italic !important;
+        font-weight: 400 !important;
+        color: #ffffff !important;
+        line-height: 1.05 !important;
+        letter-spacing: -0.015em !important;
     }
 
     .community-desc {
         max-width: 100% !important;
-        margin-bottom: 20px !important;
+        font-family: var(--font-body) !important;
+        font-size: 0.94rem !important;
+        line-height: 1.45 !important;
+        color: rgba(255, 255, 255, 0.85) !important;
+        margin-bottom: 18px !important;
+        text-align: left !important;
+    }
+
+    .community-desc strong {
+        color: #ffffff !important;
+        font-weight: 700 !important;
     }
 
     .gym-image-container {
-        margin-top: 16px;
-        border-radius: 20px;
-        position: relative;
+        margin-top: 0 !important;
+        border-radius: 20px !important;
+        position: relative !important;
+        overflow: hidden !important;
+        width: 100% !important;
+        z-index: 2 !important;
     }
 
     .gym-main-img {
-        height: 280px !important;
+        height: 245px !important;
         width: 100% !important;
         object-fit: cover !important;
         border-radius: 20px !important;
+        display: block !important;
+    }
+
+    .gym-photo-credit {
+        position: absolute !important;
+        bottom: 10px !important;
+        right: 12px !important;
+        background: rgba(0, 0, 0, 0.45) !important;
+        backdrop-filter: blur(4px) !important;
+        -webkit-backdrop-filter: blur(4px) !important;
+        color: rgba(255, 255, 255, 0.75) !important;
+        font-size: 0.65rem !important;
+        font-weight: 500 !important;
+        font-family: var(--font-body) !important;
+        padding: 3px 8px !important;
+        border-radius: 6px !important;
+        display: block !important;
+        pointer-events: none !important;
     }
 
     .community-pins-mobile-row {
@@ -5086,52 +5191,97 @@ select.form-control-custom option {
         flex-direction: row !important;
         gap: 8px !important;
         width: 100% !important;
-        margin-top: 14px !important;
+        margin-top: 12px !important;
+        margin-bottom: 18px !important;
+        z-index: 2 !important;
+        position: relative !important;
     }
 
     .community-pin-card {
         flex: 1 1 0 !important;
-        background: rgba(255, 255, 255, 0.06) !important;
-        border: 1px solid rgba(255, 255, 255, 0.14) !important;
-        border-radius: 14px !important;
-        padding: 12px 10px !important;
+        min-width: 0 !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.16) !important;
+        border-radius: 16px !important;
+        padding: 14px 12px 14px 12px !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: flex-start !important;
         text-align: left !important;
         color: #ffffff !important;
+        box-shadow: none !important;
     }
 
     .community-pin-card i {
-        font-size: 1.15rem !important;
-        color: var(--brand-ice-blue, #D8F0F2) !important;
-        margin-bottom: 8px !important;
+        font-size: 1.25rem !important;
+        color: #ffffff !important;
+        margin-bottom: 10px !important;
         display: block !important;
+        opacity: 0.92 !important;
     }
 
     .community-pin-card .pin-sub {
-        font-size: 0.65rem !important;
+        font-family: var(--font-body) !important;
+        font-size: 0.72rem !important;
         color: rgba(255, 255, 255, 0.65) !important;
         text-transform: capitalize !important;
-        margin-bottom: 2px !important;
+        margin-bottom: 3px !important;
         display: block !important;
+        line-height: 1.2 !important;
+        font-weight: 500 !important;
     }
 
     .community-pin-card .pin-title {
-        font-size: 0.8rem !important;
+        font-family: var(--font-sans) !important;
+        font-size: 0.88rem !important;
         font-weight: 600 !important;
-        line-height: 1.2 !important;
+        line-height: 1.25 !important;
         color: #ffffff !important;
         display: block !important;
+        white-space: normal !important;
+    }
+
+    .community-actions-mobile {
+        width: 100% !important;
+        z-index: 2 !important;
+        position: relative !important;
     }
 
     .community-actions-mobile .btn-pill-primary {
         width: 100% !important;
-        min-height: 48px !important;
+        min-height: 50px !important;
+        background: #ffffff !important;
+        color: #0E3551 !important;
+        font-family: var(--font-sans) !important;
+        font-weight: 600 !important;
+        font-size: 1rem !important;
+        padding: 14px 24px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
+        gap: 8px !important;
         border-radius: 9999px !important;
+        border: none !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+        text-decoration: none !important;
+    }
+
+    .community-actions-mobile .community-dm-wrap {
+        margin-top: 12px !important;
+        text-align: center !important;
+    }
+
+    .community-actions-mobile .community-dm-link {
+        color: rgba(255, 255, 255, 0.72) !important;
+        font-family: var(--font-body) !important;
+        font-size: 0.84rem !important;
+        text-decoration: none !important;
+        line-height: 1.4 !important;
+    }
+
+    .community-actions-mobile .community-dm-link strong {
+        color: #ffffff !important;
+        font-weight: 700 !important;
     }
 
     .gym-floating-pin.glass-pin .pin-icon-wrap.glass-icon {
@@ -5901,7 +6051,7 @@ select.form-control-custom option {
     }
 
     .community-section-card {
-        border-radius: 18px !important;
+        border-radius: 28px !important;
     }
 
     .hero-inner-content {
@@ -5962,11 +6112,11 @@ select.form-control-custom option {
     }
 
     .community-section-card {
-        padding: 26px 14px !important;
+        padding: 24px 16px 22px !important;
     }
 
     .gym-main-img {
-        height: 230px !important;
+        height: 245px !important;
     }
 
     .pin-label {
