@@ -6335,27 +6335,67 @@ select.form-control-custom option {
 
     /* Page 10: Final CTA & Footer */
     .final-cta-banner {
-        padding: 44px 18px 38px !important;
-        border-radius: 22px !important;
+        padding: 38px 16px 28px !important;
+        border-radius: 24px !important;
+        position: relative !important;
+        overflow: hidden !important;
     }
 
     .final-cta-watermark {
-        opacity: 0.16 !important;
+        position: absolute !important;
+        top: 38% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 98% !important;
+        max-width: 440px !important;
+        height: auto !important;
+        display: block !important;
+        pointer-events: none !important;
+        z-index: 1 !important;
+        opacity: 1 !important;
         transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    }
+
+    .final-cta-watermark g {
+        stroke: rgba(185, 225, 248, 0.38) !important;
+        stroke-width: 1.4px !important;
     }
 
     .final-cta-banner:hover .final-cta-watermark,
     .final-cta-banner:active .final-cta-watermark {
-        transform: translate(-50%, -50%) scale(1.06);
-        opacity: 0.26 !important;
+        transform: translate(-50%, -50%) scale(1.04) !important;
+        opacity: 1 !important;
+    }
+
+    .cta-pill-badge {
+        font-size: 0.76rem !important;
+        padding: 6px 16px !important;
+        margin-bottom: 16px !important;
     }
 
     .final-cta-heading {
-        font-size: clamp(2rem, 6.8vw, 2.8rem) !important;
+        font-family: var(--font-sans) !important;
+        font-size: 2.15rem !important;
+        font-weight: 400 !important;
+        line-height: 1.10 !important;
+        letter-spacing: -0.02em !important;
+        margin-bottom: 14px !important;
     }
 
     .final-cta-heading .font-serif-italic {
-        font-size: clamp(2.1rem, 7vw, 2.9rem) !important;
+        font-family: var(--font-serif) !important;
+        font-style: italic !important;
+        font-weight: 400 !important;
+        font-size: 2.5rem !important;
+        line-height: 1.15 !important;
+    }
+
+    .final-cta-subtext {
+        font-size: 0.85rem !important;
+        line-height: 1.42 !important;
+        color: #ffffff !important;
+        max-width: 275px !important;
+        margin: 0 auto 22px auto !important;
     }
 
     .contact-pill-box {
@@ -6363,23 +6403,50 @@ select.form-control-custom option {
         width: 100% !important;
         max-width: 320px !important;
         margin: 0 auto !important;
-        border-radius: 16px !important;
+        border-radius: 18px !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.22) !important;
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
+        overflow: hidden !important;
     }
 
     .contact-box-left {
-        padding: 14px 18px !important;
-        text-align: center !important;
+        padding: 12px 18px !important;
+        text-align: left !important;
+        font-size: 0.82rem !important;
+        line-height: 1.35 !important;
+        color: #ffffff !important;
     }
 
     .contact-box-divider {
         width: 100% !important;
         height: 1px !important;
+        background: rgba(255, 255, 255, 0.18) !important;
     }
 
     .contact-box-right {
-        padding: 14px 18px !important;
-        text-align: center !important;
-        align-items: center !important;
+        padding: 12px 18px 14px 18px !important;
+        text-align: left !important;
+        align-items: flex-start !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .contact-box-label {
+        font-size: 0.72rem !important;
+        color: #9bbcd0 !important;
+        margin-bottom: 2px !important;
+        text-align: left !important;
+    }
+
+    .contact-box-phone {
+        font-size: 1.55rem !important;
+        font-weight: 700 !important;
+        color: #ffffff !important;
+        letter-spacing: 0.01em !important;
+        text-align: left !important;
+        line-height: 1.1 !important;
     }
 
     .giant-footer-title {
