@@ -217,12 +217,12 @@
                             <!-- Legend -->
                             <div class="widget-legend-row">
                                 <span class="legend-badge"><span class="legend-dot-solid"></span> Coached</span>
-                                <span class="legend-badge"><span class="legend-dot-guided"></span> Guided, optional</span>
-                                <span class="legend-badge"><span class="legend-dot-rest"></span> Rest</span>
+                                <span class="legend-badge"><span class="legend-dot-guided"></span> <span class="d-none d-lg-inline">Guided, optional</span><span class="d-lg-none">Guided</span></span>
+                                <span class="legend-badge d-none d-lg-inline-flex"><span class="legend-dot-rest"></span> Rest</span>
                             </div>
 
                             <p class="widget-bottom-caption" id="sched-caption">
-                                4 coached sessions a week, in your clubhouse
+                                4 coached sessions in your clubhouse
                             </p>
                         </div>
                     </div>
@@ -230,7 +230,7 @@
                     <!-- Right Column: Central Hourglass Resonance Wave + Main Typography -->
                     <div class="col-lg-8 col-md-7 hero-center-area">
                         <!-- Mobile Top Pill (Matching PDF Page 1) -->
-                        <div class="section-pill hero-mobile-pill d-lg-none mb-3">We serve inside your community</div>
+                        <div class="section-pill hero-mobile-pill d-lg-none mb-3"><span class="hero-pill-bullet">●</span> We serve inside your community</div>
 
                         <!-- Main Headings -->
                         <h1 class="hero-title-main">
@@ -238,7 +238,7 @@
                             <span class="hl-line-longer">for longer,</span>
                             <span class="hl-line-measured">
                                 <span class="hero-center-triangle"></span>
-                                <span class="hl-text-measured">measured, not guessed.</span>
+                                <span class="hl-text-measured"><span class="hl-measured-word">measured,</span> <span class="hl-guessed-word">not guessed.</span></span>
                             </span>
                         </h1>
 
@@ -249,7 +249,7 @@
 
                         <!-- Mobile Subtext (Matching PDF Page 1) -->
                         <p class="hero-mobile-subtext d-lg-none">
-                            Coaching in your clubhouse, Hyderabad. All you need to do is show up.
+                            Coaching in your clubhouse, Hyderabad. <strong>All you need to do is show up.</strong>
                         </p>
 
                         <!-- CTA Button Row with Phone Shortcut -->
@@ -266,7 +266,7 @@
             </div>
 
             <!-- Bottom Right Nested White Card with "just show up" Compass (Docked directly in hero card) -->
-            <div class="hero-bottom-nested-card">
+            <div class="hero-bottom-nested-card d-none d-lg-flex">
                 <div class="sunburst-badge-wrap">
                         <svg class="sunburst-svg" viewBox="0 0 100 100">
                             <!-- Radiating tick compass lines -->
@@ -1633,10 +1633,10 @@
             </div>
 
             <!-- Site Footer / Stronger for longer section -->
-            <footer class="site-footer pt-5 mt-4">
+            <footer class="site-footer pt-5 mt-4" id="siteFooter">
                 <div class="footer-tagline-row mb-3">
                     <span class="footer-tag-brand">Helevate.fit</span>
-                    <span class="footer-tag-dot">&bull;</span>
+                    <span class="footer-tag-dot">&middot;</span>
                     <span class="footer-tag-italic font-serif-italic">Elevating performance and lifestyle.</span>
                 </div>
 
@@ -1646,14 +1646,13 @@
 
                 <div class="footer-divider-line"></div>
 
-                <div class="footer-cols-row row g-4 align-items-start">
+                <!-- Desktop Footer Columns (>= 992px) - 100% PRESERVED FOR LAPTOP VIEW -->
+                <div class="footer-cols-row row g-4 align-items-start d-none d-lg-flex">
                     <div class="col-12 col-md-4 col-lg-4">
-                        <div class="footer-brand-header d-flex align-items-center gap-2 mb-2">
-                            <svg class="footer-brand-icon" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <polygon points="1,2 11,10 1,18" fill="#0C2840" />
-                                <polygon points="23,2 13,10 23,18" fill="#0C2840" />
-                            </svg>
-                            <span class="footer-brand-name">HELEVATE.FIT</span>
+                        <div class="footer-brand-header mb-3">
+                            <a href="#home" class="brand-link" aria-label="HELEVATE.FIT">
+                                <img src="assets/images/helevate_logo_dark.png" alt="HELEVATE.FIT" class="footer-desktop-logo-img">
+                            </a>
                         </div>
                         <p class="footer-brand-desc mb-0">
                             Elevating performance and lifestyle. Science led fitness coaching, served inside gated communities in Hyderabad.
@@ -1667,7 +1666,7 @@
 
                     <div class="col-6 col-md-3 col-lg-3">
                         <div class="footer-col-label">WEBSITE</div>
-                        <a href="#home" class="footer-col-val">helevate.fit</a>
+                        <a href="https://helevatefit.com" target="_blank" rel="noopener noreferrer" class="footer-col-val">helevatefit.com</a>
                     </div>
 
                     <div class="col-6 col-md-3 col-lg-3">
@@ -1676,8 +1675,36 @@
                     </div>
                 </div>
 
-                <div class="footer-copyright-row d-flex justify-content-between align-items-center">
+                <!-- Mobile Contacts List (< 992px) matching given image -->
+                <div class="footer-contacts-list d-lg-none">
+                    <div class="footer-contact-row">
+                        <span class="footer-col-label">CALL</span>
+                        <a href="tel:9963960259" class="footer-col-val">9963960259</a>
+                    </div>
+
+                    <div class="footer-contact-row">
+                        <span class="footer-col-label">WEBSITE</span>
+                        <a href="https://helevatefit.com" target="_blank" rel="noopener noreferrer" class="footer-col-val">helevatefit.com</a>
+                    </div>
+
+                    <div class="footer-contact-row">
+                        <span class="footer-col-label">INSTAGRAM</span>
+                        <a href="https://instagram.com/helevate_fit" target="_blank" rel="noopener noreferrer" class="footer-col-val">@helevate_fit</a>
+                    </div>
+                </div>
+
+                <!-- Desktop copyright row (>= 992px) - 100% PRESERVED FOR LAPTOP VIEW -->
+                <div class="footer-copyright-row d-none d-lg-flex justify-content-between align-items-center">
                     <div class="footer-copyright-text">&copy; Helevate.fit, Hyderabad</div>
+                    <div class="footer-copyright-note">Mobile concept</div>
+                </div>
+
+                <!-- Mobile copyright row (< 992px) matching given image -->
+                <div class="footer-mobile-bottom-row d-flex d-lg-none justify-content-between align-items-end">
+                    <div class="footer-brand-bottom">
+                        <img src="assets/images/helevate_logo_dark.png" alt="HELEVATE.FIT" class="footer-real-logo-img">
+                        <div class="footer-copyright-text">&copy; Helevate.fit, Hyderabad</div>
+                    </div>
                     <div class="footer-copyright-note">Mobile concept</div>
                 </div>
             </footer>
