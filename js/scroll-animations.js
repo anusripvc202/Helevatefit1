@@ -167,9 +167,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
     gsap.registerPlugin(ScrollTrigger);
 
-    // Clubhouse photo "unveils" from an inset frame as it scrolls into view
+    // Clubhouse photo "unveils" from an inset frame as it scrolls into view (desktop only)
     const gymImg = document.querySelector('.gym-main-img');
-    if (gymImg) {
+    if (gymImg && window.innerWidth >= 992) {
         gsap.fromTo(gymImg,
             { clipPath: 'inset(10% 8% 10% 8% round 26px)' },
             {

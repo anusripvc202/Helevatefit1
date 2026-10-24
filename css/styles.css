@@ -5301,49 +5301,13 @@ select.form-control-custom option {
         font-weight: 700 !important;
     }
 
-    .gym-floating-pin.glass-pin .pin-icon-wrap.glass-icon {
-        width: 32px !important;
-        height: 32px !important;
-        border-radius: 8px !important;
-        font-size: 0.88rem !important;
-    }
-
-    .gym-floating-pin.glass-pin .pin-label {
-        font-size: 0.64rem !important;
-        margin-bottom: 1px !important;
-    }
-
-    .gym-floating-pin.glass-pin .pin-val {
-        font-size: 0.82rem !important;
-        line-height: 1.15 !important;
-    }
-
-    .pin-top-left {
-        top: 14px !important;
-        left: 12px !important;
-        right: auto !important;
-        bottom: auto !important;
-    }
-
-    .pin-mid-right {
-        top: calc(50% - 24px) !important;
-        right: 12px !important;
-        left: auto !important;
-        bottom: auto !important;
-    }
-
-    .pin-bot-center {
-        bottom: 14px !important;
-        left: 12px !important;
-        top: auto !important;
-        right: auto !important;
-    }
-
-    .gym-photo-credit {
-        top: 12px !important;
-        right: 12px !important;
-        font-size: 0.65rem !important;
-        padding: 2px 8px !important;
+    /* Hide floating glassy pins completely on mobile so no card displays over gym photo */
+    .gym-floating-pin,
+    .gym-floating-pin.glass-pin {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
     }
 
     /* Page 3: Services Section (Left-aligned matching mobile concept) */
