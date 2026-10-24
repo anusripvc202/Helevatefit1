@@ -5925,15 +5925,58 @@ select.form-control-custom option {
         opacity: 0.34 !important;
     }
 
-    .precision-hero-title {
-        font-size: clamp(2rem, 6.8vw, 2.7rem) !important;
-        text-align: center;
+    .precision-header-block {
+        text-align: left !important;
+        margin: 0 0 16px 0 !important;
+        max-width: 100% !important;
     }
 
-    .precision-header-block {
-        text-align: center;
-        margin: 0 auto 24px auto;
-        max-width: 100%;
+    .precision-sub-label {
+        font-family: var(--font-sans) !important;
+        font-size: 0.95rem !important;
+        font-weight: 400 !important;
+        color: rgba(255, 255, 255, 0.92) !important;
+        text-align: left !important;
+        margin-bottom: 8px !important;
+        letter-spacing: -0.01em !important;
+    }
+
+    .precision-hero-title {
+        font-family: var(--font-sans) !important;
+        font-size: 2.15rem !important;
+        font-weight: 400 !important;
+        color: #ffffff !important;
+        line-height: 1.12 !important;
+        text-align: left !important;
+        letter-spacing: -0.02em !important;
+        margin-bottom: 0 !important;
+    }
+
+    .precision-hero-title .font-serif-italic {
+        font-family: var(--font-serif) !important;
+        font-style: italic !important;
+        font-weight: 400 !important;
+        font-size: 2.35rem !important;
+        color: #ffffff !important;
+        line-height: 1.15 !important;
+    }
+
+    .precision-arrow {
+        display: none !important;
+    }
+
+    .precision-hero-desc {
+        text-align: left !important;
+        font-size: 0.84rem !important;
+        line-height: 1.45 !important;
+        color: rgba(210, 230, 245, 0.85) !important;
+        max-width: 310px !important;
+        margin-bottom: 22px !important;
+    }
+
+    .precision-hero-desc strong {
+        color: #ffffff !important;
+        font-weight: 600 !important;
     }
 
     .health-report-card {
