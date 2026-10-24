@@ -2860,84 +2860,6 @@ section[id],
     .precision-section-wrapper {
         padding: 36px 24px;
     }
-
-    .guided-sessions-card {
-        padding: 24px 20px;
-    }
-
-    .guided-phone-mockup {
-        width: 100%;
-        max-width: 220px;
-        margin: 12px auto;
-        transform: rotate(-2.5deg);
-    }
-
-    .dark-ribbon-cta {
-        padding: 26px 20px !important;
-        border-radius: 22px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 16px !important;
-        background: #0d283f !important;
-        box-shadow: 0 10px 28px rgba(6, 21, 35, 0.22) !important;
-    }
-
-    .ribbon-headline {
-        white-space: normal !important;
-        font-size: 1.35rem !important;
-        line-height: 1.25 !important;
-        color: #ffffff !important;
-        text-align: left !important;
-        margin-bottom: 0 !important;
-    }
-
-    .ribbon-headline .font-serif-italic {
-        font-size: 1.45rem !important;
-    }
-
-    .ribbon-pills-container {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: wrap !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        gap: 8px 10px !important;
-        width: 100% !important;
-    }
-
-    .ribbon-pills-row,
-    .ribbon-pills-row-bottom {
-        display: contents !important;
-    }
-
-    .ribbon-pill-tag {
-        background: rgba(255, 255, 255, 0.08) !important;
-        border: 1px solid rgba(221, 241, 239, 0.22) !important;
-        border-radius: 9999px !important;
-        padding: 6px 14px !important;
-        font-size: 0.76rem !important;
-        font-weight: 500 !important;
-        color: #e0edf5 !important;
-        white-space: nowrap !important;
-        margin: 0 !important;
-    }
-
-    .ribbon-cta-btn-wrap {
-        width: 100% !important;
-        margin-top: 4px !important;
-    }
-
-    .btn-ribbon-white {
-        width: 100% !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        padding: 13px 22px !important;
-        font-size: 0.92rem !important;
-        border-radius: 9999px !important;
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2) !important;
-    }
 }
 
 /* =====================================================================
@@ -5920,7 +5842,7 @@ select.form-control-custom option {
         color: #ffffff !important;
     }
 
-    .ribbon-pills-container-mobile {
+    .ribbon-pills-container {
         display: flex !important;
         flex-direction: column !important;
         gap: 7px !important;
@@ -5928,12 +5850,18 @@ select.form-control-custom option {
         align-items: flex-start !important;
     }
 
-    .ribbon-pills-row-m {
+    .ribbon-pills-row {
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
         gap: 7px !important;
         flex-wrap: wrap !important;
+        justify-content: flex-start !important;
+        width: 100% !important;
+    }
+
+    .ribbon-pills-row-bottom {
+        justify-content: flex-start !important;
     }
 
     .ribbon-pill-tag {
