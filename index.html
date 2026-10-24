@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css?v=20261024-14">
+    <link rel="stylesheet" href="css/styles.css?v=20261024-15">
     <!-- Scroll-Triggered Animations (additive layer) -->
     <link rel="stylesheet" href="css/scroll-animations.css?v=20261024-2">
 </head>
@@ -1359,8 +1359,8 @@
                 <!-- Founder Card (Left) -->
                 <div class="col-lg-4">
                     <div class="founder-tall-card">
-                        <!-- Top-left Circular Emblem Logo -->
-                        <div class="founder-emblem-circle">
+                        <!-- Top-left Circular Emblem Logo (Desktop) -->
+                        <div class="founder-emblem-circle d-none d-lg-flex">
                             <svg class="founder-logo-svg" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" fill="#ffffff" d="M 5,3 C 5,1.8 6.2,1.2 7.8,1.2 C 12,1.2 13.2,7 16,7 C 18.8,7 20,1.2 24.2,1.2 C 25.8,1.2 27,1.8 27,3 L 27,23 C 27,24.2 25.8,24.8 24.2,24.8 C 20,24.8 18.8,19 16,19 C 13.2,19 12,24.8 7.8,24.8 C 6.2,24.8 5,24.2 5,23 Z M 16,10.2 L 19.8,17 L 12.2,17 Z" />
                             </svg>
@@ -1380,13 +1380,38 @@
                             </svg>
                         </div>
 
-                        <!-- Founder Info at Bottom -->
-                        <div class="founder-info-content">
+                        <!-- Mobile Header (Emblem and Title side-by-side) -->
+                        <div class="founder-mobile-header d-lg-none">
+                            <div class="founder-emblem-circle">
+                                <svg class="founder-logo-svg" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" fill="#ffffff" d="M 5,3 C 5,1.8 6.2,1.2 7.8,1.2 C 12,1.2 13.2,7 16,7 C 18.8,7 20,1.2 24.2,1.2 C 25.8,1.2 27,1.8 27,3 L 27,23 C 27,24.2 25.8,24.8 24.2,24.8 C 20,24.8 18.8,19 16,19 C 13.2,19 12,24.8 7.8,24.8 C 6.2,24.8 5,24.2 5,23 Z M 16,10.2 L 19.8,17 L 12.2,17 Z" />
+                                </svg>
+                            </div>
+                            <div class="founder-mobile-title-wrap">
+                                <div class="founder-tag">FOUNDER</div>
+                                <h3 class="founder-name">Harish</h3>
+                                <div class="founder-role font-serif-italic">Health and Performance Coach</div>
+                            </div>
+                        </div>
+
+                        <!-- Desktop Info at Bottom -->
+                        <div class="founder-info-content d-none d-lg-block">
                             <div class="founder-tag">FOUNDER</div>
                             <h3 class="founder-name">Harish</h3>
                             <div class="founder-role font-serif-italic">Health and Performance Coach</div>
                             <p class="founder-bio">
                                 The mind behind Helevate. Harish built Helevate to bring structured, measured coaching into the communities where people live.
+                            </p>
+                            <div class="founder-certs-row">
+                                <span class="founder-cert-pill">IAFM certified</span>
+                                <span class="founder-cert-pill">ACE certified</span>
+                            </div>
+                        </div>
+
+                        <!-- Mobile Body (Bio + Certs) -->
+                        <div class="founder-mobile-body d-lg-none">
+                            <p class="founder-bio">
+                                The mind behind Helevate, bringing structured, measured coaching into the communities where people live.
                             </p>
                             <div class="founder-certs-row">
                                 <span class="founder-cert-pill">IAFM certified</span>
