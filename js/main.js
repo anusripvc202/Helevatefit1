@@ -532,5 +532,136 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // =========================================================================
+    // Mobile Services Cards: Automatic Slide Movement with Reading Time
+    // Strictly active on mobile/tablet screens (< 992px); zero impact on laptop
+    // =========================================================================
+    const initServicesMobileSlider = () => {
+        const servicesSection = document.getElementById('services');
+        if (!servicesSection) return;
+
+        const container = servicesSection.querySelector('.stagger-cards');
+        if (!container) return;
+
+        const items = container.querySelectorAll('.stagger-item');
+        if (items.length <= 1) return;
+
+        let currentIndex = 0;
+        let timer = null;
+        let isUserInteracting = false;
+        let resumeTimeout = null;
+        let isVisible = false;
+
+        // Faster and smoother mobile auto-scroll interval: 2.2s per card
+        const READ_TIME_MS = 2200;
+
+        const isMobileView = () => window.innerWidth < 992 && container.scrollWidth > container.clientWidth;
+
+        const getNearestIndex = () => {
+            const scrollLeft = container.scrollLeft;
+            let minDiff = Infinity;
+            let closest = 0;
+            const containerPaddingLeft = parseFloat(window.getComputedStyle(container).paddingLeft) || 0;
+            items.forEach((item, idx) => {
+                const itemLeft = item.offsetLeft - container.offsetLeft - containerPaddingLeft;
+                const diff = Math.abs(itemLeft - scrollLeft);
+                if (diff < minDiff) {
+                    minDiff = diff;
+                    closest = idx;
+                }
+            });
+            return closest;
+        };
+
+        const scrollToSlide = (index) => {
+            if (!isMobileView()) return;
+            const targetIndex = index % items.length;
+            const containerPaddingLeft = parseFloat(window.getComputedStyle(container).paddingLeft) || 0;
+            const targetLeft = items[targetIndex].offsetLeft - container.offsetLeft - containerPaddingLeft;
+            container.scrollTo({
+                left: Math.max(0, targetLeft),
+                behavior: 'smooth'
+            });
+            currentIndex = targetIndex;
+        };
+
+        const nextSlide = () => {
+            if (!isMobileView() || isUserInteracting || !isVisible) return;
+            currentIndex = (currentIndex + 1) % items.length;
+            scrollToSlide(currentIndex);
+        };
+
+        const startAutoPlay = () => {
+            stopAutoPlay();
+            if (!isMobileView() || !isVisible) return;
+            timer = setInterval(nextSlide, READ_TIME_MS);
+        };
+
+        const stopAutoPlay = () => {
+            if (timer) {
+                clearInterval(timer);
+                timer = null;
+            }
+        };
+
+        const pauseAndResume = (delay = 3000) => {
+            isUserInteracting = true;
+            stopAutoPlay();
+            if (resumeTimeout) clearTimeout(resumeTimeout);
+            resumeTimeout = setTimeout(() => {
+                isUserInteracting = false;
+                currentIndex = getNearestIndex();
+                startAutoPlay();
+            }, delay);
+        };
+
+        // User touch and gesture listeners: pause when user interacts
+        container.addEventListener('touchstart', () => pauseAndResume(), { passive: true });
+        container.addEventListener('touchmove', () => pauseAndResume(), { passive: true });
+        container.addEventListener('touchend', () => pauseAndResume(2500), { passive: true });
+        container.addEventListener('pointerdown', () => pauseAndResume(), { passive: true });
+
+        // Keep currentIndex in sync when user manually scrolls
+        let scrollDebounce = null;
+        container.addEventListener('scroll', () => {
+            if (isUserInteracting) {
+                if (scrollDebounce) clearTimeout(scrollDebounce);
+                scrollDebounce = setTimeout(() => {
+                    currentIndex = getNearestIndex();
+                }, 120);
+            }
+        }, { passive: true });
+
+        // Only auto-play when services section is on screen
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    isVisible = entry.isIntersecting;
+                    if (isVisible) {
+                        currentIndex = getNearestIndex();
+                        startAutoPlay();
+                    } else {
+                        stopAutoPlay();
+                    }
+                });
+            }, { threshold: 0.15 });
+            observer.observe(servicesSection);
+        } else {
+            isVisible = true;
+            startAutoPlay();
+        }
+
+        // Viewport resize handling: only active on mobile/tablet (< 992px)
+        window.addEventListener('resize', () => {
+            if (isMobileView()) {
+                if (!timer && isVisible) startAutoPlay();
+            } else {
+                stopAutoPlay();
+            }
+        }, { passive: true });
+    };
+
+    initServicesMobileSlider();
 });
 

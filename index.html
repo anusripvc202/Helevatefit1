@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css?v=20261024-17">
+    <link rel="stylesheet" href="css/styles.css?v=20261026-6">
     <!-- Scroll-Triggered Animations (additive layer) -->
     <link rel="stylesheet" href="css/scroll-animations.css?v=20261024-2">
 </head>
@@ -1355,12 +1355,15 @@
                 </svg>
             </div>
 
-            <div class="row g-4 align-items-stretch">
+            <!-- =========================================================
+                 DESKTOP / LAPTOP VIEW (>= 992px) - 100% PRESERVED
+                 ========================================================= -->
+            <div class="row g-4 align-items-stretch d-none d-lg-flex">
                 <!-- Founder Card (Left) -->
                 <div class="col-lg-4">
                     <div class="founder-tall-card">
                         <!-- Top-left Circular Emblem Logo (Desktop) -->
-                        <div class="founder-emblem-circle d-none d-lg-flex">
+                        <div class="founder-emblem-circle">
                             <svg class="founder-logo-svg" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" fill="#ffffff" d="M 5,3 C 5,1.8 6.2,1.2 7.8,1.2 C 12,1.2 13.2,7 16,7 C 18.8,7 20,1.2 24.2,1.2 C 25.8,1.2 27,1.8 27,3 L 27,23 C 27,24.2 25.8,24.8 24.2,24.8 C 20,24.8 18.8,19 16,19 C 13.2,19 12,24.8 7.8,24.8 C 6.2,24.8 5,24.2 5,23 Z M 16,10.2 L 19.8,17 L 12.2,17 Z" />
                             </svg>
@@ -1380,22 +1383,8 @@
                             </svg>
                         </div>
 
-                        <!-- Mobile Header (Emblem and Title side-by-side) -->
-                        <div class="founder-mobile-header d-lg-none">
-                            <div class="founder-emblem-circle">
-                                <svg class="founder-logo-svg" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" fill="#ffffff" d="M 5,3 C 5,1.8 6.2,1.2 7.8,1.2 C 12,1.2 13.2,7 16,7 C 18.8,7 20,1.2 24.2,1.2 C 25.8,1.2 27,1.8 27,3 L 27,23 C 27,24.2 25.8,24.8 24.2,24.8 C 20,24.8 18.8,19 16,19 C 13.2,19 12,24.8 7.8,24.8 C 6.2,24.8 5,24.2 5,23 Z M 16,10.2 L 19.8,17 L 12.2,17 Z" />
-                                </svg>
-                            </div>
-                            <div class="founder-mobile-title-wrap">
-                                <div class="founder-tag">FOUNDER</div>
-                                <h3 class="founder-name">Harish</h3>
-                                <div class="founder-role font-serif-italic">Health and Performance Coach</div>
-                            </div>
-                        </div>
-
                         <!-- Desktop Info at Bottom -->
-                        <div class="founder-info-content d-none d-lg-block">
+                        <div class="founder-info-content">
                             <div class="founder-tag">FOUNDER</div>
                             <h3 class="founder-name">Harish</h3>
                             <div class="founder-role font-serif-italic">Health and Performance Coach</div>
@@ -1407,25 +1396,14 @@
                                 <span class="founder-cert-pill">ACE certified</span>
                             </div>
                         </div>
-
-                        <!-- Mobile Body (Bio + Certs) -->
-                        <div class="founder-mobile-body d-lg-none">
-                            <p class="founder-bio">
-                                The mind behind Helevate, bringing structured, measured coaching into the communities where people live.
-                            </p>
-                            <div class="founder-certs-row">
-                                <span class="founder-cert-pill">IAFM certified</span>
-                                <span class="founder-cert-pill">ACE certified</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                <!-- 2x2 Coach Cards (Right) - Scrolls side-by-side on mobile view -->
-                <div class="col-lg-8 coach-cards-wrapper">
-                    <div class="row g-3 h-100 coach-cards-row">
+                <!-- 2x2 Coach Cards (Right) -->
+                <div class="col-lg-8">
+                    <div class="row g-3 h-100">
                         <!-- Coach 1 -->
-                        <div class="col-sm-6 coach-card-col">
+                        <div class="col-sm-6">
                             <div class="coach-portrait-card">
                                 <div class="coach-photo-box">
                                     <span class="photo-coming-badge">PHOTO COMING SOON</span>
@@ -1442,7 +1420,7 @@
                         </div>
 
                         <!-- Coach 2 -->
-                        <div class="col-sm-6 coach-card-col">
+                        <div class="col-sm-6">
                             <div class="coach-portrait-card">
                                 <div class="coach-photo-box">
                                     <span class="photo-coming-badge">PHOTO COMING SOON</span>
@@ -1459,7 +1437,7 @@
                         </div>
 
                         <!-- Coach 3 -->
-                        <div class="col-sm-6 coach-card-col">
+                        <div class="col-sm-6">
                             <div class="coach-portrait-card">
                                 <div class="coach-photo-box">
                                     <span class="photo-coming-badge">PHOTO COMING SOON</span>
@@ -1476,7 +1454,7 @@
                         </div>
 
                         <!-- Coach 4 -->
-                        <div class="col-sm-6 coach-card-col">
+                        <div class="col-sm-6">
                             <div class="coach-portrait-card">
                                 <div class="coach-photo-box">
                                     <span class="photo-coming-badge">PHOTO COMING SOON</span>
@@ -1490,6 +1468,194 @@
                                     <div class="coach-spec">Performance training</div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- =========================================================
+                 MOBILE VIEW (< 992px) - Staggered 2-Row / Column Carousel
+                 ========================================================= -->
+            <div class="team-mobile-carousel d-lg-none">
+                <div class="team-mobile-track">
+                    <!-- Column 1: Profile (UP) + Badge (DOWN) -->
+                    <div class="team-stagger-col">
+                        <!-- UP: Founder Harish -->
+                        <div class="team-profile-card">
+                            <div class="profile-card-image-layer">
+                                <img src="assets/images/coach_harish.jpg" alt="Harish - Founder &amp; Health and Performance Coach" class="profile-card-photo" loading="lazy" />
+                                <div class="profile-card-gradient-overlay"></div>
+                            </div>
+                            <div class="profile-card-top-bar">
+                                <div class="profile-card-badge-pill founder-pill">
+                                    <div class="founder-emblem-mini">
+                                        <svg class="founder-logo-svg" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" fill="#ffffff" d="M 5,3 C 5,1.8 6.2,1.2 7.8,1.2 C 12,1.2 13.2,7 16,7 C 18.8,7 20,1.2 24.2,1.2 C 25.8,1.2 27,1.8 27,3 L 27,23 C 27,24.2 25.8,24.8 24.2,24.8 C 20,24.8 18.8,19 16,19 C 13.2,19 12,24.8 7.8,24.8 C 6.2,24.8 5,24.2 5,23 Z M 16,10.2 L 19.8,17 L 12.2,17 Z" />
+                                        </svg>
+                                    </div>
+                                    <span class="profile-tag-label">FOUNDER</span>
+                                </div>
+                            </div>
+                            <div class="profile-card-content-box">
+                                <p class="profile-card-quote">
+                                    “The mind behind Helevate, bringing structured coaching into communities.”
+                                </p>
+                                <div class="profile-card-identity">
+                                    <h3 class="profile-card-name">Harish</h3>
+                                    <div class="profile-card-role">Health and Performance Coach</div>
+                                </div>
+                                <div class="profile-card-certs">
+                                    <span class="profile-cert-pill">IAFM certified</span>
+                                    <span class="profile-cert-pill">ACE certified</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DOWN: Short Badge 1 -->
+                        <div class="team-badge-card">
+                            <div class="badge-card-tag-pill">ACCREDITATION</div>
+                            <div class="badge-card-main-title">IAFM &amp; ACE</div>
+                            <p class="badge-card-sub-text">Certified coaching standards</p>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Badge (UP) + Profile (DOWN) -->
+                    <div class="team-stagger-col">
+                        <!-- UP: Short Badge 2 -->
+                        <div class="team-badge-card">
+                            <div class="badge-card-tag-pill">LOCATION</div>
+                            <div class="badge-card-main-title">Clubhouse First</div>
+                            <p class="badge-card-sub-text">Gated communities, Hyderabad</p>
+                        </div>
+
+                        <!-- DOWN: Coach 1 -->
+                        <div class="team-profile-card">
+                            <div class="profile-card-image-layer coach-placeholder-bg">
+                                <svg class="profile-avatar-silhouette" viewBox="0 0 48 48" fill="none" stroke="#d8f0f2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="24" cy="18" r="6"/>
+                                    <path d="M 14,35 C 14,28 18.5,25 24,25 C 29.5,25 34,28 34,35"/>
+                                </svg>
+                                <div class="profile-card-gradient-overlay"></div>
+                            </div>
+                            <div class="profile-card-top-bar">
+                                <div class="profile-card-badge-pill coach-pill">
+                                    <span class="profile-tag-label">PHOTO COMING SOON</span>
+                                </div>
+                            </div>
+                            <div class="profile-card-content-box">
+                                <p class="profile-card-quote">
+                                    “Building functional strength that carries into everyday life.”
+                                </p>
+                                <div class="profile-card-identity">
+                                    <h3 class="profile-card-name">Coach</h3>
+                                    <div class="profile-card-role">Strength and conditioning</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Profile (UP) + Badge (DOWN) -->
+                    <div class="team-stagger-col">
+                        <!-- UP: Coach 2 -->
+                        <div class="team-profile-card">
+                            <div class="profile-card-image-layer coach-placeholder-bg">
+                                <svg class="profile-avatar-silhouette" viewBox="0 0 48 48" fill="none" stroke="#d8f0f2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="24" cy="18" r="6"/>
+                                    <path d="M 14,35 C 14,28 18.5,25 24,25 C 29.5,25 34,28 34,35"/>
+                                </svg>
+                                <div class="profile-card-gradient-overlay"></div>
+                            </div>
+                            <div class="profile-card-top-bar">
+                                <div class="profile-card-badge-pill coach-pill">
+                                    <span class="profile-tag-label">PHOTO COMING SOON</span>
+                                </div>
+                            </div>
+                            <div class="profile-card-content-box">
+                                <p class="profile-card-quote">
+                                    “Sustainable nutrition engineered around metabolic health.”
+                                </p>
+                                <div class="profile-card-identity">
+                                    <h3 class="profile-card-name">Coach</h3>
+                                    <div class="profile-card-role">Nutrition and lifestyle</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DOWN: Short Badge 3 -->
+                        <div class="team-badge-card">
+                            <div class="badge-card-tag-pill">METHODOLOGY</div>
+                            <div class="badge-card-main-title"><span class="badge-serif-accent">Measured,</span> not guessed.</div>
+                            <p class="badge-card-sub-text">Data-driven health protocols</p>
+                        </div>
+                    </div>
+
+                    <!-- Column 4: Badge (UP) + Profile (DOWN) -->
+                    <div class="team-stagger-col">
+                        <!-- UP: Short Badge 4 -->
+                        <div class="team-badge-card">
+                            <div class="badge-card-tag-pill">APPROACH</div>
+                            <div class="badge-card-main-title">1 Integrated Team</div>
+                            <p class="badge-card-sub-text">Training, nutrition &amp; lifestyle together</p>
+                        </div>
+
+                        <!-- DOWN: Coach 3 -->
+                        <div class="team-profile-card">
+                            <div class="profile-card-image-layer coach-placeholder-bg">
+                                <svg class="profile-avatar-silhouette" viewBox="0 0 48 48" fill="none" stroke="#d8f0f2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="24" cy="18" r="6"/>
+                                    <path d="M 14,35 C 14,28 18.5,25 24,25 C 29.5,25 34,28 34,35"/>
+                                </svg>
+                                <div class="profile-card-gradient-overlay"></div>
+                            </div>
+                            <div class="profile-card-top-bar">
+                                <div class="profile-card-badge-pill coach-pill">
+                                    <span class="profile-tag-label">PHOTO COMING SOON</span>
+                                </div>
+                            </div>
+                            <div class="profile-card-content-box">
+                                <p class="profile-card-quote">
+                                    “Targeted mobility and rehabilitation for pain-free performance.”
+                                </p>
+                                <div class="profile-card-identity">
+                                    <h3 class="profile-card-name">Coach</h3>
+                                    <div class="profile-card-role">Rehab and strengthening</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 5: Profile (UP) + Badge (DOWN) -->
+                    <div class="team-stagger-col">
+                        <!-- UP: Coach 4 -->
+                        <div class="team-profile-card">
+                            <div class="profile-card-image-layer coach-placeholder-bg">
+                                <svg class="profile-avatar-silhouette" viewBox="0 0 48 48" fill="none" stroke="#d8f0f2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="24" cy="18" r="6"/>
+                                    <path d="M 14,35 C 14,28 18.5,25 24,25 C 29.5,25 34,28 34,35"/>
+                                </svg>
+                                <div class="profile-card-gradient-overlay"></div>
+                            </div>
+                            <div class="profile-card-top-bar">
+                                <div class="profile-card-badge-pill coach-pill">
+                                    <span class="profile-tag-label">PHOTO COMING SOON</span>
+                                </div>
+                            </div>
+                            <div class="profile-card-content-box">
+                                <p class="profile-card-quote">
+                                    “Data-driven conditioning to elevate endurance and power.”
+                                </p>
+                                <div class="profile-card-identity">
+                                    <h3 class="profile-card-name">Coach</h3>
+                                    <div class="profile-card-role">Performance training</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DOWN: Short Badge 5 -->
+                        <div class="team-badge-card">
+                            <div class="badge-card-tag-pill">PURPOSE</div>
+                            <div class="badge-card-main-title">Stronger for Longer</div>
+                            <p class="badge-card-sub-text">Evidence-based longevity training</p>
                         </div>
                     </div>
                 </div>
@@ -1556,7 +1722,6 @@
                                 <span class="story-ph-sans">Next story</span>
                                 <span class="story-ph-serif">coming soon.</span>
                             </div>
-                            <p class="story-ph-desc">A new client video will go here.</p>
                         </div>
                     </div>
 
@@ -1568,7 +1733,6 @@
                                 <span class="story-ph-sans">Your story</span>
                                 <span class="story-ph-serif">could be next.</span>
                             </div>
-                            <p class="story-ph-desc">Client videos are shared only with their permission.</p>
                         </div>
                     </div>
                 </div>
@@ -1838,7 +2002,6 @@
                 <!-- Desktop copyright row (>= 992px) - 100% PRESERVED FOR LAPTOP VIEW -->
                 <div class="footer-copyright-row d-none d-lg-flex justify-content-between align-items-center">
                     <div class="footer-copyright-text">&copy; Helevate.fit, Hyderabad</div>
-                    <div class="footer-copyright-note">Mobile concept</div>
                 </div>
 
                 <!-- Mobile copyright row (< 992px) matching given image -->
@@ -1847,7 +2010,6 @@
                         <img src="assets/images/helevate_logo_dark.png" alt="HELEVATE.FIT" class="footer-real-logo-img">
                         <div class="footer-copyright-text">&copy; Helevate.fit, Hyderabad</div>
                     </div>
-                    <div class="footer-copyright-note">Mobile concept</div>
                 </div>
             </footer>
         </div>
@@ -1956,7 +2118,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     
     <!-- Custom Scripts -->
-    <script src="js/main.js?v=20261024-10"></script>
+    <script src="js/main.js?v=20261026-2"></script>
     <script src="js/scroll-animations.js?v=20261024-10"></script>
 </body>
 </html>
