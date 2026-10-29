@@ -24,40 +24,74 @@ const MIME_TYPES = {
     '.otf': 'font/otf'
 };
 
+function serveFile(res, targetPath, statusCode = 200) {
+    const ext = path.extname(targetPath).toLowerCase();
+    const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+    res.writeHead(statusCode, {
+        'Content-Type': contentType,
+        'Access-Control-Allow-Origin': '*',
+        'Cache-Control': 'no-cache'
+    });
+    fs.createReadStream(targetPath).pipe(res);
+}
+
 const server = http.createServer((req, res) => {
-    let safePath = decodeURI(req.url.split('?')[0]);
-    if (safePath === '/' || safePath === '') {
-        safePath = '/index.html';
+    let rawPath = decodeURI(req.url.split('?')[0]);
+    if (rawPath === '/' || rawPath === '' || rawPath === '/Helevatefit1' || rawPath === '/Helevatefit1/') {
+        rawPath = '/index.html';
+    } else if (rawPath.startsWith('/Helevatefit1/')) {
+        rawPath = rawPath.slice('/Helevatefit1'.length);
     }
 
-    const filePath = path.join(ROOT, safePath);
+    const hasTrailingSlash = rawPath.length > 1 && rawPath.endsWith('/');
+    const cleanRel = rawPath.replace(/^\/+/, '');
+    const exactPath = path.join(ROOT, cleanRel);
 
     // Prevent directory traversal
-    if (!filePath.startsWith(ROOT)) {
+    if (!exactPath.startsWith(ROOT)) {
         res.writeHead(403, { 'Content-Type': 'text/plain' });
         res.end('403 Forbidden');
         return;
     }
 
-    fs.stat(filePath, (err, stats) => {
-        if (err || !stats.isFile()) {
-            res.writeHead(404, { 'Content-Type': 'text/plain' });
-            res.end('404 Not Found');
+    // 1. If trailing slash (e.g. /community/), check <dir>/index.html first so ../ relative paths resolve cleanly
+    if (hasTrailingSlash) {
+        const dirIndex = path.join(exactPath, 'index.html');
+        if (fs.existsSync(dirIndex) && fs.statSync(dirIndex).isFile()) {
+            serveFile(res, dirIndex, 200);
             return;
         }
+    }
 
-        const ext = path.extname(filePath).toLowerCase();
-        const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+    // 2. If exact file exists (e.g. /index.html, /community.html, /css/styles.css)
+    if (fs.existsSync(exactPath) && fs.statSync(exactPath).isFile()) {
+        serveFile(res, exactPath, 200);
+        return;
+    }
 
-        res.writeHead(200, {
-            'Content-Type': contentType,
-            'Access-Control-Allow-Origin': '*',
-            'Cache-Control': 'no-cache'
-        });
+    // 3. If clean URL without trailing slash (e.g. /community), serve <slug>.html so root-relative paths resolve cleanly
+    const htmlCandidate = exactPath + '.html';
+    if (fs.existsSync(htmlCandidate) && fs.statSync(htmlCandidate).isFile()) {
+        serveFile(res, htmlCandidate, 200);
+        return;
+    }
 
-        const stream = fs.createReadStream(filePath);
-        stream.pipe(res);
-    });
+    // 4. Check <dir>/index.html as fallback
+    const dirIndexFallback = path.join(exactPath, 'index.html');
+    if (fs.existsSync(dirIndexFallback) && fs.statSync(dirIndexFallback).isFile()) {
+        serveFile(res, dirIndexFallback, 200);
+        return;
+    }
+
+    // 5. GitHub Pages 404.html fallback
+    const notFoundPage = path.join(ROOT, '404.html');
+    if (fs.existsSync(notFoundPage) && fs.statSync(notFoundPage).isFile()) {
+        serveFile(res, notFoundPage, 200);
+        return;
+    }
+
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('404 Not Found');
 });
 
 server.listen(PORT, '0.0.0.0', () => {

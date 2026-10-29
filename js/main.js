@@ -12,11 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Hero Main Card Reveal (on initial page load)
         const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-        heroTl
-            .from('.hero-nav', { opacity: 0, y: -20, duration: 0.7, clearProps: 'transform' })
-            .from('.hero-left-col', { opacity: 0, x: isMobileScreen ? 0 : -30, duration: 0.7 }, '-=0.4')
-            .from('.hero-center-area', { opacity: 0, y: isMobileScreen ? 0 : 30, duration: 0.7, clearProps: 'all' }, '-=0.4')
-            .from('.hero-bottom-nested-card', { opacity: 0, y: 20, duration: 0.65, ease: 'power2.out', clearProps: 'all' }, '-=0.3');
+        if (document.querySelector('.hero-nav')) {
+            heroTl.from('.hero-nav', { opacity: 0, y: -20, duration: 0.7, clearProps: 'transform' });
+        }
+        if (document.querySelector('.hero-left-col')) {
+            heroTl
+                .from('.hero-left-col', { opacity: 0, x: isMobileScreen ? 0 : -30, duration: 0.7 }, '-=0.4')
+                .from('.hero-center-area', { opacity: 0, y: isMobileScreen ? 0 : 30, duration: 0.7, clearProps: 'all' }, '-=0.4');
+        }
+        if (document.querySelector('.hero-bottom-nested-card')) {
+            heroTl.from('.hero-bottom-nested-card', { opacity: 0, y: 20, duration: 0.65, ease: 'power2.out', clearProps: 'all' }, '-=0.3');
+        }
     }
 
     // 2. Progressive Smooth Scroll Reveal System (Hardware-Accelerated with IntersectionObserver)
@@ -36,8 +42,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 ...(window.innerWidth >= 992 ? ['.gym-floating-pin'] : []),
                 // 3. Section Headers (pills, titles, subtitles across all sections)
                 '.section-header > *',
-                // 4. Services cards
+                // 4. Services & Explore cards
                 '#services .stagger-item',
+                '#explore .stagger-item',
+                '.community-model-card',
+                '.community-take-care-panel',
+                '.story-spotlight-card',
+                '.subpage-detail-card',
+                '.founder-story-panel',
+                '.plan-comparison-wrap',
+                '.story-case-card',
                 // 5. How It Works step cards & ribbons
                 '#how-it-works .stagger-item',
                 '.guided-sessions-card',
@@ -373,52 +387,63 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 8. Sticky Header Navigation on Scroll with Glassy Blur Effect
+    // 8. Sticky Header Navigation on Scroll with Glassy Blur Effect & Multi-Page Active Route Highlighting
     const mainHeaderNav = document.getElementById('mainHeaderNav');
     const heroNavLinks = document.querySelectorAll('.hero-nav-links a');
-    const navSections = [
-        document.getElementById('home') || document.querySelector('.hero-section'),
-        document.getElementById('community'),
-        document.getElementById('services'),
-        document.getElementById('how-it-works'),
-        document.getElementById('plans'),
-        document.getElementById('team'),
-        document.getElementById('stories'),
-        document.getElementById('faq'),
-        document.getElementById('contact')
-    ].filter(Boolean);
+    const allMobileNavLinks = document.querySelectorAll('.mobile-nav-item');
+
+    // Detect active page route from body data-page or URL pathname
+    function getActivePageSlug() {
+        const bodyPage = document.body.getAttribute('data-page');
+        if (bodyPage) return bodyPage;
+        const cleanPath = window.location.pathname
+            .replace(/\/index\.html$/i, '')
+            .replace(/\.html$/i, '')
+            .replace(/\/+$/, '');
+        const segments = cleanPath.split('/').filter(Boolean);
+        const lastSeg = segments[segments.length - 1] || 'home';
+        const knownPages = ['community', 'services', 'how-it-works', 'plans', 'team', 'stories'];
+        return knownPages.includes(lastSeg) ? lastSeg : 'home';
+    }
+
+    const activePageSlug = getActivePageSlug();
+
+    function highlightActiveNavLinks() {
+        heroNavLinks.forEach((link) => {
+            const linkPage = link.getAttribute('data-page') || '';
+            const isMatch = linkPage === activePageSlug;
+            link.classList.toggle('active', isMatch);
+            if (isMatch) {
+                link.setAttribute('aria-current', 'page');
+            } else {
+                link.removeAttribute('aria-current');
+            }
+        });
+
+        allMobileNavLinks.forEach((link) => {
+            const linkPage = link.getAttribute('data-page') || '';
+            const isMatch = linkPage === activePageSlug;
+            link.classList.toggle('active', isMatch);
+            if (isMatch) {
+                link.setAttribute('aria-current', 'page');
+            } else {
+                link.removeAttribute('aria-current');
+            }
+        });
+    }
+
+    highlightActiveNavLinks();
 
     function updateStickyNav() {
         if (!mainHeaderNav) return;
         const scrollY = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
 
         // Sticky & Glassy effect applied ONLY when scrolling away from top (scrollY > 30px)
-        // When at the very top (scrollY <= 30px), stays transparent and seamlessly embedded in hero
         if (scrollY > 30) {
             mainHeaderNav.classList.add('is-scrolled');
         } else {
             mainHeaderNav.classList.remove('is-scrolled');
         }
-
-        // Active section indicator in navigation
-        const scrollThreshold = scrollY + 140;
-        let activeSectionId = '';
-        for (let i = navSections.length - 1; i >= 0; i--) {
-            const sec = navSections[i];
-            if (sec && sec.offsetTop <= scrollThreshold) {
-                activeSectionId = sec.getAttribute('id');
-                break;
-            }
-        }
-
-        heroNavLinks.forEach((link) => {
-            const href = link.getAttribute('href');
-            if (activeSectionId && href === `#${activeSectionId}`) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
-        });
     }
 
     window.addEventListener('scroll', updateStickyNav, { passive: true });
@@ -547,7 +572,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const items = container.querySelectorAll('.stagger-item');
         if (items.length <= 1) return;
 
+        const serviceCards = container.querySelectorAll('.service-card');
         let currentIndex = 0;
+        let lastActiveIndex = -1;
+        let activeAnimTimeout = null;
         let timer = null;
         let isUserInteracting = false;
         let resumeTimeout = null;
@@ -557,6 +585,57 @@ document.addEventListener('DOMContentLoaded', () => {
         const READ_TIME_MS = 2200;
 
         const isMobileView = () => window.innerWidth < 992 && container.scrollWidth > container.clientWidth;
+
+        // Trigger diagonal watermark movement on the selected/scrolled card
+        const activateCard = (index, delayMs = 0) => {
+            if (activeAnimTimeout) {
+                clearTimeout(activeAnimTimeout);
+                activeAnimTimeout = null;
+            }
+            serviceCards.forEach((c, idx) => {
+                if (idx !== index) c.classList.remove('is-active');
+            });
+            const targetCard = serviceCards[index];
+            if (!targetCard) return;
+
+            if (delayMs > 0) {
+                targetCard.classList.remove('is-active');
+                activeAnimTimeout = setTimeout(() => {
+                    // Force reflow so the CSS transition always plays visibly
+                    void targetCard.offsetWidth;
+                    targetCard.classList.add('is-active');
+                }, delayMs);
+            } else {
+                targetCard.classList.remove('is-active');
+                void targetCard.offsetWidth;
+                targetCard.classList.add('is-active');
+            }
+            lastActiveIndex = index;
+        };
+
+        // Interactive hover / tap / select state on service cards
+        serviceCards.forEach((card, idx) => {
+            card.addEventListener('pointerenter', (e) => {
+                if (e.pointerType === 'mouse' && window.innerWidth < 992) {
+                    activateCard(idx, 0);
+                }
+            });
+            card.addEventListener('pointerleave', (e) => {
+                if (e.pointerType === 'mouse' && window.innerWidth >= 992) {
+                    card.classList.remove('is-active');
+                }
+            });
+            card.addEventListener('touchstart', () => {
+                if (lastActiveIndex !== idx) {
+                    activateCard(idx, 60);
+                } else {
+                    activateCard(idx, 0);
+                }
+            }, { passive: true });
+            card.addEventListener('click', () => {
+                activateCard(idx, 0);
+            });
+        });
 
         const getNearestIndex = () => {
             const scrollLeft = container.scrollLeft;
@@ -584,6 +663,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 behavior: 'smooth'
             });
             currentIndex = targetIndex;
+            activateCard(targetIndex, 220);
         };
 
         const nextSlide = () => {
@@ -622,33 +702,53 @@ document.addEventListener('DOMContentLoaded', () => {
         container.addEventListener('touchend', () => pauseAndResume(2500), { passive: true });
         container.addEventListener('pointerdown', () => pauseAndResume(), { passive: true });
 
-        // Keep currentIndex in sync when user manually scrolls
+        // Keep currentIndex and active card diagonal animation in sync when scrolling cards
         let scrollDebounce = null;
         container.addEventListener('scroll', () => {
+            if (!isMobileView()) return;
+            const nearest = getNearestIndex();
+            if (nearest !== lastActiveIndex) {
+                currentIndex = nearest;
+                activateCard(nearest, 120);
+            }
             if (isUserInteracting) {
                 if (scrollDebounce) clearTimeout(scrollDebounce);
                 scrollDebounce = setTimeout(() => {
-                    currentIndex = getNearestIndex();
+                    const settled = getNearestIndex();
+                    currentIndex = settled;
+                    if (settled !== lastActiveIndex || !serviceCards[settled]?.classList.contains('is-active')) {
+                        activateCard(settled, 0);
+                    }
                 }, 120);
             }
         }, { passive: true });
 
-        // Only auto-play when services section is on screen
+        // Only auto-play and animate when services section is on screen
         if ('IntersectionObserver' in window) {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     isVisible = entry.isIntersecting;
                     if (isVisible) {
                         currentIndex = getNearestIndex();
+                        if (isMobileView()) {
+                            activateCard(currentIndex, 200);
+                        }
                         startAutoPlay();
                     } else {
                         stopAutoPlay();
+                        if (isMobileView()) {
+                            serviceCards.forEach((c) => c.classList.remove('is-active'));
+                            lastActiveIndex = -1;
+                        }
                     }
                 });
             }, { threshold: 0.15 });
             observer.observe(servicesSection);
         } else {
             isVisible = true;
+            if (isMobileView()) {
+                activateCard(0, 200);
+            }
             startAutoPlay();
         }
 
@@ -658,6 +758,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!timer && isVisible) startAutoPlay();
             } else {
                 stopAutoPlay();
+                serviceCards.forEach((c) => c.classList.remove('is-active'));
+                lastActiveIndex = -1;
             }
         }, { passive: true });
     };

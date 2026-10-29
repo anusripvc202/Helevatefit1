@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Stories — Real Clients, Their Own Words — HELEVATE.FIT</title>
+    <meta name="description" content="Real client stories from Rajshekhar and Rajdeep on rebuilding strength and training pain-free with Helevate.fit inside their gated communities in Hyderabad.">
+
+    <!-- Favicon / Browser Tab Logo -->
+    <link rel="icon" type="image/png" href="assets/images/helevate_symbol_dark.png?v=20261029">
+    <link rel="shortcut icon" href="favicon.ico?v=20261029">
+    <link rel="apple-touch-icon" href="assets/images/helevate_symbol_dark.png?v=20261029">
+
+    <!-- Brand Typography: Inter (Headings & UI), Libre Caslon Text (Editorial Italics), Quicksand (Body & Info) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400;1,700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css?v=20261028-10">
+    <!-- Scroll-Triggered Animations (additive layer) -->
+    <link rel="stylesheet" href="css/scroll-animations.css?v=20261024-2">
+</head>
+<body data-page="stories">
+
+    <!-- Mobile Navigation Drawer & Backdrop -->
+    <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+    <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
+        <div class="mobile-nav-header">
+            <a href="./" class="brand-link mobile-brand" aria-label="HELEVATE.FIT">
+                <img src="assets/images/helevate_logo_white.png" alt="HELEVATE.FIT" class="brand-logo-img">
+            </a>
+            <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close navigation">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+        <div class="mobile-nav-body">
+            <ul class="mobile-nav-links-list">
+                <li><a href="./" data-page="home" class="mobile-nav-item"><span>01</span> Home</a></li>
+                <li><a href="community" data-page="community" class="mobile-nav-item"><span>02</span> Community</a></li>
+                <li><a href="services" data-page="services" class="mobile-nav-item"><span>03</span> Services</a></li>
+                <li><a href="how-it-works" data-page="how-it-works" class="mobile-nav-item"><span>04</span> How it works</a></li>
+                <li><a href="plans" data-page="plans" class="mobile-nav-item"><span>05</span> Plans</a></li>
+                <li><a href="team" data-page="team" class="mobile-nav-item"><span>06</span> Team</a></li>
+                <li><a href="stories" data-page="stories" class="mobile-nav-item active" aria-current="page"><span>07</span> Stories</a></li>
+            </ul>
+        </div>
+        <div class="mobile-nav-footer">
+            <a href="#consultationModal" data-bs-toggle="modal" class="btn-mobile-consult" id="mobileDrawerConsultBtn">
+                Book a Consultation <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+            <div class="mobile-nav-contact-quick">
+                <a href="tel:9963960259" class="quick-link"><i class="bi bi-telephone-fill me-1"></i> 9963960259</a>
+                <a href="https://instagram.com/helevate_fit" target="_blank" rel="noopener noreferrer" class="quick-link"><i class="bi bi-instagram me-1"></i> @helevate_fit</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="subpage-header-wrapper">
+        <div class="subpage-header-card">
+            <div class="subpage-header-inner">
+                <!-- Header / Navbar Wrapper for zero-layout-shift sticky behavior -->
+                <div class="hero-nav-wrapper" id="heroNavWrapper">
+                    <header class="hero-nav" id="mainHeaderNav">
+                        <div class="hero-nav-inner">
+                            <a href="./" class="brand-link" aria-label="HELEVATE.FIT">
+                                <img src="assets/images/helevate_logo_white.png" alt="HELEVATE.FIT" class="brand-logo-img">
+                            </a>
+
+                            <ul class="hero-nav-links">
+                                <li><a href="community" data-page="community">Community</a></li>
+                                <li><a href="services" data-page="services">Services</a></li>
+                                <li><a href="how-it-works" data-page="how-it-works">How it works</a></li>
+                                <li><a href="plans" data-page="plans">Plans</a></li>
+                                <li><a href="team" data-page="team">Team</a></li>
+                                <li><a href="stories" data-page="stories" class="active" aria-current="page">Stories</a></li>
+                            </ul>
+
+                            <div class="hero-nav-actions d-flex align-items-center gap-2">
+                                <a href="#consultationModal" data-bs-toggle="modal" class="btn-consult-nav d-none d-sm-inline-flex">
+                                    Book a Consultation
+                                </a>
+                                <a href="#consultationModal" data-bs-toggle="modal" class="btn-consult-nav-sm d-inline-flex d-sm-none">
+                                    Book
+                                </a>
+                                <button class="mobile-nav-toggle d-lg-none" type="button" aria-label="Toggle navigation" id="mobileNavToggle">
+                                    <span class="hamburger-bar"></span>
+                                    <span class="hamburger-bar"></span>
+                                    <span class="hamburger-bar"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- =====================================================================
+         PAGE 8: CLIENT STORIES
+         ===================================================================== -->
+    <section class="py-5" id="stories">
+        <div class="container py-lg-4">
+            <div class="stories-header">
+                <div class="stories-header-left">
+                    <div class="stories-pill-badge">
+                        <span class="stories-pill-dot"></span>
+                        <span>Client stories</span>
+                    </div>
+                    <h2 class="stories-heading mb-0">
+                        Real clients. <span class="font-serif-italic">Their own words.</span>
+                    </h2>
+                </div>
+                <div class="stories-nav-arrows">
+                    <button type="button" class="story-nav-btn" id="story-prev" aria-label="Previous story"><i class="bi bi-chevron-left"></i></button>
+                    <button type="button" class="story-nav-btn" id="story-next" aria-label="Next story"><i class="bi bi-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <div class="stories-slider-container">
+                <div class="stories-track" id="stories-track">
+                    <!-- Card 1: Rajshekhar -->
+                    <div class="story-card story-video-card">
+                        <img src="assets/images/client_rajshekhar.jpg" alt="Rajshekhar" class="story-card-bg-img">
+                        <div class="story-card-overlay"></div>
+                        <button type="button" class="story-play-btn play-video-trigger" data-name="Rajshekhar" data-story="Retired Chief Manager, Union Bank. Back to weight training after a disc problem." aria-label="Play Rajshekhar's story">
+                            <i class="bi bi-play-fill"></i>
+                        </button>
+                        <div class="story-card-content">
+                            <div class="story-card-quote">“The right guidance brought me back to the gym I love.”</div>
+                            <div class="story-card-name">Rajshekhar</div>
+                            <p class="story-card-desc">Retired Chief Manager, Union Bank. Back to weight training after a disc problem.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Rajdeep -->
+                    <div class="story-card story-video-card">
+                        <img src="assets/images/client_rajdeep.jpg" alt="Rajdeep" class="story-card-bg-img">
+                        <div class="story-card-overlay"></div>
+                        <div class="story-card-watermark">HELEVATE.FIT</div>
+                        <button type="button" class="story-play-btn play-video-trigger" data-name="Rajdeep" data-story="Software professional. Long desk hours brought back pain. Rehab focused sessions helped him train with confidence again." aria-label="Play Rajdeep's story">
+                            <i class="bi bi-play-fill"></i>
+                        </button>
+                        <div class="story-card-content">
+                            <div class="story-card-name">Rajdeep</div>
+                            <p class="story-card-desc">Software professional. Long desk hours brought back pain. Rehab focused sessions helped him train with confidence again.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Placeholder 1 -->
+                    <div class="story-card story-placeholder-card">
+                        <span class="story-ph-badge">PLACEHOLDER</span>
+                        <div class="story-card-content p-0">
+                            <div class="story-ph-title">
+                                <span class="story-ph-sans">Next story</span>
+                                <span class="story-ph-serif">coming soon.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Placeholder 2 -->
+                    <div class="story-card story-placeholder-card">
+                        <span class="story-ph-badge">PLACEHOLDER</span>
+                        <div class="story-card-content p-0">
+                            <div class="story-ph-title">
+                                <span class="story-ph-sans">Your story</span>
+                                <span class="story-ph-serif">could be next.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stories-pagination-bar" id="stories-pagination">
+                <span class="story-dash active" data-index="0"></span>
+                <span class="story-dash" data-index="1"></span>
+                <span class="story-dash" data-index="2"></span>
+                <span class="story-dash" data-index="3"></span>
+                <span class="story-dash" data-index="4"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expanded Section: In-Depth Client Story Profiles -->
+    <section class="py-5">
+        <div class="container py-lg-3">
+            <div class="text-center mb-5 section-header">
+                <div class="d-flex justify-content-center mb-3">
+                    <div class="section-pill">Verified Client Journeys</div>
+                </div>
+                <h2 class="section-title mb-3">
+                    Confidence rebuilt <span class="title-serif-highlight font-serif-italic">in the clubhouse.</span>
+                </h2>
+                <p class="section-subtitle mx-auto">
+                    Real stories from residents who returned to strength training and overcame pain through structured, assessment-led coaching.
+                </p>
+            </div>
+
+            <!-- Story 1: Rajshekhar -->
+            <div class="story-case-card mb-4">
+                <div class="row g-0 align-items-stretch">
+                    <div class="col-lg-5 story-case-img-col">
+                        <img src="assets/images/client_rajshekhar.jpg" alt="Rajshekhar" class="story-case-img">
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="story-case-body">
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="section-pill">CLIENT STORY 01</span>
+                                <span class="service-pill-item">Disc Recovery</span>
+                                <span class="service-pill-item">Weight Training</span>
+                            </div>
+                            <div class="story-spotlight-quote fs-3 mb-3">
+                                “The right guidance brought me back to the gym I love.”
+                            </div>
+                            <h3 class="service-title fs-3 mb-1">Rajshekhar</h3>
+                            <div class="subpage-detail-sub mb-3">Retired Chief Manager, Union Bank</div>
+                            <p class="service-desc mb-3">
+                                <strong>Background:</strong> Retired Chief Manager, Union Bank. Back to weight training after a disc problem.
+                            </p>
+                            <p class="service-desc mb-4">
+                                <strong>The Coaching Journey:</strong> Returning to resistance training after a disc problem requires careful assessment, joint-safe exercise selection, and progressive load management. With structured guidance inside his community clubhouse, Rajshekhar rebuilt his strength safely and returned to the weight training routine he enjoys.
+                            </p>
+                            <div class="d-flex flex-wrap gap-3 align-items-center">
+                                <button type="button" class="btn-pill-primary play-video-trigger" data-name="Rajshekhar" data-story="Retired Chief Manager, Union Bank. Back to weight training after a disc problem.">
+                                    <i class="bi bi-play-fill me-1"></i> Watch Rajshekhar's Story
+                                </button>
+                                <a href="#consultationModal" data-bs-toggle="modal" class="explore-card-link mt-0">
+                                    Book a Consultation <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Story 2: Rajdeep -->
+            <div class="story-case-card mb-5">
+                <div class="row g-0 align-items-stretch">
+                    <div class="col-lg-5 order-lg-2 story-case-img-col">
+                        <img src="assets/images/client_rajdeep.jpg" alt="Rajdeep" class="story-case-img">
+                    </div>
+                    <div class="col-lg-7 order-lg-1">
+                        <div class="story-case-body">
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <span class="section-pill">CLIENT STORY 02</span>
+                                <span class="service-pill-item">Back Pain Rehab</span>
+                                <span class="service-pill-item">Strength &amp; Mobility</span>
+                            </div>
+                            <div class="story-spotlight-quote fs-3 mb-3">
+                                “Rehab focused sessions helped him train with confidence again.”
+                            </div>
+                            <h3 class="service-title fs-3 mb-1">Rajdeep</h3>
+                            <div class="subpage-detail-sub mb-3">Software Professional</div>
+                            <p class="service-desc mb-3">
+                                <strong>Background:</strong> Software professional. Long desk hours brought back pain. Rehab focused sessions helped him train with confidence again.
+                            </p>
+                            <p class="service-desc mb-4">
+                                <strong>The Coaching Journey:</strong> Extended desk hours can create stiffness, core weakness, and persistent lower-back discomfort. Through rehab-focused strengthening sessions in his clubhouse, Rajdeep addressed the root movement imbalances and regained the confidence to train consistently without fear of flare-ups.
+                            </p>
+                            <div class="d-flex flex-wrap gap-3 align-items-center">
+                                <button type="button" class="btn-pill-primary play-video-trigger" data-name="Rajdeep" data-story="Software professional. Long desk hours brought back pain. Rehab focused sessions helped him train with confidence again.">
+                                    <i class="bi bi-play-fill me-1"></i> Watch Rajdeep's Story
+                                </button>
+                                <a href="#consultationModal" data-bs-toggle="modal" class="explore-card-link mt-0">
+                                    Book a Consultation <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 4 Stat Cards Sitting Directly on Pale Background Below Hero Card -->
+        <div class="container hero-stats-row">
+            <!-- Mobile "just show up / We take care of everything else" Card (Matching Reference Image) -->
+            <div class="hero-mobile-take-care-card d-lg-none">
+                <div class="sunburst-badge-wrap">
+                    <svg class="sunburst-svg" viewBox="0 0 100 100">
+                        <g stroke="#1e3a8a" stroke-width="1.2" stroke-linecap="round" opacity="0.85">
+                            <line x1="50" y1="4" x2="50" y2="12" />
+                            <line x1="50" y1="88" x2="50" y2="96" />
+                            <line x1="4" y1="50" x2="12" y2="50" />
+                            <line x1="88" y1="50" x2="96" y2="50" />
+                            <line x1="17.47" y1="17.47" x2="23.13" y2="23.13" />
+                            <line x1="76.87" y1="76.87" x2="82.53" y2="82.53" />
+                            <line x1="17.47" y1="82.53" x2="23.13" y2="76.87" />
+                            <line x1="76.87" y1="23.13" x2="82.53" y2="17.47" />
+                            <line x1="33.8" y1="7.6" x2="36.5" y2="15.1" />
+                            <line x1="66.2" y1="7.6" x2="63.5" y2="15.1" />
+                            <line x1="33.8" y1="92.4" x2="36.5" y2="84.9" />
+                            <line x1="66.2" y1="92.4" x2="63.5" y2="84.9" />
+                            <line x1="7.6" y1="33.8" x2="15.1" y2="36.5" />
+                            <line x1="7.6" y1="66.2" x2="15.1" y2="63.5" />
+                            <line x1="92.4" y1="33.8" x2="84.9" y2="36.5" />
+                            <line x1="92.4" y1="66.2" x2="84.9" y2="63.5" />
+                            <line x1="25.0" y1="11.7" x2="28.5" y2="18.9" />
+                            <line x1="75.0" y1="11.7" x2="71.5" y2="18.9" />
+                            <line x1="25.0" y1="88.3" x2="28.5" y2="81.1" />
+                            <line x1="75.0" y1="88.3" x2="71.5" y2="81.1" />
+                            <line x1="11.7" y1="25.0" x2="18.9" y2="28.5" />
+                            <line x1="11.7" y1="75.0" x2="18.9" y2="71.5" />
+                            <line x1="88.3" y1="25.0" x2="81.1" y2="28.5" />
+                            <line x1="88.3" y1="75.0" x2="81.1" y2="71.5" />
+                            <line x1="42.0" y1="5.1" x2="43.5" y2="13.0" />
+                            <line x1="58.0" y1="5.1" x2="56.5" y2="13.0" />
+                            <line x1="42.0" y1="94.9" x2="43.5" y2="87.0" />
+                            <line x1="58.0" y1="94.9" x2="56.5" y2="87.0" />
+                            <line x1="5.1" y1="42.0" x2="13.0" y2="43.5" />
+                            <line x1="5.1" y1="58.0" x2="13.0" y2="56.5" />
+                            <line x1="94.9" y1="42.0" x2="87.0" y2="43.5" />
+                            <line x1="94.9" y1="58.0" x2="87.0" y2="56.5" />
+                        </g>
+                    </svg>
+                    <span class="sunburst-center-text">just<br>show up</span>
+                </div>
+                <div class="take-care-text-col">
+                    <h3 class="nested-card-title">We take care of everything else.</h3>
+                    <p class="nested-card-desc">
+                        Assessments, workout plan, nutrition and lifestyle are on us.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-6 col-lg-3">
+                    <div class="hero-stat-card">
+                        <div class="hero-stat-heading">4 <span class="stat-italic-accent">sessions</span></div>
+                        <p class="hero-stat-text"><span class="d-none d-lg-inline">Coached every week</span><span class="d-lg-none">A week</span> in your clubhouse, or 3 if you prefer</p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="hero-stat-card">
+                        <div class="hero-stat-heading">2 <span class="stat-italic-accent">reviews</span></div>
+                        <p class="hero-stat-text">Review and follow up, twice a month</p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="hero-stat-card">
+                        <div class="hero-stat-heading">1 <span class="stat-italic-accent">team</span></div>
+                        <p class="hero-stat-text">Training, nutrition and lifestyle together</p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="hero-stat-card">
+                        <div class="hero-stat-heading">0 <span class="stat-italic-accent">commute</span></div>
+                        <p class="hero-stat-text">We serve inside your community</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- =====================================================================
+         PAGE 10: FINAL CTA & FOOTER
+         ===================================================================== -->
+    <section class="py-5" id="contact">
+        <div class="container py-lg-4">
+            <div class="final-cta-banner text-center position-relative">
+                <!-- Background Logo Watermark (Desktop: >= 992px) -->
+                <svg class="final-cta-watermark d-none d-lg-block" viewBox="0 0 360 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g stroke="rgba(165, 215, 240, 0.32)" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M 21,18.5 A 8,8 0 0 1 33,11.6 L 124.4,68.2 C 143,79.8 161,86.4 180,86.4 C 199,86.4 217,79.8 235.6,68.2 L 327,11.6 A 8,8 0 0 1 339,18.5 L 339,241.5 A 8,8 0 0 1 327,248.4 L 235.6,194.2 C 217,183.0 199,176.9 180,176.9 C 161,176.9 143,183.0 124.4,194.2 L 33,248.4 A 8,8 0 0 1 21,241.5 Z" />
+                        <path d="M 46.8,39.3 A 5.8,5.8 0 0 1 55.5,34.4 L 126.5,79.5 C 144.5,90.6 161.5,97.8 180,97.8 C 198.5,97.8 215.5,90.6 233.5,79.5 L 304.5,34.4 A 5.8,5.8 0 0 1 313.2,39.3 L 313.2,223.0 A 5.8,5.8 0 0 1 304.5,227.9 L 233.5,184.5 C 215.5,173.8 198.5,166.9 180,166.9 C 161.5,166.9 144.5,173.8 126.5,184.5 L 55.5,227.9 A 5.8,5.8 0 0 1 46.8,223.0 Z" />
+                        <path d="M 87.0,76.2 A 5.2,5.2 0 0 1 94.8,71.7 L 130.6,91.0 C 147.2,100.2 163.0,109.9 180,109.9 C 197.0,109.9 212.8,100.2 229.4,91.0 L 265.2,71.7 A 5.2,5.2 0 0 1 273.0,76.2 L 273.0,189.0 A 5.2,5.2 0 0 1 265.2,193.5 L 229.4,173.5 C 212.8,164.3 197.0,154.9 180,154.9 C 163.0,154.9 147.2,164.3 130.6,173.5 L 94.8,193.5 A 5.2,5.2 0 0 1 87.0,189.0 Z" />
+                        <polygon points="180,117.5 204,150 156,150" stroke-width="1.25" />
+                    </g>
+                </svg>
+
+                <!-- Background Logo Watermark for Mobile (< 992px) -->
+                <svg class="final-cta-watermark-mobile d-lg-none" viewBox="0 0 360 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g stroke="rgba(165, 215, 240, 0.32)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M 21,18.5 A 8,8 0 0 1 33,11.6 L 124.4,68.2 C 143,79.8 161,86.4 180,86.4 C 199,86.4 217,79.8 235.6,68.2 L 327,11.6 A 8,8 0 0 1 339,18.5 L 339,241.5 A 8,8 0 0 1 327,248.4 L 235.6,194.2 C 217,183.0 199,176.9 180,176.9 C 161,176.9 143,183.0 124.4,194.2 L 33,248.4 A 8,8 0 0 1 21,241.5 Z" />
+                        <path d="M 46.8,39.3 A 5.8,5.8 0 0 1 55.5,34.4 L 126.5,79.5 C 144.5,90.6 161.5,97.8 180,97.8 C 198.5,97.8 215.5,90.6 233.5,79.5 L 304.5,34.4 A 5.8,5.8 0 0 1 313.2,39.3 L 313.2,223.0 A 5.8,5.8 0 0 1 304.5,227.9 L 233.5,184.5 C 215.5,173.8 198.5,166.9 180,166.9 C 161.5,166.9 144.5,173.8 126.5,184.5 L 55.5,227.9 A 5.8,5.8 0 0 1 46.8,223.0 Z" />
+                        <path d="M 87.0,76.2 A 5.2,5.2 0 0 1 94.8,71.7 L 130.6,91.0 C 147.2,100.2 163.0,109.9 180,109.9 C 197.0,109.9 212.8,100.2 229.4,91.0 L 265.2,71.7 A 5.2,5.2 0 0 1 273.0,76.2 L 273.0,189.0 A 5.2,5.2 0 0 1 265.2,193.5 L 229.4,173.5 C 212.8,164.3 197.0,154.9 180,154.9 C 163.0,154.9 147.2,164.3 130.6,173.5 L 94.8,193.5 A 5.2,5.2 0 0 1 87.0,189.0 Z" />
+                        <polygon points="180,117.5 204,150 156,150" stroke-width="1.35" />
+                    </g>
+                </svg>
+
+                <div class="final-cta-content position-relative" style="z-index: 2;">
+                    <div class="cta-pill-badge mb-3">
+                        <span class="cta-pill-dot"></span>
+                        <span>Book a Consultation</span>
+                    </div>
+                    <h2 class="final-cta-heading text-white mb-0">
+                        <span class="d-none d-lg-inline">Your strongest years<br><span class="font-serif-italic">can start now.</span></span>
+                        <span class="d-lg-none">Your strongest<br>years<br><span class="font-serif-italic">can start now.</span></span>
+                    </h2>
+                    <p class="final-cta-subtext mx-auto">
+                        We serve inside your community. All you need to do is show up.
+                    </p>
+
+                    <div class="contact-pill-box">
+                        <div class="contact-box-left">
+                            <span class="d-none d-lg-inline">DM us to get started<br>with <strong>Helevate Training.</strong></span>
+                            <span class="d-lg-none">DM us to get started with <strong>Helevate Training.</strong></span>
+                        </div>
+                        <div class="contact-box-divider"></div>
+                        <div class="contact-box-right">
+                            <span class="contact-box-label">Book a Consultation</span>
+                            <a href="tel:9963960259" class="contact-box-phone">9963960259</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Site Footer / Stronger for longer section -->
+            <footer class="site-footer pt-5 mt-4" id="siteFooter">
+                <div class="footer-tagline-row mb-3">
+                    <span class="footer-tag-brand">Helevate.fit</span>
+                    <span class="footer-tag-dot">&middot;</span>
+                    <span class="footer-tag-italic font-serif-italic">Elevating performance and lifestyle.</span>
+                </div>
+
+                <div class="giant-footer-title mb-4">
+                    Stronger <span class="font-serif-italic">for</span><br><span class="font-serif-italic">longer.</span>
+                </div>
+
+                <div class="footer-divider-line"></div>
+
+                <!-- Desktop Footer Columns (>= 992px) - 100% PRESERVED FOR LAPTOP VIEW -->
+                <div class="footer-cols-row row g-4 align-items-start d-none d-lg-flex">
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <div class="footer-brand-header mb-3">
+                            <a href="./" class="brand-link" aria-label="HELEVATE.FIT">
+                                <img src="assets/images/helevate_logo_dark.png" alt="HELEVATE.FIT" class="footer-desktop-logo-img">
+                            </a>
+                        </div>
+                        <p class="footer-brand-desc mb-0">
+                            Elevating performance and lifestyle. Science led fitness coaching, served inside gated communities in Hyderabad.
+                        </p>
+                    </div>
+
+                    <div class="col-6 col-md-2 col-lg-2">
+                        <div class="footer-col-label">CALL</div>
+                        <a href="tel:9963960259" class="footer-col-val">9963960259</a>
+                    </div>
+
+                    <div class="col-6 col-md-3 col-lg-3">
+                        <div class="footer-col-label">WEBSITE</div>
+                        <a href="https://helevatefit.com" target="_blank" rel="noopener noreferrer" class="footer-col-val">helevatefit.com</a>
+                    </div>
+
+                    <div class="col-6 col-md-3 col-lg-3">
+                        <div class="footer-col-label">INSTAGRAM</div>
+                        <a href="https://instagram.com/helevate_fit" target="_blank" rel="noopener noreferrer" class="footer-col-val">@helevate_fit</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Contacts List (< 992px) matching given image -->
+                <div class="footer-contacts-list d-lg-none">
+                    <div class="footer-contact-row">
+                        <span class="footer-col-label">CALL</span>
+                        <a href="tel:9963960259" class="footer-col-val">9963960259</a>
+                    </div>
+
+                    <div class="footer-contact-row">
+                        <span class="footer-col-label">WEBSITE</span>
+                        <a href="https://helevatefit.com" target="_blank" rel="noopener noreferrer" class="footer-col-val">helevatefit.com</a>
+                    </div>
+
+                    <div class="footer-contact-row">
+                        <span class="footer-col-label">INSTAGRAM</span>
+                        <a href="https://instagram.com/helevate_fit" target="_blank" rel="noopener noreferrer" class="footer-col-val">@helevate_fit</a>
+                    </div>
+                </div>
+
+                <!-- Desktop copyright row (>= 992px) - 100% PRESERVED FOR LAPTOP VIEW -->
+                <div class="footer-copyright-row d-none d-lg-flex justify-content-between align-items-center">
+                    <div class="footer-copyright-text">&copy; Helevate.fit, Hyderabad</div>
+                    <div class="footer-copyright-note">Designed by "The Patterns Company"</div>
+                </div>
+
+                <!-- Mobile copyright row (< 992px) matching given image -->
+                <div class="footer-mobile-bottom-row d-flex d-lg-none flex-column align-items-start">
+                    <div class="footer-brand-bottom">
+                        <img src="assets/images/helevate_logo_dark.png" alt="HELEVATE.FIT" class="footer-real-logo-img">
+                        <div class="footer-copyright-text">&copy; Helevate.fit, Hyderabad</div>
+                    </div>
+                    <div class="footer-copyright-note">Designed by "The Patterns Company"</div>
+                </div>
+            </footer>
+        </div>
+    </section>
+
+
+    <!-- =====================================================================
+         CONSULTATION BOOKING MODAL
+         ===================================================================== -->
+    <div class="modal fade" id="consultationModal" tabindex="-1" aria-labelledby="consultationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-content-custom">
+                <div class="modal-header border-bottom border-secondary pb-3">
+                    <div>
+                        <h3 class="modal-title fs-5 fw-bold text-white" id="consultationModalLabel">Book a Consultation</h3>
+                        <p class="text-navy-muted small mb-0">Coach Harish comes to your clubhouse in Hyderabad.</p>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body py-4">
+                    <div id="formFeedback" class="mb-3 d-none"></div>
+
+                    <form id="consultationForm" novalidate>
+                        <div class="mb-3">
+                            <label for="consultName" class="form-label text-navy-light small fw-medium">Your Name <span class="text-danger">*</span></label>
+                            <input type="text" id="consultName" name="name" class="form-control form-control-custom" placeholder="e.g. Ramesh Varma" required>
+                            <div class="invalid-feedback text-danger small mt-1" id="nameFeedback">Please enter your name.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="consultPhone" class="form-label text-navy-light small fw-medium">Phone Number <span class="text-danger">*</span></label>
+                            <input type="tel" id="consultPhone" name="phone" class="form-control form-control-custom" placeholder="e.g. 9963960259" required>
+                            <div class="invalid-feedback text-danger small mt-1" id="phoneFeedback">Please enter a valid 10-digit phone number.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="consultCommunity" class="form-label text-navy-light small fw-medium">Gated Community / Apartment Complex <span class="text-danger">*</span></label>
+                            <input type="text" id="consultCommunity" name="community" class="form-control form-control-custom" placeholder="e.g. My Home Bhooja, Aparna Sarovar, etc." required>
+                            <div class="invalid-feedback text-danger small mt-1" id="communityFeedback">Please specify your gated community or apartment.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="consultGoal" class="form-label text-navy-light small fw-medium">Primary Goal / Service</label>
+                            <select id="consultGoal" name="goal" class="form-select form-control-custom" style="background-color: #0b203c;">
+                                <option value="Strength Training (Built to last)">Strength Training (Built to last)</option>
+                                <option value="Obese to Fit (Fat loss & lifestyle)">Obese to Fit (Fat loss & lifestyle)</option>
+                                <option value="Physio Rehab & Pain Relief">Physio Rehab & Pain Relief</option>
+                                <option value="Sports & Performance Training">Sports & Performance Training</option>
+                                <option value="Baseline Strength & Body Assessment">Baseline Strength & Body Assessment</option>
+                                <option value="General Health & Longevity">General Health & Longevity</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-navy-light small fw-medium">Preferred Schedule</label>
+                            <div class="d-flex gap-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="schedulePref" id="pref4" value="4 days a week" checked>
+                                    <label class="form-check-label text-white small" for="pref4">4 days a week</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="schedulePref" id="pref3" value="3 days a week">
+                                    <label class="form-check-label text-white small" for="pref3">3 days a week</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="consultMessage" class="form-label text-navy-light small fw-medium">Message / Specific Requirements (Optional)</label>
+                            <textarea id="consultMessage" name="message" class="form-control form-control-custom" rows="2" placeholder="Any specific injuries, timing preferences, or questions..."></textarea>
+                        </div>
+                        <button type="submit" id="consultSubmitBtn" class="btn-pill-primary w-100 justify-content-center py-3">
+                            <i class="bi bi-whatsapp me-2 fs-5"></i> Connect on WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =====================================================================
+         VIDEO MODAL
+         ===================================================================== -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content modal-content-custom">
+                <div class="modal-header border-bottom border-secondary">
+                    <h3 class="modal-title fs-5 fw-bold text-white" id="videoModalLabel">Client Story</h3>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 text-center">
+                    <div class="rounded-4 overflow-hidden bg-dark position-relative p-5 mb-3 border border-secondary" style="min-height: 320px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <i class="bi bi-play-circle-fill text-white display-1 mb-3" style="opacity: 0.85;"></i>
+                        <h4 class="text-white fs-4 fw-semibold mb-2">Transformation & Coaching Feedback</h4>
+                        <p class="text-navy-muted small" id="videoModalDesc">Detailed feedback recorded in clubhouse session.</p>
+                        <span class="badge bg-primary px-3 py-2 rounded-pill">Coached inside gated community</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/main.js?v=20261028-3"></script>
+    <script src="js/scroll-animations.js?v=20261024-10"></script>
+</body>
+</html>
