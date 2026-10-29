@@ -1485,32 +1485,144 @@
                     The people <span class="font-serif-italic">behind your progress.</span>
                 </h2>
                 <svg class="team-curve-underline" viewBox="0 0 160 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 4,10 Q 80,2 156,10" stroke="#4a6899" stroke-width="1.6" stroke-linecap="round" />
+                    <path d="M 4,10 Q 80,2 156,10" stroke="#4a6899" stroke-width="1.6" stroke-linecap="round"/>
                 </svg>
             </div>
 
             <!-- =========================================================
-                 UNIFIED STAGGERED 2-ROW / COLUMN TEAM LAYOUT (Laptop & Mobile)
+                 DESKTOP / LAPTOP VIEW (>= 992px) - 100% PRESERVED
                  ========================================================= -->
-            <div class="team-mobile-carousel">
+            <div class="row g-4 align-items-stretch d-none d-lg-flex">
+                <!-- Founder Card (Left) -->
+                <div class="col-lg-4">
+                    <div class="founder-tall-card">
+                        <!-- Top-left Circular Emblem Logo (Desktop) -->
+                        <div class="founder-emblem-circle">
+                            <svg class="founder-logo-svg" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" fill="#ffffff" d="M 5,3 C 5,1.8 6.2,1.2 7.8,1.2 C 12,1.2 13.2,7 16,7 C 18.8,7 20,1.2 24.2,1.2 C 25.8,1.2 27,1.8 27,3 L 27,23 C 27,24.2 25.8,24.8 24.2,24.8 C 20,24.8 18.8,19 16,19 C 13.2,19 12,24.8 7.8,24.8 C 6.2,24.8 5,24.2 5,23 Z M 16,10.2 L 19.8,17 L 12.2,17 Z" />
+                            </svg>
+                        </div>
+
+                        <!-- Transparent concentric wireframe logo watermark in background -->
+                        <div class="founder-card-watermark">
+                            <svg class="founder-watermark-svg" viewBox="0 0 360 260" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g stroke="#D8F0F2" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M 21,18.5 A 8,8 0 0 1 33,11.6 L 124.4,68.2 C 143,79.8 161,86.4 180,86.4 C 199,86.4 217,79.8 235.6,68.2 L 327,11.6 A 8,8 0 0 1 339,18.5 L 339,241.5 A 8,8 0 0 1 327,248.4 L 235.6,194.2 C 217,183.0 199,176.9 180,176.9 C 161,176.9 143,183.0 124.4,194.2 L 33,248.4 A 8,8 0 0 1 21,241.5 Z" />
+                                    <path d="M 46.8,39.3 A 5.8,5.8 0 0 1 55.5,34.4 L 126.5,79.5 C 144.5,90.6 161.5,97.8 180,97.8 C 198.5,97.8 215.5,90.6 233.5,79.5 L 304.5,34.4 A 5.8,5.8 0 0 1 313.2,39.3 L 313.2,223.0 A 5.8,5.8 0 0 1 304.5,227.9 L 233.5,184.5 C 215.5,173.8 198.5,166.9 180,166.9 C 161.5,166.9 144.5,173.8 126.5,184.5 L 55.5,227.9 A 5.8,5.8 0 0 1 46.8,223.0 Z" />
+                                    <path d="M 87.0,76.2 A 5.2,5.2 0 0 1 94.8,71.7 L 130.6,91.0 C 147.2,100.2 163.0,109.9 180,109.9 C 197.0,109.9 212.8,100.2 229.4,91.0 L 265.2,71.7 A 5.2,5.2 0 0 1 273.0,76.2 L 273.0,189.0 A 5.2,5.2 0 0 1 265.2,193.5 L 229.4,173.5 C 212.8,164.3 197.0,154.9 180,154.9 C 163.0,154.9 147.2,164.3 130.6,173.5 L 94.8,193.5 A 5.2,5.2 0 0 1 87.0,189.0 Z" />
+                                    <polygon points="180,117.5 204,150 156,150" stroke-width="1.35" />
+                                </g>
+                            </svg>
+                        </div>
+
+                        <!-- Desktop Info at Bottom -->
+                        <div class="founder-info-content">
+                            <div class="founder-tag">FOUNDER</div>
+                            <h3 class="founder-name">Harish</h3>
+                            <div class="founder-role font-serif-italic">Health and Performance Coach</div>
+                            <p class="founder-bio">
+                                The mind behind Helevate. Harish built Helevate to bring structured, measured coaching into the communities where people live.
+                            </p>
+                            <div class="founder-certs-row">
+                                <span class="founder-cert-pill">IAFM certified</span>
+                                <span class="founder-cert-pill">ACE certified</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2x2 Coach Cards (Right) -->
+                <div class="col-lg-8">
+                    <div class="row g-3 h-100">
+                        <!-- Coach 1 -->
+                        <div class="col-sm-6">
+                            <div class="coach-portrait-card">
+                                <div class="coach-photo-box">
+                                    <span class="photo-coming-badge">PHOTO COMING SOON</span>
+                                    <svg class="coach-avatar-silhouette" viewBox="0 0 48 48" fill="none" stroke="#254d75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="24" cy="18" r="6"/>
+                                        <path d="M 14,35 C 14,28 18.5,25 24,25 C 29.5,25 34,28 34,35"/>
+                                    </svg>
+                                </div>
+                                <div class="coach-info-box">
+                                    <h4 class="coach-name">Coach</h4>
+                                    <div class="coach-spec">Strength and conditioning</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Coach 2 -->
+                        <div class="col-sm-6">
+                            <div class="coach-portrait-card">
+                                <div class="coach-photo-box">
+                                    <span class="photo-coming-badge">PHOTO COMING SOON</span>
+                                    <svg class="coach-avatar-silhouette" viewBox="0 0 48 48" fill="none" stroke="#254d75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="24" cy="18" r="6"/>
+                                        <path d="M 14,35 C 14,28 18.5,25 24,25 C 29.5,25 34,28 34,35"/>
+                                    </svg>
+                                </div>
+                                <div class="coach-info-box">
+                                    <h4 class="coach-name">Coach</h4>
+                                    <div class="coach-spec">Nutrition and lifestyle</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Coach 3 -->
+                        <div class="col-sm-6">
+                            <div class="coach-portrait-card">
+                                <div class="coach-photo-box">
+                                    <span class="photo-coming-badge">PHOTO COMING SOON</span>
+                                    <svg class="coach-avatar-silhouette" viewBox="0 0 48 48" fill="none" stroke="#254d75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="24" cy="18" r="6"/>
+                                        <path d="M 14,35 C 14,28 18.5,25 24,25 C 29.5,25 34,28 34,35"/>
+                                    </svg>
+                                </div>
+                                <div class="coach-info-box">
+                                    <h4 class="coach-name">Coach</h4>
+                                    <div class="coach-spec">Rehab and strengthening</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Coach 4 -->
+                        <div class="col-sm-6">
+                            <div class="coach-portrait-card">
+                                <div class="coach-photo-box">
+                                    <span class="photo-coming-badge">PHOTO COMING SOON</span>
+                                    <svg class="coach-avatar-silhouette" viewBox="0 0 48 48" fill="none" stroke="#254d75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="24" cy="18" r="6"/>
+                                        <path d="M 14,35 C 14,28 18.5,25 24,25 C 29.5,25 34,28 34,35"/>
+                                    </svg>
+                                </div>
+                                <div class="coach-info-box">
+                                    <h4 class="coach-name">Coach</h4>
+                                    <div class="coach-spec">Performance training</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- =========================================================
+                 MOBILE VIEW (< 992px) - Staggered 2-Row / Column Carousel
+                 ========================================================= -->
+            <div class="team-mobile-carousel d-lg-none">
                 <div class="team-mobile-track">
                     <!-- Column 1: Profile (UP) + Badge (DOWN) -->
                     <div class="team-stagger-col">
                         <!-- UP: Founder Harish -->
                         <div class="team-profile-card">
                             <div class="profile-card-image-layer">
-                                <img src="assets/images/coach_harish.jpg"
-                                    alt="Harish - Founder &amp; Health and Performance Coach" class="profile-card-photo"
-                                    loading="lazy" />
+                                <img src="assets/images/coach_harish.jpg" alt="Harish - Founder &amp; Health and Performance Coach" class="profile-card-photo" loading="lazy" />
                                 <div class="profile-card-gradient-overlay"></div>
                             </div>
                             <div class="profile-card-top-bar">
                                 <div class="profile-card-badge-pill founder-pill">
                                     <div class="founder-emblem-mini">
-                                        <svg class="founder-logo-svg" viewBox="0 0 32 26" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" fill="#ffffff"
-                                                d="M 5,3 C 5,1.8 6.2,1.2 7.8,1.2 C 12,1.2 13.2,7 16,7 C 18.8,7 20,1.2 24.2,1.2 C 25.8,1.2 27,1.8 27,3 L 27,23 C 27,24.2 25.8,24.8 24.2,24.8 C 20,24.8 18.8,19 16,19 C 13.2,19 12,24.8 7.8,24.8 C 6.2,24.8 5,24.2 5,23 Z M 16,10.2 L 19.8,17 L 12.2,17 Z" />
+                                        <svg class="founder-logo-svg" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" fill="#ffffff" d="M 5,3 C 5,1.8 6.2,1.2 7.8,1.2 C 12,1.2 13.2,7 16,7 C 18.8,7 20,1.2 24.2,1.2 C 25.8,1.2 27,1.8 27,3 L 27,23 C 27,24.2 25.8,24.8 24.2,24.8 C 20,24.8 18.8,19 16,19 C 13.2,19 12,24.8 7.8,24.8 C 6.2,24.8 5,24.2 5,23 Z M 16,10.2 L 19.8,17 L 12.2,17 Z" />
                                         </svg>
                                     </div>
                                     <span class="profile-tag-label">FOUNDER</span>
@@ -1551,10 +1663,9 @@
                         <!-- DOWN: Coach 1 -->
                         <div class="team-profile-card">
                             <div class="profile-card-image-layer coach-placeholder-bg">
-                                <svg class="profile-avatar-silhouette" viewBox="0 0 48 48" fill="none" stroke="#d8f0f2"
-                                    stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="24" cy="18" r="6" />
-                                    <path d="M 14,35 C 14,28 18.5,25 24,25 C 29.5,25 34,28 34,35" />
+                                <svg class="profile-avatar-silhouette" viewBox="0 0 48 48" fill="none" stroke="#d8f0f2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="24" cy="18" r="6"/>
+                                    <path d="M 14,35 C 14,28 18.5,25 24,25 C 29.5,25 34,28 34,35"/>
                                 </svg>
                                 <div class="profile-card-gradient-overlay"></div>
                             </div>
@@ -1580,10 +1691,9 @@
                         <!-- UP: Coach 2 -->
                         <div class="team-profile-card">
                             <div class="profile-card-image-layer coach-placeholder-bg">
-                                <svg class="profile-avatar-silhouette" viewBox="0 0 48 48" fill="none" stroke="#d8f0f2"
-                                    stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="24" cy="18" r="6" />
-                                    <path d="M 14,35 C 14,28 18.5,25 24,25 C 29.5,25 34,28 34,35" />
+                                <svg class="profile-avatar-silhouette" viewBox="0 0 48 48" fill="none" stroke="#d8f0f2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="24" cy="18" r="6"/>
+                                    <path d="M 14,35 C 14,28 18.5,25 24,25 C 29.5,25 34,28 34,35"/>
                                 </svg>
                                 <div class="profile-card-gradient-overlay"></div>
                             </div>
@@ -1606,8 +1716,7 @@
                         <!-- DOWN: Short Badge 3 -->
                         <div class="team-badge-card">
                             <div class="badge-card-tag-pill">METHODOLOGY</div>
-                            <div class="badge-card-main-title"><span class="badge-serif-accent">Measured,</span> not
-                                guessed.</div>
+                            <div class="badge-card-main-title"><span class="badge-serif-accent">Measured,</span> not guessed.</div>
                             <p class="badge-card-sub-text">Data-driven health protocols</p>
                         </div>
                     </div>
@@ -1624,10 +1733,9 @@
                         <!-- DOWN: Coach 3 -->
                         <div class="team-profile-card">
                             <div class="profile-card-image-layer coach-placeholder-bg">
-                                <svg class="profile-avatar-silhouette" viewBox="0 0 48 48" fill="none" stroke="#d8f0f2"
-                                    stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="24" cy="18" r="6" />
-                                    <path d="M 14,35 C 14,28 18.5,25 24,25 C 29.5,25 34,28 34,35" />
+                                <svg class="profile-avatar-silhouette" viewBox="0 0 48 48" fill="none" stroke="#d8f0f2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="24" cy="18" r="6"/>
+                                    <path d="M 14,35 C 14,28 18.5,25 24,25 C 29.5,25 34,28 34,35"/>
                                 </svg>
                                 <div class="profile-card-gradient-overlay"></div>
                             </div>
@@ -1653,10 +1761,9 @@
                         <!-- UP: Coach 4 -->
                         <div class="team-profile-card">
                             <div class="profile-card-image-layer coach-placeholder-bg">
-                                <svg class="profile-avatar-silhouette" viewBox="0 0 48 48" fill="none" stroke="#d8f0f2"
-                                    stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="24" cy="18" r="6" />
-                                    <path d="M 14,35 C 14,28 18.5,25 24,25 C 29.5,25 34,28 34,35" />
+                                <svg class="profile-avatar-silhouette" viewBox="0 0 48 48" fill="none" stroke="#d8f0f2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="24" cy="18" r="6"/>
+                                    <path d="M 14,35 C 14,28 18.5,25 24,25 C 29.5,25 34,28 34,35"/>
                                 </svg>
                                 <div class="profile-card-gradient-overlay"></div>
                             </div>
