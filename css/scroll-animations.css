@@ -62,6 +62,18 @@
     .reveal-item.sa-armed {
         transition-duration: 0.8s;
     }
+
+    /* Keep horizontal carousel cards (including peeking neighbour cards) 100% visible on mobile */
+    #plansCardsRow > .reveal-item.sa-armed,
+    #plansCardsRow > .reveal-item.sa-armed:not(.sa-in),
+    .team-mobile-track .reveal-item.sa-armed,
+    .team-mobile-track .reveal-item.sa-armed:not(.sa-in),
+    .stories-track .reveal-item.sa-armed,
+    .stories-track .reveal-item.sa-armed:not(.sa-in) {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+    }
 }
 
 /* --------------------------------------------------------------------------

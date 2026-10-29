@@ -88,7 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const el = entry.target;
             if (entry.isIntersecting) {
                 el.classList.add('sa-in');
-            } else if (entry.boundingClientRect.top > 0) {
+                const track = el.closest('#plansCardsRow, .team-mobile-track, .stories-track');
+                if (track) {
+                    track.querySelectorAll('.reveal-item').forEach((item) => item.classList.add('sa-in', 'is-revealed'));
+                }
+            } else if (entry.boundingClientRect.top >= window.innerHeight) {
                 // Element is below the viewport again (user scrolled up) → replay later
                 el.classList.remove('sa-in');
             }

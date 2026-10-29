@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (document.querySelector('.hero-left-col')) {
             heroTl
                 .from('.hero-left-col', { opacity: 0, x: isMobileScreen ? 0 : -30, duration: 0.7 }, '-=0.4')
-                .from('.hero-center-area', { opacity: 0, y: isMobileScreen ? 0 : 30, duration: 0.7, clearProps: 'all' }, '-=0.4');
+                .from('.hero-center-area', { opacity: 0, y: 0, duration: 0.7, clearProps: 'all' }, '-=0.4');
         }
         if (document.querySelector('.hero-bottom-nested-card')) {
             heroTl.from('.hero-bottom-nested-card', { opacity: 0, y: 20, duration: 0.65, ease: 'power2.out', clearProps: 'all' }, '-=0.3');
@@ -121,10 +121,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         obs.unobserve(target);
 
                         // If element is part of a horizontal carousel (team coaches or client stories), reveal all carousel cards
-                        const carouselParent = target.closest('.stories-track, .coach-cards-row');
+                        const carouselParent = target.closest('.stories-track, .coach-cards-row, #plansCardsRow, .team-mobile-track');
                         if (carouselParent) {
-                            carouselParent.querySelectorAll('.story-card, .coach-portrait-card').forEach((card) => {
-                                card.classList.add('is-revealed');
+                            carouselParent.querySelectorAll('.reveal-item, .story-card, .coach-portrait-card').forEach((card) => {
+                                card.classList.add('is-revealed', 'sa-in');
                                 obs.unobserve(card);
                             });
                         }
@@ -765,5 +765,151 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     initServicesMobileSlider();
+
+    // =========================================================================
+    // Mobile-only auto-scrolling carousels (Plans, Team, Stories)
+    // Active only on screens < 992px; laptop view is untouched.
+    // =========================================================================
+    const initMobileAutoCarousel = (container, getItems, options = {}) => {
+        if (!container) return null;
+        const interval = options.interval || 3200;
+        const align = options.align || 'start';
+        let index = options.startIndex || 0;
+        let timer = null;
+        let resumeTimeout = null;
+        let interacting = false;
+        let visible = false;
+
+        const isMobile = () => window.innerWidth < 992 && container.scrollWidth > container.clientWidth + 4;
+        const items = () => Array.from(getItems()).filter((el) => el.offsetParent !== null);
+
+        const targetLeftFor = (el) => {
+            const cRect = container.getBoundingClientRect();
+            const eRect = el.getBoundingClientRect();
+            let left = container.scrollLeft + (eRect.left - cRect.left);
+            if (align === 'center') {
+                left -= (container.clientWidth - eRect.width) / 2;
+            } else if (align === 'end') {
+                left -= 106;
+            } else {
+                left -= parseFloat(getComputedStyle(container).paddingLeft) || 0;
+            }
+            return Math.max(0, Math.min(left, container.scrollWidth - container.clientWidth));
+        };
+
+        const nearestIndex = () => {
+            const list = items();
+            let best = 0;
+            let min = Infinity;
+            list.forEach((el, i) => {
+                const d = Math.abs(targetLeftFor(el) - container.scrollLeft);
+                if (d < min) { min = d; best = i; }
+            });
+            return best;
+        };
+
+        const goTo = (i, smooth = true) => {
+            const list = items();
+            if (!list.length || !isMobile()) return;
+            index = ((i % list.length) + list.length) % list.length;
+            container.scrollTo({ left: targetLeftFor(list[index]), behavior: smooth ? 'smooth' : 'auto' });
+            if (options.onChange) options.onChange(index);
+        };
+
+        const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+        const start = () => {
+            stop();
+            if (!isMobile() || !visible || interacting) return;
+            timer = setInterval(() => goTo(index + 1), interval);
+        };
+        const pause = (delay = 3500) => {
+            interacting = true;
+            stop();
+            if (resumeTimeout) clearTimeout(resumeTimeout);
+            resumeTimeout = setTimeout(() => {
+                interacting = false;
+                index = nearestIndex();
+                start();
+            }, delay);
+        };
+
+        container.addEventListener('touchstart', () => pause(), { passive: true });
+        container.addEventListener('touchmove', () => pause(), { passive: true });
+        container.addEventListener('pointerdown', () => pause(), { passive: true });
+
+        let scrollT = null;
+        container.addEventListener('scroll', () => {
+            if (!isMobile()) return;
+            if (scrollT) clearTimeout(scrollT);
+            scrollT = setTimeout(() => {
+                const n = nearestIndex();
+                if (n !== index && interacting) {
+                    index = n;
+                    if (options.onChange) options.onChange(index);
+                }
+            }, 120);
+        }, { passive: true });
+
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    visible = entry.isIntersecting;
+                    if (visible) start(); else stop();
+                });
+            }, { threshold: 0.25 }).observe(container);
+        } else {
+            visible = true;
+        }
+
+        window.addEventListener('resize', () => {
+            if (isMobile()) { if (!timer) start(); } else { stop(); }
+        }, { passive: true });
+
+        // Initial position (instant, no animation)
+        if (options.startIndex) {
+            requestAnimationFrame(() => goTo(options.startIndex, false));
+        }
+
+        return { goTo, pause };
+    };
+
+    // Plans: tabs + auto-scroll (starts on the featured "Coaching" card)
+    const plansRow = document.getElementById('plansCardsRow');
+    const planTabs = document.querySelectorAll('.plans-tab-btn');
+    if (plansRow) {
+        const setActiveTab = (i) => {
+            planTabs.forEach((btn) => btn.classList.toggle('active', Number(btn.dataset.planIndex) === i));
+        };
+        const plansCarousel = initMobileAutoCarousel(
+            plansRow,
+            () => plansRow.querySelectorAll(':scope > .col-lg-4'),
+            { align: 'end', startIndex: 1, interval: 3400, onChange: setActiveTab }
+        );
+        planTabs.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                if (!plansCarousel) return;
+                plansCarousel.pause(5000);
+                plansCarousel.goTo(Number(btn.dataset.planIndex));
+            });
+        });
+    }
+
+    // Team: auto-scroll staggered columns
+    const teamTrack = document.querySelector('.team-mobile-track');
+    if (teamTrack) {
+        initMobileAutoCarousel(teamTrack, () => teamTrack.querySelectorAll(':scope > .team-stagger-col'), {
+            align: 'start',
+            interval: 3000
+        });
+    }
+
+    // Stories: auto-scroll story cards (dashes sync via existing scroll handler)
+    const storiesScroller = document.querySelector('.stories-slider-container');
+    if (storiesScroller) {
+        initMobileAutoCarousel(storiesScroller, () => storiesScroller.querySelectorAll('.story-card'), {
+            align: 'center',
+            interval: 3000
+        });
+    }
 });
 
