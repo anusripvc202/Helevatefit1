@@ -902,6 +902,15 @@ document.addEventListener('DOMContentLoaded', () => {
             interval: 3000
         });
     }
+    // Genetic Consultants (mobile): auto-scroll side-by-side cards
+    const geneticTrack = document.getElementById('geneticMobileTrack');
+    if (geneticTrack) {
+        initMobileAutoCarousel(geneticTrack, () => geneticTrack.querySelectorAll(':scope > .genetic-mobile-slide'), {
+            align: 'start',
+            interval: 2600
+        });
+    }
+
 
     // Stories: auto-scroll story cards (dashes sync via existing scroll handler)
     const storiesScroller = document.querySelector('.stories-slider-container');

@@ -476,10 +476,16 @@ section[id],
 }
 .mobile-nav-item span {
     font-family: monospace;
-    font-size: 0.72rem;
-    color: var(--brand-mint-accent);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #D8F0F2 !important;
     letter-spacing: 0.05em;
-    opacity: 0.85;
+    opacity: 0.92;
+}
+.mobile-nav-item.active span,
+.mobile-nav-item:hover span {
+    color: #ffffff !important;
+    opacity: 1;
 }
 .mobile-nav-item:hover,
 .mobile-nav-item:active {
@@ -3507,6 +3513,222 @@ section[id],
     color: #5c7c91;
     font-weight: 500;
     margin: 0;
+}
+
+
+/* =========================================================================
+   Desktop-Only Genetic Consultants Staggered Cards (>= 992px)
+   Matches the first reference image card style without touching mobile view
+   ========================================================================= */
+@media (min-width: 992px) {
+    .genetic-consultants-desktop .genetic-stagger-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .genetic-consultants-desktop .team-stagger-col {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        min-width: 0;
+    }
+
+    .genetic-consultants-desktop .team-profile-card {
+        background: #081e30;
+        border-radius: 22px;
+        height: 360px;
+        min-height: 360px;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(221, 241, 239, 0.18);
+        box-shadow: 0 12px 32px rgba(7, 25, 41, 0.22);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .genetic-consultants-desktop .team-profile-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 44px rgba(7, 25, 41, 0.36);
+        border-color: rgba(221, 241, 239, 0.35);
+    }
+
+    .genetic-consultants-desktop .profile-card-image-layer {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    .genetic-consultants-desktop .coach-placeholder-bg {
+        background: radial-gradient(135% 120% at 20% 15%, #163e63 0%, #0d2842 55%, #071929 100%);
+    }
+
+    .genetic-consultants-desktop .profile-card-gradient-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            180deg,
+            rgba(7, 25, 41, 0.40) 0%,
+            rgba(7, 25, 41, 0.08) 25%,
+            rgba(7, 25, 41, 0.30) 48%,
+            rgba(7, 25, 41, 0.90) 72%,
+            rgba(7, 25, 41, 0.98) 96%
+        );
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    .genetic-consultants-desktop .profile-avatar-silhouette {
+        position: absolute;
+        top: 38%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 78px;
+        height: 78px;
+        stroke: rgba(216, 240, 242, 0.22);
+        stroke-width: 1.5;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .genetic-consultants-desktop .profile-card-top-bar {
+        position: relative;
+        z-index: 3;
+        padding: 16px 16px 0 16px;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .genetic-consultants-desktop .profile-card-badge-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(8, 30, 48, 0.65);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px dashed rgba(255, 255, 255, 0.35);
+        border-radius: 9999px;
+        padding: 5px 12px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    .genetic-consultants-desktop .profile-tag-label {
+        font-family: var(--font-sans);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        color: #d8f0f2;
+        text-transform: uppercase;
+    }
+
+    .genetic-consultants-desktop .profile-card-content-box {
+        position: relative;
+        z-index: 3;
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .genetic-consultants-desktop .profile-card-quote {
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        line-height: 1.38;
+        color: #f1f7f9;
+        font-weight: 500;
+        margin-bottom: 0;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+        letter-spacing: -0.01em;
+    }
+
+    .genetic-consultants-desktop .profile-card-identity {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .genetic-consultants-desktop .profile-card-name {
+        font-family: var(--font-sans);
+        font-size: 1.45rem;
+        font-weight: 600;
+        color: #ffffff;
+        line-height: 1.12;
+        letter-spacing: -0.02em;
+        margin: 0;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    }
+
+    .genetic-consultants-desktop .profile-card-role {
+        font-family: var(--font-serif);
+        font-style: italic;
+        font-weight: 400;
+        font-size: 0.92rem;
+        color: #d8f0f2;
+        line-height: 1.25;
+        margin: 0;
+    }
+
+    .genetic-consultants-desktop .team-badge-card {
+        background: #f7f3ea;
+        border-radius: 22px;
+        height: 120px;
+        min-height: 120px;
+        padding: 16px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 1px solid rgba(14, 45, 72, 0.08);
+        box-shadow: 0 4px 16px rgba(14, 58, 93, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .genetic-consultants-desktop .team-badge-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 24px rgba(14, 58, 93, 0.09);
+    }
+
+    .genetic-consultants-desktop .badge-card-tag-pill {
+        font-family: var(--font-sans);
+        font-size: 0.56rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        color: #7b99ad;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+
+    .genetic-consultants-desktop .badge-card-main-title {
+        font-family: var(--font-sans);
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #09243e;
+        line-height: 1.15;
+        letter-spacing: -0.015em;
+        margin-bottom: 4px;
+    }
+
+    .genetic-consultants-desktop .badge-card-main-title .badge-serif-accent {
+        font-family: var(--font-serif);
+        font-style: italic;
+        font-weight: 400;
+        color: #16406e;
+    }
+
+    .genetic-consultants-desktop .badge-card-sub-text {
+        font-family: var(--font-sans);
+        font-size: 0.74rem;
+        color: #55758c;
+        font-weight: 500;
+        line-height: 1.25;
+        margin: 0;
+    }
 }
 
 /* Page 8: Stories */
@@ -7764,4 +7986,115 @@ select.form-control-custom option {
 .story-case-card .service-card-label,
 .story-spotlight-card .service-card-label {
     color: #2A3F8F !important;
+}
+
+
+@media (max-width: 991.98px) {
+    .genetic-consultants-mobile .genetic-mobile-subtitle {
+        font-family: var(--font-serif);
+        font-size: 0.92rem;
+        line-height: 1.45;
+        color: #2c506b;
+        text-align: left;
+    }
+
+    .genetic-consultants-mobile .genetic-mobile-track {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
+        scroll-snap-type: none !important;
+        gap: 14px !important;
+        padding: 4px 16px 14px !important;
+        margin-left: -12px !important;
+        margin-right: -12px !important;
+        scrollbar-width: none;
+    }
+
+    .genetic-consultants-mobile .genetic-mobile-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .genetic-consultants-mobile .genetic-mobile-slide {
+        flex: 0 0 276px !important;
+        width: 276px !important;
+        max-width: 78vw !important;
+        scroll-snap-align: start;
+    }
+
+    .genetic-consultants-mobile .genetic-mobile-card {
+        background: #ffffff !important;
+        border-radius: 20px !important;
+        padding: 12px !important;
+        border: 1px solid rgba(14, 58, 93, 0.08) !important;
+        box-shadow: 0 8px 22px rgba(14, 58, 93, 0.06) !important;
+        height: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .genetic-consultants-mobile .coach-photo-box {
+        height: 148px !important;
+        border-radius: 14px !important;
+        margin-bottom: 12px !important;
+    }
+
+    .genetic-consultants-mobile .coach-info-box {
+        padding: 0 4px 4px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        flex: 1 1 auto !important;
+    }
+
+    .genetic-consultants-mobile .coach-name {
+        font-size: 1.02rem !important;
+        font-weight: 700 !important;
+        color: #09243e !important;
+        margin-bottom: 2px !important;
+    }
+
+    .genetic-consultants-mobile .coach-spec {
+        font-size: 0.78rem !important;
+        color: #3b6998 !important;
+        font-weight: 600 !important;
+        margin-bottom: 8px !important;
+    }
+
+    .genetic-consultants-mobile .genetic-card-desc {
+        font-family: var(--font-sans);
+        font-size: 0.76rem !important;
+        line-height: 1.42 !important;
+        color: #4a667d !important;
+        margin-bottom: 10px !important;
+        flex: 1 1 auto;
+    }
+
+    .genetic-consultants-mobile .genetic-card-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: auto;
+    }
+
+    .genetic-consultants-mobile .genetic-card-pill {
+        background: rgba(21, 50, 85, 0.07);
+        border: 1px solid rgba(21, 50, 85, 0.16);
+        border-radius: 9999px;
+        padding: 3px 9px;
+        font-size: 0.64rem;
+        font-weight: 600;
+        color: #153255;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .genetic-consultants-mobile .reveal-item,
+    .genetic-consultants-mobile .reveal-item.sa-armed,
+    .genetic-consultants-mobile .reveal-item.sa-armed:not(.sa-in) {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+    }
 }
