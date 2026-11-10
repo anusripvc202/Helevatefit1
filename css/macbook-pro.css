@@ -1,0 +1,54 @@
+/* ==========================================================================
+   macbook-pro.css — MacBook Pro / MacBook Air viewport overrides ONLY
+   Range: 1400px – 1800px (covers 1440×900, 1512×982, 1728×1117)
+
+   Reference = approved normal laptop view (≈1280px wide), measured:
+     • Hero / subpage header card ........ 20px from each viewport edge
+     • Sticky navbar ..................... 20px from each viewport edge
+     • Section .container (content) ...... 70px from each viewport edge
+     • Hero stats row .................... 110px inside the hero card edges
+
+   On larger screens the 1240px card cap and Bootstrap's 1320px xxl
+   container produced 96–244px side gaps. Inside this range only, those caps
+   are replaced with the same edge insets the laptop view has, so the layout
+   uses the available width exactly like the laptop does.
+   Nothing outside this media query is affected.
+   ========================================================================== */
+@media (min-width: 1400px) and (max-width: 1800px) {
+
+  /* Home hero card: fill the wrapper (wrapper keeps its own 20px padding) */
+  .hero-main-card {
+    max-width: none;
+  }
+
+  /* Subpage header card (Community, Services, How it works, Plans, Team, Stories) */
+  .subpage-header-card {
+    max-width: none;
+  }
+
+  /* Navbar inner row follows the card width (card padding provides the inset) */
+  .hero-nav-inner {
+    max-width: none;
+  }
+
+  /* Sticky navbar: same calc(100% - 40px) as laptop, without the 1240px cap,
+     so it stays exactly as wide as the hero card while scrolling */
+  .hero-nav.is-scrolled {
+    max-width: none;
+  }
+
+  /* Content sections: same 70px side inset as the laptop view */
+  .container {
+    max-width: calc(100% - 140px);
+  }
+
+  /* Home stats row: same 110px inset inside the hero card as laptop */
+  .container.hero-stats-row {
+    max-width: calc(100% - 220px);
+  }
+
+  /* Community section card: fills its section (section keeps 20px padding) */
+  #community .container {
+    max-width: none;
+  }
+}

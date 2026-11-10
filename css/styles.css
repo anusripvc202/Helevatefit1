@@ -8201,3 +8201,46 @@ select.form-control-custom option {
         font-weight: 600;
     }
 }
+
+
+/* Global (Laptop + Mobile) high-contrast headings inside white subpage panels */
+.community-take-care-panel .service-title,
+.plan-comparison-wrap .service-title,
+.story-spotlight-card .service-title,
+.story-case-card .service-title,
+.subpage-detail-card:not(.navy-variant) .service-title,
+.founder-story-panel .service-title {
+    color: #0E3551 !important;
+    line-height: 1.25 !important;
+}
+
+.community-take-care-panel .service-sub-italic,
+.plan-comparison-wrap .service-sub-italic,
+.story-spotlight-card .service-sub-italic,
+.story-case-card .service-sub-italic,
+.subpage-detail-card:not(.navy-variant) .service-sub-italic,
+.founder-story-panel .service-sub-italic {
+    color: #2A3F8F !important;
+    display: inline !important;
+    margin-bottom: 0 !important;
+    line-height: 1.25 !important;
+}
+
+.plan-comparison-wrap .service-card-label,
+.community-take-care-panel .service-card-label,
+.story-spotlight-card .service-card-label,
+.story-case-card .service-card-label,
+.subpage-detail-card:not(.navy-variant) .service-card-label,
+.founder-story-panel .service-card-label {
+    color: #2A3F8F !important;
+    opacity: 1 !important;
+}
+
+@media (max-width: 991.98px) {
+    .community-take-care-panel .service-desc,
+    .story-case-card .service-desc,
+    .founder-story-panel .service-desc,
+    .story-spotlight-card .service-desc {
+        margin-bottom: 16px !important;
+    }
+}
